@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>sprite sheet</title>
+<style>body { background: #5cb84c; margin: 8px; } canvas { width: 1024px; image-rendering: pixelated; }</style>
+<canvas id="c" width="256" height="200"></canvas>
+<script>document.write('<script src="../js/sprites.js?v=' + Date.now() + '"><\/script>');</script>
+<script>
+  const g = document.getElementById('c').getContext('2d');
+  const looks = (new URLSearchParams(location.search).get('ids') || 'me,bokdong_kid,makdong,bokdong_adult,bokdong_old,allen,underwood,underwood_old,appenzeller,avison,park_seoyang,yun,jeong_byeongwook,guard,keeper,official,commoner_f,commoner_m,hurt,worker').split(',');
+  const dirs = ['down', 'left', 'right', 'up'];
+  looks.forEach((id, i) => dirs.forEach((d, j) => {
+    const x = (i % 4) * 64 + j * 16, y = Math.floor(i / 4) * 34 + 8;
+    try { Sprites.draw(g, x, y, id, d, (Math.floor(performance.now() / 300) % 3)); } catch (e) { g.fillStyle = 'red'; g.fillRect(x, y, 16, 16); }
+  }));
+</script>

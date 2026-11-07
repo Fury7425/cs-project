@@ -1,0 +1,1316 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>연세 역사 탐험</title>
+<!-- ponytail: pixel Korean font from CDN, falls back to monospace offline -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css">
+<style>
+  :root { --w: min(768px, 100vw, calc((100vh - 110px) * 256 / 224)); }
+  body { margin: 0; background: #111; color: #fff; font-family: 'Galmuri11', monospace;
+         display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+  #hud { width: var(--w); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; padding: 6px 0; font-size: 13px; }
+  #hr { margin-left: auto; text-align: right; }
+  #wrap { position: relative; width: var(--w); aspect-ratio: 256 / 224; }
+  canvas { width: 100%; height: 100%; image-rendering: pixelated; display: block; background: #000; }
+  #dlg { display: none; position: absolute; left: 3%; right: 3%; bottom: 3%; min-height: 24%; box-sizing: border-box;
+         background: #000; border: 4px double #fff; padding: 10px 14px; font-size: clamp(12px, 2.3vw, 18px); line-height: 1.6; }
+  #dn { display: block; color: #fc0; }
+  #dc div { cursor: pointer; }
+  #dc div.on { color: #4af; }
+  #dm { position: absolute; right: 10px; bottom: 4px; font-style: normal; animation: blink 1s steps(2) infinite; }
+  #ov { position: absolute; inset: 0; background: #000; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; text-align: center; gap: 12px; padding: 16px; box-sizing: border-box; }
+  #ov h1 { font-size: clamp(22px, 5vw, 40px); margin: 0; color: #4a8cff; }
+  #ov h2 { font-size: clamp(16px, 3.5vw, 26px); margin: 0; }
+  #ov p { margin: 0; line-height: 1.6; }
+  #ov button { font: inherit; background: #1a3f95; color: #fff; border: 2px solid #4a8cff; padding: 6px 14px; cursor: pointer; }
+  .dim { color: #888; }
+  .gold { color: #fc0; }
+  .blink { animation: blink 1s steps(2) infinite; }
+  #help { font-size: 12px; color: #888; margin: 6px 0; text-align: center; }
+  #pad { display: none; width: var(--w); justify-content: space-between; align-items: center; padding: 8px 12px;
+         box-sizing: border-box; user-select: none; -webkit-user-select: none; touch-action: none; }
+  #dpad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); }
+  #pad button { font: inherit; font-size: 20px; background: #2a2a2a; color: #fff; border: 2px solid #666; border-radius: 8px; touch-action: none; }
+  #ab { display: flex; gap: 14px; }
+  #ab button { width: 64px; height: 64px; border-radius: 50%; }
+  #cut { display: none; position: absolute; inset: 0; background: #000; }
+  #cs { width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+  #cap, #ctag, #cskip { position: absolute; height: 11.9%; display: flex; align-items: center; }
+  #cap { left: 0; right: 0; bottom: 0; justify-content: center; text-align: center; white-space: pre-line;
+         font-size: clamp(11px, 2.1vw, 16px); line-height: 1.5; padding: 0 12px; }
+  #ctag { left: 12px; top: 0; color: #9a9ab4; font-size: clamp(10px, 1.8vw, 13px); letter-spacing: .15em; }
+  #cskip { right: 12px; top: 0; color: #555; font-size: 11px; }
+  @media (pointer: coarse) { #pad { display: flex; } #help { display: none; } }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+<div id="hud"><span id="hl">연세 역사 탐험</span><span id="hr"></span></div>
+<div id="wrap">
+  <canvas id="c" width="256" height="224"></canvas>
+  <div id="dlg"><b id="dn"></b><span id="dt"></span><div id="dc"></div><i id="dm">▼</i></div>
+  <div id="ov"></div>
+  <div id="cut"><canvas id="cs" width="384" height="336"></canvas><div id="ctag"></div><div id="cskip">Z 다음 · Esc 건너뛰기</div><div id="cap"></div></div>
+</div>
+<div id="pad">
+  <div id="dpad">
+    <button data-d="up" style="grid-area:1/2">▲</button><button data-d="left" style="grid-area:2/1">◀</button>
+    <button data-d="right" style="grid-area:2/3">▶</button><button data-d="down" style="grid-area:3/2">▼</button>
+  </div>
+  <div id="ab"><button id="bb">B<br><small>달리기</small></button><button id="ba">A</button></div>
+</div>
+<p id="help">방향키/WASD 이동 · Z/스페이스 말하기 · Shift/X 달리기 · M 소리 끄기/켜기</p>
+
+<script>
+const g = document.getElementById('c').getContext('2d');
+const $ = id => document.getElementById(id);
+const V = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+const SOLID = 'TPWRBYXGD#';
+
+// ---------- sound (WebAudio chiptune, no assets) ----------
+let ac, muted = false, musT, musI = 0;
+const midi = m => 440 * 2 ** ((m - 69) / 12);
+function beep(f, dur = .08, type = 'square', vol = .05, slide = 0) {
+  if (muted) return;
+  try {
+    ac ||= new AudioContext();
+    const o = ac.createOscillator(), v = ac.createGain(), t = ac.currentTime;
+    o.type = type; o.frequency.setValueAtTime(f, t);
+    if (slide) o.frequency.linearRampToValueAtTime(f + slide, t + dur);
+    v.gain.setValueAtTime(vol, t); v.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    o.connect(v).connect(ac.destination); o.start(t); o.stop(t + dur);
+  } catch { /* no audio: play silently */ }
+}
+const seqSfx = (notes, gap = 80) => notes.forEach((m, i) => setTimeout(() => beep(midi(m), .1), i * gap));
+const SFX = {
+  blip: () => beep(1200, .02, 'square', .015),
+  pick: () => seqSfx([83, 88]),
+  rec: () => seqSfx([76, 83], 60),
+  quest: () => seqSfx([72, 76, 79, 84]),
+  ok: () => seqSfx([79, 84, 88], 70),
+  bad: () => beep(220, .3, 'sawtooth', .05, -120),
+  bump: () => beep(90, .05, 'triangle', .05),
+};
+// eighth-note melodies (MIDI numbers, 0 = rest); bass plays the bar's first note two octaves down
+const TUNES = [
+  [[72, 0, 76, 79, 81, 79, 76, 0, 74, 0, 76, 74, 72, 0, 67, 0, 72, 0, 76, 79, 84, 81, 79, 0, 76, 79, 76, 74, 72, 0, 0, 0], 160],
+  [[67, 71, 74, 79, 78, 74, 71, 74, 72, 76, 79, 84, 83, 79, 76, 79, 74, 78, 81, 86, 84, 81, 78, 74, 79, 0, 74, 0, 79, 0, 0, 0], 140],
+  [[69, 0, 72, 0, 76, 0, 74, 72, 71, 0, 0, 0, 64, 0, 0, 0, 69, 0, 72, 0, 77, 76, 74, 72, 69, 0, 0, 0, 64, 0, 0, 0], 230],
+  [[57, 64, 69, 72, 76, 72, 69, 64, 53, 60, 65, 69, 72, 69, 65, 60, 55, 62, 67, 71, 74, 71, 67, 62, 52, 59, 64, 68, 71, 68, 64, 59], 210], // cutscenes
+];
+function music(tune) {
+  clearInterval(musT); musI = 0;
+  if (!tune) return;
+  const [seq, ms] = tune;
+  musT = setInterval(() => {
+    const i = musI++ % seq.length, m = seq[i];
+    if (m) beep(midi(m), ms / 1000 * .9, 'square', .02);
+    if (i % 8 === 0 && seq[i]) beep(midi(seq[i] - 24), ms * 4 / 1000, 'triangle', .05);
+  }, ms);
+}
+
+// ---------- looks ----------
+const L = (hair, top, bottom, x = {}) => ({ skin: '#f8c8a0', hair, top, bottom, ...x });
+const LOOKS = {
+  me:      L('#282018', '#1a3f95', '#2a2a3a'),
+  suit:    L('#a06838', '#3a3a44', '#24242c', { beard: 1 }),
+  suitG:   L('#d8d8d8', '#3a3a44', '#24242c', { beard: 1 }),
+  suitN:   L('#c09050', '#4a3a30', '#2a2420'),
+  hanbok:  L('#181818', '#f4f2ea', '#dcdad0', { hat: 'gat' }),
+  hurt:    L('#181818', '#e8e4d8', '#c8c4b8', { band: 1 }),
+  gray:    L('#181818', '#a8a8a0', '#888880'),
+  prof:    L('#181818', '#46506a', '#2c3040'),
+  student: L('#181818', '#22263a', '#22263a', { hat: 'cap' }),
+  guard:   L('#181818', '#16161a', '#16161a', { hat: 'cap', capBand: '#c02020' }),
+  keeper:  L('#e8e8e8', '#0a3a8a', '#0a3a8a', { beard: 1 }),
+};
+
+// entity helpers. N = person/sign (solid, talk), I = item (walk over to pick up)
+const N = (x, y, name, look, lines, o = {}) => ({ x, y, name, look, lines, ...o });
+const S = (x, y, lines, o = {}) => N(x, y, '표지판', 'sign', lines, o);
+const I = (x, y, tag, look) => ({ x, y, tag, look, item: 1 });
+const KEEPER = (x, y) => N(x, y, '기록관', 'keeper', ["이 시대의 이야기를 모두 듣고 오시오. 그때 시험하겠소."], { id: 'quiz' });
+
+// ---------- content (story: user's 3-act outline, facts: 『미래를 향한 연세 역사』 2~4장) ----------
+// step: { goal, who, lines }        -> talk to entity with that id
+//       { goal, tag, need, done? }  -> talk to / pick up `need` entities with that tag
+//       { goal, who, quiz }         -> answer every question to pass (wrong = try again)
+// build: [x, y, roofRow, wallRow] written into the map when the step completes
+const ACTS = [
+{
+  title: '제1막 · 혼돈 속에서 피어난 치유의 빛 (1885)', hint: '오른쪽 출구', start: [8, 12],
+  intro: [
+    "제1막: 혼돈 속에서 피어난 치유의 빛",
+    "1885년, 갑신정변의 혼란 속 조선. 한국 최초의 서양식 병원 제중원에서 알렌과 언더우드를 도와 부상자를 치료하자.",
+    "보라색 '편견'과 '오해'에 부딪히면 처음 자리로 돌아가요. 요리조리 피하세요!",
+    "노란 화살표가 목표 방향을 알려 줘요. '…'가 떠 있는 사람·표지판은 역사 기록을 모을 수 있어요.",
+  ],
+  map: [
+    'TTTTTTTTTTTTTTTTTTTTTTTT',
+    'T....F.........F.......T',
+    'T.RRRRR......RRRRRR....T',
+    'T.BBDBB......BBBDBB....T',
+    'T...,...........,......T',
+    'T...,,,,,,,,,,,,,......T',
+    'T.......,..............T',
+    'T.RRRR..,...RRRRR......T',
+    'T.BDBB..,...BBDBB......T',
+    'T...,...,.....,........T',
+    'T...,,,,,,,,,,,,,,,,,,,E',
+    'T.......,..............T',
+    'T..F....,....WWWW..F...T',
+    'T.......,....WWWW......T',
+    'T.RRRRR.,..............T',
+    'T.BBDBB.,..............T',
+    'T.......,.......F......T',
+    'TTTTTTTTTTTTTTTTTTTTTTTT',
+  ],
+  steps: [
+    { goal: '제중원 앞의 알렌 만나기', who: 'allen', lines: [
+      "나는 미국 북장로회 의료선교사 알렌이오. 1884년 9월 20일, 조선에 가장 먼저 파송된 선교사지.",
+      "갑신정변 때 칼에 크게 다친 민영익 대감을 서양 외과술로 치료했소. 사람들이 무척 놀랐지.",
+      "그 일로 병원 설립을 제안했고, 1885년 4월 10일 광혜원이 문을 열었소. 2주 만에 '제중원'으로 이름이 바뀌었지.",
+      "지금 거리에 다친 사람 셋이 쓰러져 있소. 이 약상자를 들고 치료해 주시오! 편견과 오해를 조심하시오.",
+    ] },
+    { goal: '부상자 3명 치료하기 (편견·오해를 피하자!)', tag: 'hurt', need: 3,
+      done: ["부상자를 모두 치료했다!", "서양 의술의 씨앗이 심어졌다. 언더우드에게 알리자."] },
+    { goal: '언더우드에게 보고하기', who: 'under', lines: [
+      "수고했어요! 나는 언더우드, 한국 이름은 원두우(元杜尤)입니다.",
+      "원래 인도로 가려 했지만, 아무도 조선에 가겠다는 사람이 없어서 기도 끝에 내가 왔지요.",
+      "1885년 4월 5일, 아펜젤러와 함께 제물포에 도착했어요. 공식 신분은 '교사'였죠.",
+      "의료로 마음을 연 지금, 이제는 교육이 중요합니다. 1886년 5월 11일 정동에 고아학당(언더우드학당)을 열 거예요.",
+      "이 학당이 경신학교가 되고, 그 대학부가 훗날 연희전문학교가 됩니다. 의학과 신학을 갖춘 종합대학 — 그게 제 꿈이에요.",
+    ] },
+    { goal: '출구 앞 기록관의 퀴즈 풀기', who: 'quiz', quiz: [
+      { q: "연세의 뿌리인 광혜원이 문을 연 날은?", a: ["1885년 4월 10일", "1910년 8월 29일", "1919년 3월 1일"], c: 0, why: "광혜원은 문을 연 지 2주 만에 제중원이 되었소." },
+      { q: "알렌이 서양 외과술로 치료해 이름을 알린 사람은?", a: ["김옥균", "홍영식", "민영익"], c: 2, why: "갑신정변 때 크게 다친 민영익을 치료했지." },
+      { q: "언더우드가 1886년 정동에 연 고아학당의 다른 이름은?", a: ["배재학당", "언더우드학당", "이화학당"], c: 1, why: "이 학당이 경신학교를 거쳐 연희전문으로 이어졌소." },
+    ] },
+  ],
+  ents: [
+    N(3, 4, '알렌 (H. N. Allen)', 'suit', ["제중원의 문은 모두에게 열려 있소."], { id: 'allen' }),
+    N(6, 9, '언더우드 (원두우)', 'suit', ["의학과 신학을 갖춘 종합대학을 세우는 것이 제 꿈이에요."], { id: 'under' }),
+    N(21, 1, '부상자', 'hurt', ["으윽… 다쳤소… (제중원의 알렌을 먼저 만나 보자)"], { tag: 'hurt',
+      q: ["으윽… 서양 의술이라니, 정말 낫는구먼!"], after: ["덕분에 살았소. 제중원, 고맙소!"] }),
+    N(21, 12, '부상자', 'hurt', ["아이고… (제중원의 알렌을 먼저 만나 보자)"], { tag: 'hurt',
+      q: ["칼에 베인 상처가… 깨끗이 꿰매졌네!"], after: ["양의(洋醫)가 무섭다는 건 다 오해였구려."] }),
+    N(12, 16, '부상자', 'hurt', ["끙… (제중원의 알렌을 먼저 만나 보자)"], { tag: 'hurt',
+      q: ["처음엔 서양 의술이 무서웠는데… 고맙소!"], after: ["이제 몸이 한결 가볍소."] }),
+    N(7, 15, '조선 관리', 'hanbok', [
+      "1882년 5월, 조선은 서양 나라 가운데 처음으로 미국과 수호통상조약을 맺었다네.",
+      "1883년엔 답례로 보빙사를 보냈지. '동도서기' — 우리 전통 위에 서양의 기술을 받아들이자는 뜻이라네.",
+      "전하께서는 김옥균을 통해 선교사들의 의료와 교육 사업을 허가하셨네. 다만 드러내 놓고 전도는 못 하지.",
+    ]),
+    N(17, 9, '아펜젤러', 'suitN', [
+      "나는 감리교 선교사 아펜젤러요. 언더우드와 같은 배를 타고 조선에 왔지.",
+      "훗날 우리는 함께 1903년 황성기독교청년회(YMCA)를 만들게 된다오.",
+    ]),
+    S(6, 4, ["제중원(광혜원) — 한국 최초의 서양식 병원 (1885)", "조선 정부의 지원과 선교사의 의료가 합쳐진 관민합작병원. 재동의 홍영식 집에서 개원했다.", "1886년, 이곳에서 한국 최초의 서양식 근대 의학 교육이 시작되었다."]),
+    S(2, 9, ["언더우드 고아학당 (1886)", "버려진 아이들을 먹이고 입히며 가르친 학교. 연세 교육의 출발점이다."]),
+    S(11, 9, ["새문안교회 (1887)", "1887년 9월, 언더우드의 정동 집에서 14명의 교인으로 시작한 한국 최초의 조직교회."]),
+    KEEPER(22, 9),
+  ],
+  mobs: [['doubt', [[9, 11], [22, 11]]], ['doubt', [[19, 1], [19, 9]]], ['doubt', [[9, 15], [20, 15]]]],
+},
+{
+  title: '제2막 · 두 개의 굳건한 기둥을 세우다 (1893–1921)', hint: '아래쪽 출구', start: [5, 15],
+  intro: [
+    "제2막: 두 개의 굳건한 기둥을 세우다",
+    "왼쪽은 서울역 앞 병원 부지, 오른쪽은 신촌 연희궁 터.",
+    "에비슨을 도와 세브란스병원을, 언더우드를 도와 연희전문을 세우자. 바쁘면 Shift(또는 B)를 누르고 달려요!",
+  ],
+  map: [
+    'TTTTTTTTTTTTTTTTTTTTTTTT',
+    'T..........T...........T',
+    'T.________.T..________.T',
+    'T.________.T..________.T',
+    'T....,.....T.....,.....T',
+    'T....,.....T.....,.....T',
+    'T....,.....T..P..,..P..T',
+    'T....,.....T..P..,..P..T',
+    'T....,,,,,,,,,,,,,.....T',
+    'T....,.....T.....,.....T',
+    'T.RRR,.....T..P..,..P..T',
+    'T.BDB,.....T..P..,..P..T',
+    'T....,.....T.....,.....T',
+    'T..F.,..F..T.....,..F..T',
+    'T....,.....T.....,.....T',
+    'T....,.....T.....,.....T',
+    'T....,.....T.....,.....T',
+    'TTTTTTTTTTTTTTTTTETTTTTT',
+  ],
+  steps: [
+    { goal: '에비슨 만나기', who: 'avison', lines: [
+      "나는 에비슨. 캐나다 토론토 대학 의과대학 교수였소. 1893년 언더우드의 권유로 조선에 와 제중원을 맡았지.",
+      "제중원은 재정도, 운영도, 의학교육도 침체되어 있었소. 그래서 선교부가 독자적으로 운영하도록 바꿨지.",
+      "1900년 뉴욕 만국선교대회에서 강연했더니, 클리블랜드의 부호 세브란스 씨가 1만 달러를 내놓았소!",
+      "그 기부금이 여기저기 흩어져 있네. 모두 모아 주게!",
+    ] },
+    { goal: '세브란스 기부금 모으기', tag: 'coin', need: 4,
+      done: ["기부금 1만 달러가 모였다!", "병원 부지의 표지판으로 가져가자."] },
+    { goal: '병원 부지에 기부금 전달하기', who: 'hsite', lines: [
+      "1902년 착공! 토론토의 건축가 고든이 설계한, 환자 40명이 입원할 수 있는 병원.",
+      "1904년 9월, 세브란스기념병원 완공!",
+    ], build: [[2, 2, 'YYYYYYYY', 'XXXDXXXX']] },
+    { goal: '언더우드 만나기', who: 'under', lines: [
+      "1912년, 미국에 가서 대학 설립을 호소했어요. 형 존 언더우드가 5만 2천 달러를 내주었지요.",
+      "1915년 4월 15일, 종로 YMCA 건물에서 조선기독교대학(C.C.C.)이 문을 열었습니다. 문과·상과·이과·농과, 신입생 60명!",
+      "이제 신촌 연희궁 터에 새 교사를 지어야 해요. 붉은 벽돌과 목재를 모아 주세요!",
+    ] },
+    { goal: '붉은 벽돌·건축 자재 모으기', tag: 'mat', need: 6,
+      done: ["건축 자재가 모두 모였다!", "신촌 공사 현장의 표지판으로 가자."] },
+    { goal: '신촌 공사 현장에 자재 전달하기', who: 'csite', lines: [
+      "1917년 4월, '연희전문학교'로 인가! 신촌 약 20만 평, 세종이 지은 연희궁 터로 옮겨 왔다.",
+      "스팀슨관(1919 정초)과 언더우드관(1921 정초)이 세워졌다!",
+      "두 개의 기둥 — 세브란스와 연희전문이 우뚝 섰다.",
+    ], build: [[14, 2, 'YYY.YYYY', 'GDG.GGDG']] },
+    { goal: '출구 앞 기록관의 퀴즈 풀기', who: 'quiz', quiz: [
+      { q: "세브란스가 병원을 짓도록 기부한 돈은?", a: ["1천 달러", "1만 달러", "10만 달러"], c: 1, why: "그 돈으로 1904년 세브란스기념병원이 지어졌소." },
+      { q: "1915년 조선기독교대학(C.C.C.)이 처음 문을 연 곳은?", a: ["신촌 연희궁 터", "종로 YMCA 건물", "서울역 앞"], c: 1, why: "1917년에야 신촌으로 옮겨 왔지." },
+      { q: "1908년 제중원의학교 제1회 졸업생은 몇 명?", a: ["3명", "12명", "7명"], c: 2, why: "그들이 우리나라 최초의 의사 면허 1~7호를 받았소." },
+    ] },
+  ],
+  ents: [
+    N(4, 5, '에비슨 (O. R. Avison)', 'suitN', ["1901년, 6명의 학생으로 의학교육을 다시 시작했소."], { id: 'avison',
+      after: ["1916년 언더우드가 세상을 떠난 뒤, 나는 연희전문 교장도 맡았소. 두 학교의 교장으로 18년을 일했지."] }),
+    N(8, 5, '세브란스 (L. H. Severance)', 'suitG', [
+      "나는 미국 클리블랜드의 사업가 세브란스입니다.",
+      "에비슨 박사의 강연을 듣고, 조선에 제대로 된 병원이 필요하다고 생각했지요.",
+    ]),
+    S(6, 4, ["병원 부지 — 서울역 앞", "이곳에 새 병원을 지을 예정이다."], { id: 'hsite',
+      after: ["세브란스기념병원 (1904)", "교파를 넘어 연합으로 운영된 근대식 병원."] }),
+    N(15, 5, '언더우드', 'suitG', ["신촌에 종합대학을 세울 거예요."], { id: 'under',
+      after: ["의학과 신학을 갖춘 종합대학 — 내 꿈이 이렇게 자라고 있군요."] }),
+    S(16, 4, ["신촌 공사 현장 — 연희궁 터", "새 교사를 지을 자리."], { id: 'csite',
+      after: ["스팀슨관 · 언더우드관", "미국의 스팀슨과 존 언더우드의 기부로 지은 건물."] }),
+    N(2, 8, '제1회 졸업생', 'prof', [
+      "1908년, 우리 7명이 제중원(세브란스병원)의학교의 첫 졸업생이 되었습니다!",
+      "의술개업인허장 1~7호 — 우리나라 최초의 의사 면허지요.",
+    ]),
+    S(4, 12, ["제중원의학교", "1909년 7월 '세브란스병원의학교'로 등록. 훗날 세브란스의학전문학교로 발전했다."]),
+    N(19, 9, '밀러 교수', 'suit', ["나는 화학을 가르치는 밀러요. 정문 길에 백양나무를 심었지.", "그래서 이 길을 '백양로'라고 부른다오."]),
+    KEEPER(18, 16),
+    I(2, 14, 'coin', 'coin'), I(9, 15, 'coin', 'coin'), I(8, 9, 'coin', 'coin'), I(9, 12, 'coin', 'coin'),
+    I(13, 9, 'mat', 'brick'), I(22, 7, 'mat', 'wood'), I(19, 12, 'mat', 'brick'),
+    I(13, 15, 'mat', 'wood'), I(21, 15, 'mat', 'brick'), I(12, 1, 'mat', 'wood'),
+  ],
+  mobs: [],
+},
+{
+  title: '제3막 · 암흑기를 뚫고 지켜낸 얼 (1930년대 후반–1945)', hint: '아래쪽 출구', start: [12, 16], dark: 1, hearts: 1,
+  intro: [
+    "제3막: 암흑기를 뚫고 지켜낸 얼",
+    "일제 말기, 일본어 상용 정책과 삼엄한 감시. 순사 앞쪽의 붉은 시야에 들어가면 붙잡혀요.",
+    "붙잡히면 화충(♥)이 줄고 임무를 받은 자리로 돌아가요. 화충이 모두 꺼지면 이 막을 처음부터!",
+    "곳곳의 붉은 하트는 화충의 기운을 되살려 줘요. 순사가 멈춰 돌아설 때를 노리세요.",
+  ],
+  map: [
+    'TTTTTTTTTTTTTTTTTTTTTTTT',
+    'T......................T',
+    'T.YYYYY..YYYYYY..YYYYY.T',
+    'T.GGDGG..GGGDGG..GGDGG.T',
+    'T...,.......,......,...T',
+    'T...,,,,,,,,,,,,,,,,...T',
+    'T..........P,P.........T',
+    'T..........P,P.........T',
+    'T.RRR......P,P.....F...T',
+    'T.BDB......P,P.........T',
+    'T..........P,P.........T',
+    'T..........P,P..YYYY...T',
+    'T..F.......P,P..XXDX...T',
+    'T..........P,P.........T',
+    'T...........,..........T',
+    'T...........,..........T',
+    'T...........,..........T',
+    'TTTTTTTTTTTTETTTTTTTTTTT',
+  ],
+  steps: [
+    { goal: '최현배 교수 만나기', who: 'choi', lines: [
+      "왔는가. 일본어 상용 정책으로 조선어 강좌가 폐지되었네.",
+      "내가 '과외'로 가르치던 우리말 유인물… 『우리말본』 원고가 교정 곳곳에 흩어졌네.",
+      "순사들의 눈을 피해 원고 3장을 되찾아 주게. 절대 들키면 안 되네!",
+    ] },
+    { goal: '『우리말본』 원고 3장 되찾기 (순사를 피하자)', tag: 'page', need: 3,
+      done: ["원고를 모두 되찾았다!", "최현배 교수에게 돌려드리자."] },
+    { goal: '최현배 교수에게 원고 돌려드리기', who: 'choi', lines: [
+      "고맙네! 『우리말본』은 연전 출판부의 첫 책이었지. 이 원고는 훗날 우리말 교육과 맞춤법의 바탕이 될 걸세.",
+      "정인보 선생이 자네를 찾고 있네. 서둘러 가 보게.",
+    ] },
+    { goal: '정인보 교수 만나기', who: 'jung', lines: [
+      "나는 정인보. 일제의 식민사학에 맞서 우리 역사를 가르쳐 왔네.",
+      "1934년부터 정약용의 글을 모아 『여유당전서』를 펴냈지. 이것이 '조선학'이라네.",
+      "이 조선학 연구 자료를 상과의 백남운 교수에게 몰래 전해 주게. 감시가 삼엄하니 조심하게.",
+    ] },
+    { goal: '백남운 교수에게 자료 전하기', who: 'baek', lines: [
+      "무사히 가져왔군! 정인보 선생과 나는 생각은 달라도 서로를 존중하지.",
+      "사람들은 최현배, 정인보, 그리고 나를 '연전 삼보(三寶)'라 부른다오.",
+      "1938년, 일제는 경제연구회 사건으로 나와 이순탁 교수, 학생 60여 명을 잡아갔소. 하지만 이 얼은 꺼지지 않을 걸세.",
+    ] },
+    { goal: '기록관의 마지막 퀴즈 풀기', who: 'quiz', quiz: [
+      { q: "최현배가 쓴 우리말 문법책이자 연전 출판부의 첫 간행물은?", a: ["『우리말본』", "『여유당전서』", "『조선사회경제사』"], c: 0, why: "1929년에 나온 '첫째매'가 그 시작이었소." },
+      { q: "최현배·정인보·백남운을 함께 부르던 말은?", a: ["화충 삼인", "연전 삼보", "연전 삼걸"], c: 1, why: "생각은 달라도 서로를 존중한 세 학자였지." },
+      { q: "연희전문 교육방침에 나오는 '화충(和衷)'의 뜻은?", a: ["힘을 모아 싸움", "옛것을 지킴", "마음 깊이 화목함"], c: 2, why: "동서고금의 사상을 화목하게 융합한다는 연세의 학풍이오." },
+    ] },
+  ],
+  ents: [
+    N(10, 15, '최현배', 'prof', ["우리말은 우리 얼이라네."], { id: 'choi' }),
+    N(16, 8, '정인보', 'gray', ["역사를 잊으면 얼도 잃는 법이네."], { id: 'jung' }),
+    N(21, 4, '백남운', 'prof', ["학문은 이념을 넘어 민족을 위해 있어야 하오."], { id: 'baek' }),
+    S(11, 4, ["벽보: '국어 상용'", "여기서 '국어'는 일본어를 뜻한다. 조선어 강좌가 폐지되고 '일본학' 과목이 생겼다."]),
+    S(14, 14, ["1932년 연희전문 교육방침 — '화충(和衷)'", "기독교 정신 위에 동서고금의 사상을 마음 깊이 화목하게 융합하여, 학문과 실용의 능력을 겸비한 인재를 기른다."]),
+    S(13, 16, [
+      "1942년 언더우드 동상이 철거되었다. 세브란스의 에비슨 동상도 사라졌다.",
+      "1943년 문과와 이과가 폐지되고, 1944년 연희전문은 강제로 문을 닫았다. 세브란스의전은 '아사이의학전문학교'로 바뀌었다.",
+      "최현배, 이윤재, 백남운 등 많은 교수가 쫓겨나고 투옥되었다. 이윤재는 옥에서 숨졌다.",
+    ]),
+    KEEPER(11, 16),
+    I(3, 1, 'page', 'page'), I(21, 1, 'page', 'page'), I(5, 10, 'page', 'page'),
+    I(1, 1, 'heart', 'heart'), I(22, 16, 'heart', 'heart'),
+  ],
+  mobs: [['guard', [[4, 5], [19, 5]]], ['guard', [[15, 6], [15, 13]]], ['guard', [[2, 7], [9, 7], [9, 12]]], ['guard', [[6, 1], [17, 1]]]],
+},
+];
+
+// ponytail: cutscenes intentionally empty, fill these slots later
+const CUTS = ['1885년, 갑신정변의 혼란 속으로', '1904–1917, 두 기둥이 서다', '암흑기의 시작', '1945년, 해방 — 활짝 피어난 학문'];
+const TOTAL_REC = ACTS.reduce((n, a) => n + a.ents.filter(e => !e.item && e.id !== 'quiz').length, 0);
+
+// ---------- state ----------
+let mode = 'ov', ovNext = null, ovAlt = null, frame = 0, ai = 0, act, map, ents = [], mobs = [], fx = [], p, dlg = null, toastT;
+let si = 0, prog = 0, hearts = 3, running = false, shake = 0, fade = 0, fadeDir = 0, fadeCb = null, lastBump = 0;
+const stats = { t0: Date.now(), caught: 0, wrong: 0, rec: new Set() };
+const held = [];
+const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+                set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} } };
+
+const step = () => act && act.steps[si];
+const unlocked = () => act && si >= act.steps.length;
+const visible = e => !e.item || (!e.done && (e.tag === 'heart' || step()?.tag === e.tag));
+const entAt = (x, y) => ents.find(e => !e.item && e.x === x && e.y === y);
+const recKey = e => `${ai}:${e.k0}`;
+const isTarget = e => { const s = step(); return s && !e.item && ((s.who && s.who === e.id) || (s.tag && s.tag === e.tag && !e.done)); };
+
+function hud() {
+  $('hl').textContent = act ? act.title : '연세 역사 탐험';
+  $('hr').style.color = '';
+  if (!act) { $('hr').textContent = ''; return; }
+  const s = step(), n = act.steps.length;
+  const goal = s ? `목표 [${si + 1}/${n}] ${s.goal}${s.need ? ` (${prog}/${s.need})` : ''}` : `목표: ${act.hint}로 나가기`;
+  $('hr').textContent = (act.hearts ? `화충 ${'♥'.repeat(hearts)}${'♡'.repeat(3 - hearts)} · ` : '') + goal;
+}
+function toast(m) {
+  $('hr').style.color = '#fc0'; $('hr').textContent = m;
+  clearTimeout(toastT); toastT = setTimeout(hud, 2200);
+}
+function burst(x, y, c, n = 10) {
+  for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n; fx.push({ x: x + 8, y: y + 8, vx: Math.cos(a) * 1.5, vy: Math.sin(a) * 1.5 - 1, t: 30, c }); }
+}
+
+function overlay(html, next, alt) {
+  mode = 'ov'; $('ov').innerHTML = html; $('ov').style.display = 'flex';
+  const close = f => () => { $('ov').style.display = 'none'; mode = 'play'; ovAlt = null; f(); };
+  ovNext = close(next); ovAlt = alt && close(alt);
+  const b = $('ov').querySelector('button');
+  if (b) b.onclick = e => { e.stopPropagation(); const f = ovAlt; ovNext = null; f && f(); };
+}
+function cut(n, next) {
+  music(TUNES[3]);
+  if (CUTSCENES[n]) {
+    mode = 'cut'; $('ov').style.display = 'none'; $('cut').style.display = 'block';
+    cs = { sc: CUTSCENES[n], i: 0, next };
+    return startShot();
+  }
+  overlay(`<p class="dim">CUTSCENE ${n + 1}</p><h2>${CUTS[n]}</h2>
+    <p class="dim">[ 비어 있음 — 나중에 채울 자리 ]</p><p class="blink">Z 키를 눌러 계속</p>`, next);
+}
+
+function say(name, pages, onEnd) {
+  dlg = { pages, i: 0, n: 0, onEnd };
+  $('dn').textContent = name; $('dt').textContent = ''; $('dc').innerHTML = ''; $('dlg').style.display = 'block';
+}
+function choose(name, text, opts, onPick) {
+  say(name, [text]); Object.assign(dlg, { opts, sel: 0, drawn: -1, onPick });
+}
+function closeDlg() { dlg = null; $('dlg').style.display = 'none'; $('dc').innerHTML = ''; }
+function dlgNext() {
+  const t = dlg.pages[dlg.i];
+  if (dlg.n < t.length) { dlg.n = t.length; $('dt').textContent = t; return; }
+  if (dlg.opts) { const f = dlg.onPick, k = dlg.sel; closeDlg(); return f(k); }
+  if (++dlg.i < dlg.pages.length) { dlg.n = 0; return; }
+  const f = dlg.onEnd; closeDlg(); f && f();
+}
+$('dc').onclick = e => {
+  const k = e.target.closest('[data-k]')?.dataset.k;
+  if (k != null && dlg?.opts) { e.stopPropagation(); dlg.sel = +k; dlgNext(); }
+};
+
+function load(i) {
+  ai = i; act = ACTS[i]; si = 0; prog = 0; hearts = 3; fx = [];
+  map = act.map.map(r => [...r]);
+  act.exit = map.flatMap((r, y) => r.map((t, x) => t === 'E' ? [x, y] : null)).find(Boolean);
+  ents = act.ents.map(e => ({ ...e, dir: 'down', done: 0, k0: `${e.x},${e.y}` }));
+  scatter();
+  mobs = act.mobs.map(([kind, route]) => ({ kind, route, ri: 0, rd: 1, x: route[0][0], y: route[0][1], px: route[0][0] * 16, py: route[0][1] * 16, dir: 'down', wait: 0 }));
+  const [x, y] = act.start;
+  p = { x, y, px: x * 16, py: y * 16, dir: 'up', anim: 0, walk: 0, cp: [x, y], inv: 0 };
+  mode = 'play'; fade = 1; fadeDir = -1; store.set('yonsei-act', i);
+  hud(); music(TUNES[i]);
+  say('안내', act.intro);
+}
+// semi-random spawn: items and injured people land on a random reachable tile within 3 of their authored spot
+function scatter() {
+  const key = (x, y) => `${x},${y}`, [sx, sy] = act.start;
+  const reach = new Set([key(sx, sy)]), q = [[sx, sy]];
+  while (q.length) { // BFS over walkable ground so nothing spawns somewhere unreachable
+    const [x, y] = q.shift();
+    for (const [dx, dy] of Object.values(V)) {
+      const nx = x + dx, ny = y + dy, t = map[ny]?.[nx], k = key(nx, ny);
+      if (t && !SOLID.includes(t) && t !== 'E' && !reach.has(k)) { reach.add(k); q.push([nx, ny]); }
+    }
+  }
+  const taken = new Set([key(sx, sy), ...ents.filter(e => !e.item && e.tag !== 'hurt').map(e => key(e.x, e.y))]);
+  for (const [, route] of act.mobs) // keep solid NPCs off patrol lanes
+    for (let i = 1; i < route.length; i++) {
+      let [x, y] = route[i - 1]; const [tx, ty] = route[i];
+      for (; ; x += Math.sign(tx - x), y += Math.sign(ty - y)) { taken.add('m' + key(x, y)); if (x === tx && y === ty) break; }
+    }
+  for (const e of ents) {
+    if (!e.item && e.tag !== 'hurt') continue;
+    const c = [];
+    for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) {
+      const x = e.x + dx, y = e.y + dy, k = key(x, y);
+      if (reach.has(k) && '.,F'.includes(map[y][x]) && !taken.has(k) && (e.item || !taken.has('m' + k))) c.push([x, y]);
+    }
+    if (c.length) [e.x, e.y] = c[(Math.random() * c.length) | 0];
+    taken.add(key(e.x, e.y));
+  }
+}
+function leave() {
+  mode = 'fade'; fadeDir = 1; SFX.quest();
+  fadeCb = () => cut(ai + 1, () => ai + 1 < ACTS.length ? load(ai + 1) : end());
+}
+function end() {
+  act = null; map = null; hud(); store.set('yonsei-act', null); music(TUNES[0]);
+  const sec = Math.round((Date.now() - stats.t0) / 1000), n = stats.rec.size;
+  const rank = n >= TOTAL_REC && !stats.wrong ? '연세 역사 마스터' : n >= TOTAL_REC * .6 ? '연세 역사 탐험가' : '새내기 연세인';
+  overlay(`<h1>해방</h1><p>일제의 탄압을 버텨 낸 연세의 얼은 해방과 함께 다시 활짝 꽃피었다.</p>
+    <p>1946년, 연희전문은 정식 대학인 연희대학으로 승격되었다.</p>
+    <p class="dim">역사 기록 ${n}/${TOTAL_REC} · 퀴즈 오답 ${stats.wrong} · 붙잡힘 ${stats.caught} · ${Math.floor(sec / 60)}분 ${sec % 60}초</p>
+    <h2 class="gold">칭호: ${rank}</h2><p class="blink">Z 키를 눌러 처음부터</p>`, () => location.reload());
+}
+
+// ---------- quest ----------
+function complete() {
+  const s = step();
+  for (const [x, y, roof, wall] of s.build || []) {
+    [...roof].forEach((c, k) => map[y][x + k] = c);
+    [...wall].forEach((c, k) => map[y + 1][x + k] = c);
+    for (let k = 0; k < roof.length; k += 2) burst((x + k) * 16, (y + 1) * 16, '#f8e050', 6);
+    shake = 8;
+    if (SOLID.includes(map[p.y][p.x])) { p.y = y + 3; p.px = p.x * 16; p.py = p.y * 16; } // don't trap player inside new building
+  }
+  si++; prog = 0; p.cp = [p.x, p.y]; hud(); SFX.quest(); burst(p.px, p.py, '#f8e050');
+  const next = () => toast(unlocked() ? `출구가 열렸어요! → ${act.hint}` : `새 목표: ${step().goal}`);
+  s.done ? say('안내', s.done, next) : next();
+}
+function count() { prog++; hud(); if (prog >= step().need) complete(); }
+
+function quiz(name, qs, done) {
+  let i = 0;
+  const next = () => {
+    if (i >= qs.length) return say(name, ["훌륭하오! 이 시대의 기록은 그대가 지켰소."], done);
+    const Q = qs[i];
+    choose(name, `Q${i + 1}. ${Q.q}`, Q.a, k => {
+      if (k === Q.c) { SFX.ok(); i++; say(name, [`정답! ${Q.why}`], next); }
+      else { SFX.bad(); stats.wrong++; shake = 6; say(name, ["땡! 다시 생각해 보시오."], next); }
+    });
+  };
+  next();
+}
+
+function talk(e) {
+  if (e.look !== 'sign') e.dir = { up: 'down', down: 'up', left: 'right', right: 'left' }[p.dir];
+  const isNew = e.id !== 'quiz' && !stats.rec.has(recKey(e));
+  stats.rec.add(recKey(e));
+  const s = step();
+  if (s?.who && s.who === e.id) {
+    if (s.quiz) return say(e.name, ["이 시대의 기록을 지키려면 내 질문 세 개에 답해야 하오."], () => quiz(e.name, s.quiz, complete));
+    return say(e.name, s.lines, () => { if (e.after) e.lines = e.after; complete(); });
+  }
+  if (s?.tag && e.tag === s.tag && !e.done) {
+    e.done = 1; burst(e.x * 16, e.y * 16, '#80f080');
+    return say(e.name, e.q, () => { if (e.after) e.lines = e.after; count(); });
+  }
+  say(e.name, e.lines, isNew ? () => { SFX.rec(); toast(`역사 기록 수집! (${stats.rec.size}/${TOTAL_REC})`); } : null);
+}
+function pickup() {
+  const it = ents.find(e => e.item && visible(e) && e.x === p.x && e.y === p.y);
+  if (!it) return;
+  it.done = 1; SFX.pick();
+  burst(it.x * 16, it.y * 16, { coin: '#f8e050', brick: '#e07050', wood: '#c89058', page: '#ffffff', heart: '#ff6080' }[it.look]);
+  if (it.tag === 'heart') { hearts = Math.min(3, hearts + 1); hud(); toast('화충의 기운이 되살아났다! ♥'); }
+  else count();
+}
+
+function caught(kind) {
+  burst(p.px, p.py, kind === 'doubt' ? '#b080e0' : '#ff4040');
+  p.x = p.cp[0]; p.y = p.cp[1]; p.px = p.x * 16; p.py = p.y * 16; p.inv = 90;
+  shake = 12; SFX.bad(); stats.caught++;
+  if (kind === 'doubt') return say('편견과 오해', ["\"서양 의술은 믿을 수 없어!\" 편견과 오해에 가로막혔다…", "제자리로 돌아간다."]);
+  hearts--; hud();
+  if (hearts > 0) return say('순사', ["\"거기 누구냐!\" 감시에 걸렸다!", `화충의 기운이 줄었다… (${'♥'.repeat(hearts)}) 임무를 받은 자리로 돌아간다.`]);
+  say('순사', ["\"거기 누구냐!\"", "화충의 기운이 모두 꺼졌다… 제3막을 처음부터 다시 시작한다."], () => load(ai));
+}
+
+function act_() {
+  if (cs) { cutNext(); return; }
+  if (mode === 'ov') { const f = ovNext; ovNext = null; f && f(); return; }
+  if (dlg) { dlgNext(); return; }
+  if (mode !== 'play' || !map || p.px !== p.x * 16 || p.py !== p.y * 16) return;
+  const [dx, dy] = V[p.dir], e = entAt(p.x + dx, p.y + dy);
+  if (e) talk(e);
+}
+
+function free(x, y) {
+  const t = map[y]?.[x];
+  if (!t || SOLID.includes(t)) return false;
+  if (t === 'E' && !unlocked()) { toast(`퀘스트를 먼저 끝내야 해요 → ${step().goal}`); return false; }
+  return !entAt(x, y);
+}
+
+// ---------- input (keyboard + touch) ----------
+const DIRK = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right', KeyW: 'up', KeyS: 'down', KeyA: 'left', KeyD: 'right' };
+const press = d => {
+  if (dlg?.opts && dlg.n >= dlg.pages[0].length && (d === 'up' || d === 'down')) {
+    dlg.sel = (dlg.sel + (d === 'up' ? -1 : 1) + dlg.opts.length) % dlg.opts.length; SFX.blip(); return;
+  }
+  if (!held.includes(d)) held.push(d);
+};
+const release = d => { const i = held.indexOf(d); if (i >= 0) held.splice(i, 1); };
+addEventListener('keydown', e => {
+  const d = DIRK[e.code]; // e.code: works with Korean IME on
+  if (d) { e.preventDefault(); if (!e.repeat) press(d); return; }
+  if (['ShiftLeft', 'ShiftRight', 'KeyX'].includes(e.code)) running = true;
+  if (e.code === 'Escape' && cs) { cs.i = cs.sc.shots.length; cutEnd(); }
+  if (e.code === 'KeyM') { muted = !muted; toast(muted ? '소리 끔' : '소리 켬'); }
+  if (e.code === 'KeyC' && mode === 'ov' && ovAlt) { const f = ovAlt; ovNext = null; f(); }
+  if (['KeyZ', 'Space', 'Enter', 'NumpadEnter'].includes(e.code)) { e.preventDefault(); if (!e.repeat) act_(); }
+});
+addEventListener('keyup', e => {
+  if (DIRK[e.code]) release(DIRK[e.code]);
+  if (['ShiftLeft', 'ShiftRight', 'KeyX'].includes(e.code)) running = false;
+});
+addEventListener('blur', () => { held.length = 0; running = false; });
+$('ov').onclick = act_; $('dlg').onclick = act_; $('cut').onclick = act_;
+for (const b of document.querySelectorAll('[data-d]')) {
+  b.onpointerdown = e => { e.preventDefault(); press(b.dataset.d); };
+  b.onpointerup = b.onpointerleave = b.onpointercancel = () => release(b.dataset.d);
+}
+$('ba').onpointerdown = e => { e.preventDefault(); act_(); };
+$('bb').onpointerdown = e => { e.preventDefault(); running = true; };
+$('bb').onpointerup = $('bb').onpointerleave = $('bb').onpointercancel = () => running = false;
+
+// ---------- update ----------
+function sight(m) {
+  const [dx, dy] = V[m.dir], gx = Math.round(m.px / 16), gy = Math.round(m.py / 16), out = [];
+  for (let k = 1; k <= 3; k++) {
+    const x = gx + dx * k, y = gy + dy * k, t = map[y]?.[x];
+    if (!t || SOLID.includes(t)) break;
+    out.push([x, y]);
+  }
+  return out;
+}
+function updateMob(m) {
+  if (m.wait > 0) { m.wait--; return; }
+  if (m.px === m.x * 16 && m.py === m.y * 16) {
+    let [tx, ty] = m.route[m.ri];
+    if (m.x === tx && m.y === ty) {
+      if (!m.route[m.ri + m.rd]) m.rd = -m.rd;
+      m.ri += m.rd; m.wait = m.kind === 'guard' ? 40 : 0;
+      [tx, ty] = m.route[m.ri];
+    }
+    const dx = Math.sign(tx - m.x), dy = dx ? 0 : Math.sign(ty - m.y);
+    m.dir = dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up';
+    if (m.wait) return; // turned to face next leg, pause before walking
+    m.x += dx; m.y += dy;
+  }
+  m.px += Math.sign(m.x * 16 - m.px); m.py += Math.sign(m.y * 16 - m.py);
+}
+
+function update() {
+  frame++;
+  fx = fx.filter(f => { f.x += f.vx; f.y += f.vy; f.vy += .08; return --f.t > 0; });
+  if (shake) shake--;
+  if (fadeDir) {
+    fade += fadeDir * .05;
+    if (fade >= 1) { fade = 1; fadeDir = 0; const f = fadeCb; fadeCb = null; f && f(); }
+    else if (fade <= 0) { fade = 0; fadeDir = 0; }
+  }
+  if (cs) { stepCut(); return; }
+  if (dlg) {
+    const t = dlg.pages[dlg.i];
+    if (dlg.n < t.length) { $('dt').textContent = t.slice(0, ++dlg.n); if (dlg.n % 3 === 0) SFX.blip(); }
+    const typed = dlg.n >= t.length;
+    $('dm').style.visibility = typed && !dlg.opts ? 'visible' : 'hidden';
+    if (dlg.opts && typed && dlg.drawn !== dlg.sel) {
+      $('dc').innerHTML = dlg.opts.map((o, k) => `<div data-k="${k}" class="${k === dlg.sel ? 'on' : ''}">${k === dlg.sel ? '▶' : '　'} ${o}</div>`).join('');
+      dlg.drawn = dlg.sel;
+    }
+    return;
+  }
+  if (mode !== 'play' || !map) return;
+
+  mobs.forEach(updateMob);
+  if (frame % 100 === 0) { // NPCs glance around
+    const ps = ents.filter(e => !e.item && e.look !== 'sign');
+    const e = ps[(Math.random() * ps.length) | 0];
+    if (e) e.dir = ['up', 'down', 'left', 'right'][(Math.random() * 4) | 0];
+  }
+  if (p.inv > 0) p.inv--;
+  else for (const m of mobs) {
+    const touch = Math.abs(m.px - p.px) < 12 && Math.abs(m.py - p.py) < 12;
+    const seen = m.kind === 'guard' && sight(m).some(([x, y]) => (x === p.x && y === p.y) || (x === Math.round(p.px / 16) && y === Math.round(p.py / 16)));
+    if (touch || seen) return caught(m.kind);
+  }
+
+  // grid movement: 2px/frame walking, 4px/frame running
+  if (p.px !== p.x * 16 || p.py !== p.y * 16) {
+    const sp = running ? 4 : 2, ddx = p.x * 16 - p.px, ddy = p.y * 16 - p.py;
+    p.px += Math.sign(ddx) * Math.min(sp, Math.abs(ddx));
+    p.py += Math.sign(ddy) * Math.min(sp, Math.abs(ddy));
+    const rem = Math.abs(p.x * 16 - p.px) + Math.abs(p.y * 16 - p.py);
+    p.walk = rem >= 8 ? (p.anim % 2 ? 1 : 2) : 0;
+    if (!rem) { pickup(); if (map[p.y][p.x] === 'E') leave(); }
+    return;
+  }
+  const d = held[held.length - 1];
+  if (!d) { p.walk = 0; return; }
+  p.dir = d;
+  const [dx, dy] = V[d];
+  if (free(p.x + dx, p.y + dy)) { p.x += dx; p.y += dy; p.anim++; }
+  else {
+    p.walk = (frame >> 3) % 2 + 1; // blocked: walk in place (제자리걸음)
+    if (frame - lastBump > 18) { SFX.bump(); lastBump = frame; }
+  }
+}
+
+// ---------- draw ----------
+function sprite(sx, sy, P) {
+  g.fillStyle = '#101010';
+  for (const [a, b, w, h] of P) g.fillRect(sx + a - 1, sy + b - 1, w + 2, h + 2);
+  for (const [a, b, w, h, c] of P) { g.fillStyle = c; g.fillRect(sx + a, sy + b, w, h); }
+}
+function person(sx, sy, L, dir, walk) {
+  const P = [], r = (a, b, w, h, c) => P.push([a, b, w, h, c]);
+  g.fillStyle = 'rgba(0,0,0,.25)'; g.fillRect(sx + 3, sy + 14, 10, 2);
+  if (walk) sy -= 1; // tiny step bob
+  r(4, 11, 3, walk === 1 ? 3 : 4, L.bottom); r(9, 11, 3, walk === 2 ? 3 : 4, L.bottom);
+  r(3, 7, 10, 5, L.top);
+  r(4, 1, 8, 7, L.skin);
+  ({ down: [[4, 1, 8, 2], [4, 3, 1, 2], [11, 3, 1, 2]], up: [[4, 1, 8, 5]], left: [[4, 1, 8, 2], [9, 3, 3, 3]], right: [[4, 1, 8, 2], [4, 3, 3, 3]] })[dir]
+    .forEach(a => r(...a, L.hair));
+  if (L.hat === 'gat') { r(1, 1, 14, 1, '#141414'); r(5, -3, 6, 4, '#141414'); }
+  if (L.hat === 'cap') r(4, 0, 8, 2, '#181c2c');
+  sprite(sx, sy, P);
+  g.fillStyle = '#101010';
+  for (const [a, b] of { down: [[6, 4], [9, 4]], left: [[5, 4]], right: [[10, 4]], up: [] }[dir]) g.fillRect(sx + a, sy + b, 1, 2);
+  const bd = L.beard && { down: [5, 6, 6, 2], left: [4, 6, 4, 2], right: [8, 6, 4, 2] }[dir];
+  if (bd) { g.fillStyle = L.hair; g.fillRect(sx + bd[0], sy + bd[1], bd[2], bd[3]); }
+  if (L.capBand) { g.fillStyle = L.capBand; g.fillRect(sx + 4, sy + 1, 8, 1); }
+  if (L.band) { g.fillStyle = '#fff'; g.fillRect(sx + 4, sy + 2, 8, 1); g.fillStyle = '#e02020'; g.fillRect(sx + 7, sy + 2, 2, 1); }
+}
+function sign(sx, sy) {
+  sprite(sx, sy, [[7, 9, 2, 6, '#6a4020'], [2, 3, 12, 7, '#d4a464']]);
+  g.fillStyle = '#8a6030'; g.fillRect(sx + 4, sy + 5, 8, 1); g.fillRect(sx + 4, sy + 7, 6, 1);
+}
+function item(sx, sy, look) {
+  sy += (frame >> 4) % 2;
+  const P = {
+    coin:  [[4, 6, 8, 8, '#c8a040'], [6, 4, 4, 2, '#a07828']],
+    brick: [[2, 7, 12, 6, '#b44a2e']],
+    wood:  [[2, 6, 12, 3, '#a0703c'], [2, 10, 12, 3, '#8a5a2c']],
+    page:  [[4, 3, 8, 11, '#f4f0e0']],
+    heart: [[3, 5, 4, 4, '#e83a5a'], [9, 5, 4, 4, '#e83a5a'], [4, 8, 8, 3, '#e83a5a'], [6, 11, 4, 2, '#e83a5a']],
+  }[look];
+  sprite(sx, sy, P);
+  g.fillStyle = { coin: '#fff0a0', brick: '#8a3420', wood: '#c89058', page: '#8a8a8a', heart: '#ffb0c0' }[look];
+  if (look === 'page') { g.fillRect(sx + 5, sy + 5, 6, 1); g.fillRect(sx + 5, sy + 8, 6, 1); g.fillRect(sx + 5, sy + 11, 4, 1); }
+  else if (look === 'brick') g.fillRect(sx + 2, sy + 10, 12, 1);
+  else g.fillRect(sx + 5, sy + 7, 2, 2);
+  if ((frame >> 3) % 6 === 0) { g.fillStyle = '#fff'; g.fillRect(sx + 12, sy + 2, 1, 3); g.fillRect(sx + 11, sy + 3, 3, 1); } // twinkle
+}
+function doubt(sx, sy) {
+  sprite(sx, sy + ((frame >> 3) % 2), [[2, 4, 12, 10, '#6a3a8a'], [4, 2, 8, 2, '#6a3a8a'], [3, 14, 3, 1, '#6a3a8a'], [10, 14, 3, 1, '#6a3a8a']]);
+  g.fillStyle = '#fff'; g.fillRect(sx + 5, sy + 6, 2, 2); g.fillRect(sx + 9, sy + 6, 2, 2);
+  g.fillStyle = '#f8e050'; g.fillRect(sx + 6, sy + 10, 4, 1);
+}
+function bubble(sx, sy) {
+  const b = sy - 13 + ((frame >> 4) % 2);
+  g.fillStyle = '#101010'; g.fillRect(sx + 4, b - 1, 8, 11);
+  g.fillStyle = '#fff'; g.fillRect(sx + 5, b, 6, 9);
+  g.fillStyle = '#e02020'; g.fillRect(sx + 7, b + 1, 2, 4); g.fillRect(sx + 7, b + 6, 2, 2);
+}
+function dots(sx, sy) { // unread history record
+  const b = sy - 7;
+  g.fillStyle = '#101010'; g.fillRect(sx + 3, b - 1, 10, 5);
+  g.fillStyle = '#e8e8e8'; g.fillRect(sx + 4, b, 8, 3);
+  g.fillStyle = '#606060'; for (let k = 0; k < 3; k++) g.fillRect(sx + 5 + k * 2, b + 1, 1, 1);
+}
+function arrow(cx, cy) { // points at the current goal when it is off screen
+  const s = step();
+  let t = null;
+  if (!s) t = act.exit;
+  else if (s.who) { const e = ents.find(e => e.id === s.who); t = e && [e.x, e.y]; }
+  else {
+    const c = ents.filter(e => e.tag === s.tag && !e.done && visible(e))
+      .sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0];
+    t = c && [c.x, c.y];
+  }
+  if (!t || (frame >> 4) % 2) return;
+  const tx = t[0] * 16 + 8 - cx, ty = t[1] * 16 + 8 - cy;
+  if (tx > 4 && tx < 252 && ty > 4 && ty < 220) return;
+  const px = p.px + 8 - cx, py = p.py + 8 - cy, a = Math.atan2(ty - py, tx - px);
+  const ax = Math.max(10, Math.min(246, tx)), ay = Math.max(10, Math.min(214, ty));
+  g.save(); g.translate(ax, ay); g.rotate(a);
+  g.fillStyle = '#101010'; g.beginPath(); g.moveTo(8, 0); g.lineTo(-6, -7); g.lineTo(-6, 7); g.fill();
+  g.fillStyle = '#f8e050'; g.beginPath(); g.moveTo(6, 0); g.lineTo(-4, -5); g.lineTo(-4, 5); g.fill();
+  g.restore();
+}
+
+function tile(t, x, y, sx, sy) {
+  const f = (c, a, b, w, h) => { g.fillStyle = c; g.fillRect(sx + a, sy + b, w, h); };
+  const h = k => { let n = Math.imul(x, 374761393) + Math.imul(y, 668265263) + Math.imul(k, 1442695041); n = Math.imul(n ^ (n >>> 13), 1274126177); return (n ^ (n >>> 16)) >>> 0; };
+  const grass = () => { f('#5cb84c', 0, 0, 16, 16); for (let i = 0; i < 3; i++) { const r = h(i); f('#469e3c', r % 14 + 1, (r >> 5) % 13 + 1, 1, 2); } };
+  const path = () => { f('#d8b474', 0, 0, 16, 16); for (let i = 0; i < 2; i++) { const r = h(i + 5); f('#bf9a5c', r % 15, (r >> 5) % 15, 1, 1); } };
+  switch (t) {
+    case ',': path(); break;
+    case '_': f('#bcb6a8', 0, 0, 16, 16); f('#a29c8e', 0, 15, 16, 1); f('#a29c8e', 15, 0, 1, 16); break;
+    case 'F': grass(); { const s = (frame >> 5) % 2; f('#f05050', 3, 4 + s, 2, 2); f('#f8d840', 10, 9 - s, 2, 2); f('#ffffff', 6, 12, 2, 2); } break;
+    case 'T': grass(); f('#6a4424', 6, 11, 4, 5); f('#14501e', 1, 1, 14, 11); f('#2a8436', 2, 2, 12, 8); f('#4ea852', 4, 3, 5, 3); break;
+    case 'P': grass(); f('#7a5a3a', 7, 12, 2, 4); f('#14501e', 4, 0, 8, 13); f('#2e8a3a', 5, 1, 6, 10); f('#5bb05e', 6, 2, 2, 6); break;
+    case 'W': { f('#2f6fd0', 0, 0, 16, 16); const o = ((frame >> 4) + x) % 4 * 4; f('#7ab0f8', o, 4, 4, 1); f('#7ab0f8', (o + 8) % 16, 11, 4, 1); break; }
+    case 'R': f('#3c4452', 0, 0, 16, 16); for (let j = 0; j < 3; j++) f('#5a6474', 0, j * 4 + 1, 16, 1); f('#1e222a', 0, 13, 16, 3); break;
+    case 'B': f('#ecdcb4', 0, 0, 16, 16); f('#7a4a28', 0, 0, 2, 13); f('#7a4a28', 14, 0, 2, 13); f('#c4a070', 4, 2, 8, 8);
+              f('#7a4a28', 4, 6, 8, 1); f('#7a4a28', 8, 2, 1, 8); f('#8a8272', 0, 13, 16, 3); break;
+    case 'Y': f('#7c3c2c', 0, 0, 16, 16); for (let j = 0; j < 3; j++) f('#5c2a1e', 0, j * 4 + 3, 16, 1); f('#3a1a12', 0, 13, 16, 3); break;
+    case 'X': f('#b44a2e', 0, 0, 16, 16); for (let j = 0; j < 4; j++) { f('#8a3420', 0, j * 4 + 3, 16, 1); f('#8a3420', j % 2 ? 3 : 11, j * 4, 1, 3); }
+              f('#1e2a40', 5, 4, 6, 7); f(act?.dark ? '#f8d870' : '#6a8cc0', 6, 5, 2, 2); break;
+    case 'G': f('#b6ae9a', 0, 0, 16, 16); f('#968e7a', 0, 7, 16, 1); f('#968e7a', 0, 15, 16, 1);
+              f(act?.dark ? '#5a4a20' : '#26303e', 5, 3, 6, 9); f('#b6ae9a', 5, 3, 1, 1); f('#b6ae9a', 10, 3, 1, 1); f(act?.dark ? '#f8d870' : '#4a5a78', 6, 5, 1, 3); break;
+    case 'D': { const b = map[y][x - 1]; tile(b && b !== 'D' ? b : 'B', x, y, sx, sy);
+              f('#3a2010', 4, 3, 8, 13); f('#7a4a28', 5, 4, 6, 12); f('#f0c040', 9, 10, 1, 1); break; }
+    case '#': grass(); f('#5a5a54', 0, 3, 16, 11); f('#9c9c94', 0, 4, 16, 9); f('#bdbdb5', 0, 4, 16, 2); f('#6c6c64', (x % 2) * 8 + 3, 8, 1, 5); break;
+    case 'E': path();
+      if (unlocked()) { const c = frame % 40 < 20 ? '#f8e050' : '#f89830'; f(c, 2, 2, 12, 2); f(c, 2, 12, 12, 2); f(c, 2, 2, 2, 12); f(c, 12, 2, 2, 12); }
+      else { f('#5a3418', 1, 4, 2, 10); f('#5a3418', 13, 4, 2, 10); f('#c82828', 0, 6, 16, 4); f('#f4f4f4', 3, 6, 3, 4); f('#f4f4f4', 10, 6, 3, 4); }
+      break;
+    default: grass();
+  }
+}
+
+function draw() {
+  if (cs) return drawCut();
+  g.fillStyle = '#000'; g.fillRect(0, 0, 256, 224);
+  if (!map) return;
+  let cx = Math.max(0, Math.min(map[0].length * 16 - 256, p.px + 8 - 128));
+  let cy = Math.max(0, Math.min(map.length * 16 - 224, p.py + 8 - 112));
+  if (shake) { cx += ((Math.random() * 5) | 0) - 2; cy += ((Math.random() * 5) | 0) - 2; }
+  for (let y = (cy >> 4) - 1; y <= (cy >> 4) + 15; y++)
+    for (let x = (cx >> 4) - 1; x <= (cx >> 4) + 17; x++) { const t = map[y]?.[x]; if (t) tile(t, x, y, x * 16 - cx, y * 16 - cy); }
+  if (act.dark) { g.fillStyle = 'rgba(8,8,48,.45)'; g.fillRect(0, 0, 256, 224); }
+  g.fillStyle = `rgba(255,60,60,${.25 + .1 * ((frame >> 3) % 2)})`;
+  for (const m of mobs) if (m.kind === 'guard') for (const [x, y] of sight(m)) g.fillRect(x * 16 - cx, y * 16 - cy, 16, 16);
+
+  const list = [
+    ...ents.filter(visible).map(e => [e.y * 16 - (e.item ? 1 : 0), e]),
+    ...mobs.map(m => [m.py, m]),
+    [p.py, p],
+  ].sort((a, b) => a[0] - b[0]);
+  for (const [, e] of list) {
+    if (e === p) { if (!(p.inv && (frame >> 2) % 2)) person(p.px - cx, p.py - cy, LOOKS.me, p.dir, p.walk); continue; }
+    if (e.route) { e.kind === 'doubt' ? doubt(e.px - cx, e.py - cy) : person(e.px - cx, e.py - cy, LOOKS.guard, e.dir, e.wait ? 0 : ((e.px + e.py) >> 3) % 2 + 1); continue; }
+    const sx = e.x * 16 - cx, sy = e.y * 16 - cy;
+    if (e.item) item(sx, sy, e.look);
+    else if (e.look === 'sign') sign(sx, sy);
+    else person(sx, sy, LOOKS[e.look], e.dir, 0);
+    if (isTarget(e)) bubble(sx, sy);
+    else if (!e.item && e.id !== 'quiz' && !stats.rec.has(recKey(e))) dots(sx, sy);
+  }
+  for (const f of fx) { g.globalAlpha = Math.min(1, f.t / 15); g.fillStyle = f.c; g.fillRect(f.x - cx - 1, f.y - cy - 1, 2, 2); }
+  g.globalAlpha = 1;
+  arrow(cx, cy);
+  if (fade > 0) { g.fillStyle = `rgba(0,0,0,${fade})`; g.fillRect(0, 0, 256, 224); }
+}
+
+// ---------- cutscenes: painted shots at 384x336 (1.5x game res), letterboxed ----------
+const cg = $('cs').getContext('2d');
+let q, cs = null; // q = active painter context (offscreen layer or cg)
+const wrap = (v, m) => ((v % m) + m) % m;
+const rng = s => () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+const mkq = (w, h, fn) => {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const o = q; q = c.getContext('2d'); fn(); q = o; return c;
+};
+const px = (c, a, b, w = 1, h = 1) => { q.fillStyle = c; q.fillRect(Math.round(a), Math.round(b), Math.round(w), Math.round(h)); };
+const B4 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]; // Bayer 4x4 for dithering
+
+function grad(x0, y0, w, h, stops) { // vertical dithered gradient
+  for (let y = 0; y < h; y++) {
+    const t = y / (h - 1 || 1);
+    let i = 0; while (i < stops.length - 2 && t > stops[i + 1][0]) i++;
+    const [t0, c0] = stops[i], [t1, c1] = stops[i + 1], f = Math.max(0, Math.min(1, (t - t0) / (t1 - t0)));
+    let cur = null, rs = 0;
+    for (let x = 0; x <= w; x++) {
+      const c = x < w ? (B4[(y & 3) * 4 + (x & 3)] / 16 < f ? c1 : c0) : null;
+      if (c !== cur) { if (cur) px(cur, x0 + rs, y0 + y, x - rs, 1); cur = c; rs = x; }
+    }
+  }
+}
+function dglow(cx, cy, r, c, k = 1) { // dithered radial glow
+  for (let y = -r; y <= r; y++) for (let x = -r; x <= r; x++) {
+    const d = Math.hypot(x, y) / r;
+    if (d < 1 && B4[((cy + y) & 3) * 4 + ((cx + x) & 3)] / 16 < (1 - d) ** 2 * k) px(c, cx + x, cy + y);
+  }
+}
+function light(cx, cy, r, rgb, a) { // smooth additive glow for animated light
+  const gr = q.createRadialGradient(cx, cy, 0, cx, cy, r);
+  gr.addColorStop(0, `rgba(${rgb},${a})`); gr.addColorStop(1, `rgba(${rgb},0)`);
+  q.globalCompositeOperation = 'lighter'; q.fillStyle = gr; q.fillRect(cx - r, cy - r, r * 2, r * 2);
+  q.globalCompositeOperation = 'source-over';
+}
+function poly(pts, col) { // pixel-exact scanline polygon
+  let y0 = Infinity, y1 = -Infinity;
+  for (const [, y] of pts) { y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+  for (let y = Math.floor(y0); y <= y1; y++) {
+    const xs = [], yc = y + .5;
+    for (let i = 0; i < pts.length; i++) {
+      const [ax, ay] = pts[i], [bx, by] = pts[(i + 1) % pts.length];
+      if ((ay <= yc && by > yc) || (by <= yc && ay > yc)) xs.push(ax + (yc - ay) / (by - ay) * (bx - ax));
+    }
+    xs.sort((a, b) => a - b);
+    for (let i = 0; i + 1 < xs.length; i += 2) px(col, xs[i], y, Math.max(1, Math.round(xs[i + 1]) - Math.round(xs[i])), 1);
+  }
+}
+function blob(cx, cy, rx, ry, c) {
+  for (let y = -Math.floor(ry); y <= ry; y++) { const hw = rx * Math.sqrt(Math.max(0, 1 - (y / ry) ** 2)); px(c, cx - hw, cy + y, hw * 2 + 1, 1); }
+}
+function line(x0, y0, x1, y1, c) {
+  const n = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0)) | 0;
+  for (let i = 0; i <= n; i++) px(c, x0 + (x1 - x0) * i / (n || 1), y0 + (y1 - y0) * i / (n || 1));
+}
+function ridge(w, y0, amp, seed, col, bottom, rim) {
+  for (let x = 0; x < w; x++) {
+    const y = Math.round(y0 + Math.sin(x * .013 + seed) * amp + Math.sin(x * .031 + seed * 2.3) * amp * .45 + Math.sin(x * .071 + seed * 5) * amp * .15);
+    px(col, x, y, 1, bottom - y); if (rim) px(rim, x, y, 1, 1);
+  }
+}
+function roof(cx, ye, w, th, col, hi) { // hanok roof silhouette, ye = eave line, tips flick up
+  const half = w / 2;
+  for (let x = -half; x <= half; x++) {
+    const u = Math.abs(x) / half;
+    const top = Math.round(u < .5 ? ye - th : ye - th + (th - 6) * ((u - .5) / .5) - 3 * u ** 14), bot = ye + 4 - 9 * u ** 8;
+    for (let y = top; y < bot; y++) px(hi && (y - top) % 4 === 0 ? hi : col, cx + x, y);
+  }
+}
+function tree(x, y, h, c, hi) {
+  px('#1a1218', x - 1, y - h * .4, 3, h * .4);
+  blob(x, y - h * .6, h * .28, h * .26, c); blob(x - h * .12, y - h * .8, h * .22, h * .2, c); blob(x + h * .1, y - h * .85, h * .2, h * .18, c);
+  if (hi) blob(x + h * .1, y - h * .9, h * .1, h * .08, hi);
+}
+function poplar(x, y, s) { // baekyang: pale trunk, tall slim crown lit from the left
+  px('#c8bca8', x - Math.max(1, s * 1.2), y - 30 * s, Math.max(2, s * 2.4), 30 * s);
+  blob(x, y - 62 * s, 6 * s + .5, 36 * s, '#2a6a38'); blob(x - 2 * s, y - 66 * s, 3 * s + .5, 28 * s, '#7ab858');
+}
+function flame(x, y, w, h, s) {
+  for (const [c, m] of [['#c8321e', 1], ['#f08a28', .7], ['#ffe070', .4]])
+    for (let k = 0; k < h * m; k += 2) px(c, x - Math.max(1, w * m * (1 - k / (h * m)) ** .8) / 2 + Math.sin(k * .15 + s) * 2, y - k, Math.max(1, w * m * (1 - k / (h * m)) ** .8), 2);
+}
+function man(x, y, h, o = {}) { // silhouette person, feet at (x,y)
+  const b = o.body || '#14122a', hc = o.hatc || b, w = Math.max(3, h * .3), sh = y - h * .78, lw = w * (o.coat ? .85 : .5), rs = o.rs || 1;
+  poly([[x - w / 2, sh], [x + w / 2, sh], [x + lw, y], [x - lw, y]], b);
+  blob(x, y - h * .9, Math.max(1.5, h * .085), Math.max(2, h * .1), o.skin || b);
+  const hy = y - h * .98;
+  if (o.hat === 'gat') { px(hc, x - h * .21, hy + h * .02, h * .42, 1); px(hc, x - h * .07, hy - h * .1, h * .14, h * .12); }
+  else if (o.hat === 'cap') { px(hc, x - h * .1, hy + h * .02, h * .2, 2); px(hc, x - h * .08, hy - h * .02, h * .16, 2); }
+  else if (o.hat === 'top') { px(hc, x - h * .14, hy + h * .02, h * .28, 1); px(hc, x - h * .08, hy - h * .1, h * .16, h * .12); }
+  if (o.load) { px('#8a8a98', x - w * .55, sh - h * .2, w * 1.1, h * .2); line(x - w * .5, sh, x - w * .5, sh - h * .2, '#5a4030'); line(x + w * .5, sh, x + w * .5, sh - h * .2, '#5a4030'); }
+  if (o.rim) { px(o.rim, x + rs * w / 2 - (rs > 0 ? 1 : 0), sh, 1, y - sh); px(o.rim, x + rs * h * .085 - (rs > 0 ? 1 : 0), y - h * .93, 1, 3); }
+}
+
+// ----- shot 1-1: Hanyang burning (갑신정변) -----
+const A1 = () => {
+  const W = 424, r = rng(7), PX = 270, PY = 200;
+  const sky = mkq(W, 256, () => {
+    grad(0, 0, W, 210, [[0, '#07061a'], [.3, '#1a0b2e'], [.58, '#5a1228'], [.8, '#c4452a'], [1, '#f8a038']]);
+    px('#f8a038', 0, 210, W, 46);
+    for (let i = 0; i < 110; i++) px(r() < .15 ? '#ffffff' : '#9a9ad0', r() * W, r() * 100);
+  });
+  const far = mkq(W, 256, () => ridge(W, 158, 24, 1.2, '#2c1030', 256, '#b0402c'));
+  const mid = mkq(W, 256, () => ridge(W, 186, 16, 3.1, '#1a0a22', 256, '#8a3226'));
+  const town = mkq(W, 256, () => {
+    for (let i = 0; i < 14; i++) {
+      const cx = 10 + i * 31 + r() * 10, w = 26 + r() * 14, ye = 214 + r() * 6;
+      px('#0e0516', cx - w / 2 + 3, ye + 4, w - 6, 256 - ye);
+      roof(cx, ye, w, 8, '#12071a', '#1c0c26');
+      if (r() < .5) px('#f0a040', cx - 2 + r() * 8, ye + 10, 2, 3);
+    }
+  });
+  const hall = mkq(W, 256, () => {
+    px('#0c0412', PX - 86, PY - 4, 172, 60);
+    px('#150818', PX - 66, PY - 30, 132, 28);
+    for (let i = 0; i <= 8; i++) px('#2a1018', PX - 66 + i * 16.5, PY - 30, 3, 28);
+    roof(PX, PY - 30, 172, 20, '#0c0412', '#24102a');
+    px('#150818', PX - 34, PY - 58, 68, 20);
+    for (let i = 0; i <= 4; i++) px('#2a1018', PX - 34 + i * 16.5, PY - 58, 3, 20);
+    roof(PX, PY - 60, 104, 22, '#0c0412', '#24102a');
+    px('#0c0412', PX - 3, PY - 92, 6, 8);
+  });
+  const fg = mkq(W, 256, () => {
+    roof(30, 254, 300, 40, '#04020a', '#0a0612'); px('#04020a', 0, 252, W, 4);
+    man(206, 240, 15, { body: '#06030a', rim: '#f08a28' }); man(215, 241, 13, { body: '#06030a', rim: '#f08a28' });
+  });
+  const em = Array.from({ length: 70 }, () => ({ x: 170 + r() * 230, s: .25 + r() * .7, o: r() * 300, p: r() * 6 }));
+  const tongues = Array.from({ length: 22 }, (_, i) => i < 12
+    ? { x: PX - 76 + i * 13.5, y: PY - 32, w: 9 + r() * 5, h: 16 + r() * 12 }
+    : { x: PX - 40 + (i - 12) * 8.5, y: PY - 62, w: 8 + r() * 4, h: 14 + r() * 10 });
+  return t => {
+    const p = f => -Math.floor(Math.min(40, t * .03) * f), ox = p(.8);
+    cg.drawImage(sky, p(.05), 0); cg.drawImage(far, p(.15), 0); cg.drawImage(mid, p(.35), 0); cg.drawImage(town, p(.55), 0); cg.drawImage(hall, ox, 0);
+    q.save(); q.translate(ox, 0);
+    tongues.forEach((f, i) => flame(f.x, f.y, f.w, f.h + 8 * Math.sin(t * .2 + i * 1.7) + 4 * Math.sin(t * .37 + i), t * .15 + i));
+    for (let i = 0; i < 8; i++) { const age = (t * .4 + i * 36) % 288; q.globalAlpha = .4 * (1 - age / 288); blob(PX - 24 + i * 7 + age * .25, 140 - age * .55, 10 + age * .12, 7 + age * .09, '#1a0d1c'); }
+    q.globalAlpha = 1;
+    for (const e of em) px(e.p < 2 ? '#ffd060' : e.p < 4 ? '#f08a28' : '#ff6a30', e.x + Math.sin(t * .03 + e.p) * 9, 205 - ((t * e.s + e.o) % 215));
+    q.restore();
+    light(PX + ox, 165, 200, '255,110,40', .3 + .06 * Math.sin(t * .2) + .04 * Math.sin(t * .53));
+    cg.drawImage(fg, p(1), 0);
+  };
+};
+
+// ----- shot 1-2: steamship at dawn off Jemulpo (언더우드·아펜젤러) -----
+const A2 = () => {
+  const r = rng(11), SH = '#0e1226', SL = '#24284c', RIM = '#e8906a';
+  const bg = mkq(384, 256, () => {
+    grad(0, 0, 384, 152, [[0, '#1b2a52'], [.4, '#5a4880'], [.72, '#e8806a'], [1, '#ffd890']]);
+    dglow(250, 150, 70, '#ffe8a8', 1.1);
+    for (let y = -26; y <= 0; y++) { const hw = Math.sqrt(26 * 26 - y * y); px('#fff4c0', 250 - hw, 150 + y, hw * 2, 1); }
+    for (let x = 200; x < 384; x++) { const u = (x - 200) / 184, h = 30 * u * u * (3 - 2 * u) * (.75 + .25 * Math.sin(x * .09)); px('#2a2a56', x, 150 - h, 1, h + 4); px('#f0a070', x, 150 - h, 1, 1); }
+    for (const [x, y, w] of [[330, 146, 14], [348, 144, 12], [366, 141, 14]]) { roof(x, y, w, 4, '#1c1c40'); px('#1c1c40', x - w / 2 + 2, y + 2, w - 4, 4); }
+    grad(0, 150, 384, 106, [[0, '#f0b878'], [.1, '#c87a7a'], [.35, '#52508e'], [1, '#0c1234']]);
+  });
+  const clouds = mkq(768, 100, () => {
+    for (let i = 0; i < 9; i++) { const cx = r() * 384 | 0, cy = 18 + r() * 70 | 0, rx = 40 + r() * 60, ry = 4 + r() * 5; for (const o of [0, 384]) { blob(cx + o, cy, rx, ry, '#7a5a90'); blob(cx + o, cy + ry * .4, rx * .9, ry * .5, '#f09a8a'); } }
+  });
+  const ship = mkq(172, 110, () => {
+    poly([[6, 70], [138, 70], [160, 54], [146, 82], [128, 88], [20, 88], [8, 80]], SH); px(RIM, 8, 70, 130, 1);
+    for (const mx of [34, 74, 110]) px(SH, mx, mx === 74 ? 6 : 12, 2, mx === 74 ? 64 : 58);
+    for (const [mx, top, w, hh] of [[34, 22, 30, 26], [74, 12, 34, 30], [110, 22, 30, 26]]) {
+      px(SH, mx - w / 2, top, w, 1);
+      poly([[mx - w / 2 + 1, top + 1], [mx + w / 2 - 1, top + 1], [mx + w / 2 - 3, top + hh], [mx - w / 2 + 3, top + hh]], SL);
+      px(RIM, mx + w / 2 - 2, top + 2, 1, hh - 4);
+    }
+    px(SH, 52, 40, 9, 30); px('#3a2a3a', 52, 40, 9, 2);
+    line(36, 12, 160, 54, '#1a1e38'); line(36, 12, 6, 70, '#1a1e38'); line(112, 22, 160, 54, '#1a1e38'); line(150, 60, 172, 50, SH);
+    man(130, 70, 15, { body: '#080a18', rim: RIM, hat: 'top' }); man(139, 70, 14, { body: '#080a18', rim: RIM, hat: 'top' });
+  });
+  const gulls = Array.from({ length: 5 }, (_, i) => ({ s: .3 + i * .1, o: i * 90, y: 50 + i * 13 }));
+  return t => {
+    cg.drawImage(bg, 0, 0);
+    cg.drawImage(clouds, -Math.floor(t * .06 % 384), 0);
+    for (let i = 0; i < 26; i++) { if (Math.sin(t * .1 + i * 1.7) < -.2) continue; const w = 3 + i * .9; px(i % 2 ? '#ffd890' : '#fff0b8', 250 + Math.sin(t * .07 + i * 2.1) * (2 + i * .4) - w / 2, 152 + i * 3.6, w, 1); }
+    const rowC = ['#b88aa8', '#8a7ab8', '#5a5a9c', '#3a4080', '#2a3068', '#1c2658'];
+    for (let row = 0; row < 14; row++) {
+      const y = 154 + (row / 13) ** 1.6 * 96, sp = 40 + row * 8, len = 6 + row * 2, s = (.15 + row * .04) * (row % 2 ? 1 : -1);
+      for (let k = -1; k * sp < 420; k++) px(rowC[row * 6 / 14 | 0], wrap(k * sp + t * s + row * 13, 384 + sp) - sp / 2, y, len, 1 + (row > 8));
+    }
+    const bob = Math.round(Math.sin(t * .04) * 2), sy = 100 + bob;
+    q.save(); q.globalAlpha = .22; q.translate(40, sy + 84); q.scale(1, -1); q.drawImage(ship, 0, -84); q.restore();
+    cg.drawImage(ship, 40, sy);
+    for (let i = 0; i < 10; i++) { const age = (t * .5 + i * 30) % 300; q.globalAlpha = .5 * (1 - age / 300); blob(96 - age * .45, 140 + bob - age * .12, 3 + age * .04, 2 + age * .03, '#2a2438'); }
+    q.globalAlpha = 1;
+    for (const gl of gulls) { const x = wrap(t * gl.s + gl.o, 440) - 30, y = gl.y + Math.sin(t * .08 + gl.o) * 5, f = (t >> 3) % 2 * 2; line(x - 4, y + f, x, y + 2, '#2a2038'); line(x, y + 2, x + 4, y + f, '#2a2038'); }
+  };
+};
+
+// ----- shot 1-3: Gwanghyewon gate opens at sunrise -----
+const A3 = () => {
+  const r = rng(31), motes = Array.from({ length: 36 }, () => ({ x: r() * 384, y: r() * 256, s: .4 + r(), p: r() * 6 }));
+  const glyph = (x, y, sd) => { const g2 = rng(sd); for (let i = 0; i < 6; i++) { const hz = g2() < .5, len = 5 + g2() * 7 | 0; px('#e8d8a8', x + g2() * 6 | 0, y + g2() * 6 | 0, hz ? len : 1, hz ? 1 : len); } };
+  const bg = mkq(384, 256, () => {
+    grad(0, 0, 384, 110, [[0, '#2a3a66'], [.6, '#b07a88'], [1, '#f0b080']]);
+    dglow(310, 100, 80, '#ffe0a0', 1.2);
+    ridge(384, 84, 12, 4.2, '#4a4a7a', 170, '#f8c090');
+    for (const x of [18, 58, 98, 292, 334, 372]) tree(x, 150, 70 + (x % 7) * 4, '#1c3a48', '#3a6a62');
+    px('#d8b890', 0, 150, 384, 60); px('#b89870', 0, 192, 384, 18);
+    poly([[40, 150], [70, 150], [50, 196], [20, 196]], '#b89a80'); poly([[300, 150], [330, 150], [310, 196], [280, 196]], '#b89a80');
+    px('#8a7a78', 0, 196, 384, 14); for (let x = 0; x < 384; x += 14) px('#6a5a5a', x + ((x / 14) & 1) * 7, 196, 1, 14); px('#6a5a5a', 0, 203, 384, 1);
+    px('#2a2a3a', 0, 142, 384, 8); px('#4a4a6a', 0, 142, 384, 1); for (let x = 0; x < 384; x += 5) px('#1a1a28', x, 143, 1, 7);
+    roof(192, 128, 156, 26, '#26263a', '#4a4a6e');
+    px('#3a2218', 132, 128, 120, 6); for (let x = 134; x < 250; x += 8) px('#5a3a28', x, 128, 3, 6);
+    px('#1c1210', 166, 134, 52, 16); px('#c8a060', 166, 134, 52, 1); px('#c8a060', 166, 149, 52, 1); glyph(170, 137, 1); glyph(186, 137, 2); glyph(202, 137, 3);
+    px('#4a2a1c', 132, 134, 6, 76); px('#4a2a1c', 246, 134, 6, 76);
+    grad(138, 150, 108, 60, [[0, '#ffd890'], [1, '#ffb860']]);
+    roof(192, 178, 64, 10, '#7a5a6a', '#9a7a80'); px('#8a6a6a', 168, 178, 48, 14);
+    px('#5a2e22', 138, 150, 16, 60); px('#5a2e22', 230, 150, 16, 60);
+    for (let y = 156; y < 208; y += 10) { px('#c8a060', 143, y, 2, 2); px('#c8a060', 235, y, 2, 2); }
+    px('#f4ecd8', 272, 160, 20, 28); for (let y = 164; y < 186; y += 4) px('#7a6a5a', 275, y, 14, 1);
+    grad(0, 210, 384, 46, [[0, '#d8b078'], [.4, '#b08a68'], [1, '#5a4a58']]);
+    q.globalAlpha = .45; poly([[186, 210], [198, 210], [214, 256], [166, 256]], '#4a3a58'); q.globalAlpha = 1;
+    man(192, 210, 46, { body: '#17142a', rim: '#ffe0a0' });
+    for (const [x, y, h] of [[268, 236, 32], [284, 240, 36], [300, 234, 30], [256, 245, 38], [318, 243, 34], [112, 240, 30], [98, 244, 34]]) {
+      q.globalAlpha = .35; poly([[x - 3, y], [x + 3, y], [x - 24, y + 14], [x - 40, y + 14]], '#3a3050'); q.globalAlpha = 1;
+      man(x, y, h, { body: '#9c98c0', rim: '#ffe0b0', hat: 'gat', hatc: '#14122a', skin: '#14122a', coat: 1 });
+    }
+  });
+  return t => {
+    cg.drawImage(bg, 0, 0);
+    q.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 4; i++) { const xs = 250 + i * 50; q.fillStyle = `rgba(255,220,150,${.05 + .03 * Math.sin(t * .02 + i * 1.7)})`; q.beginPath(); q.moveTo(xs, 0); q.lineTo(xs + 24, 0); q.lineTo(xs - 150, 256); q.lineTo(xs - 190, 256); q.fill(); }
+    q.globalCompositeOperation = 'source-over';
+    q.globalAlpha = .7; for (const m of motes) px('#fff0c0', wrap(m.x + t * .1 * m.s + Math.sin(t * .02 + m.p) * 6, 384), wrap(m.y - t * .12 * m.s, 256)); q.globalAlpha = 1;
+  };
+};
+
+// ----- shot 2-1: Severance Memorial Hospital at dusk (1904) -----
+const B1 = () => {
+  const W = 424, r = rng(21), wins = [];
+  const sky = mkq(W, 256, () => {
+    grad(0, 0, W, 215, [[0, '#2a2658'], [.4, '#8a5a8a'], [.72, '#f0907a'], [1, '#ffd0a0']]);
+    px('#ffd0a0', 0, 215, W, 41); dglow(90, 190, 80, '#fff0c0', 1.1);
+    for (let i = 0; i < 6; i++) { const cx = r() * W | 0, cy = 30 + r() * 90 | 0, rx = 30 + r() * 50, ry = 3 + r() * 4; blob(cx, cy, rx, ry, '#a0689a'); blob(cx, cy + ry * .5, rx * .85, ry * .5, '#f8a08a'); }
+  });
+  const hills = mkq(W, 256, () => { ridge(W, 176, 14, 1.7, '#6a4a80', 256, '#f8a888'); ridge(W, 198, 10, 4.1, '#43386a', 256, '#c47a80'); });
+  const bricks = (x, y, w, h) => {
+    px('#8a3a30', x, y, w, h);
+    for (let yy = y; yy < y + h; yy += 4) { px('#6a2a28', x, yy, w, 1); for (let xx = x + ((yy >> 2) & 1) * 4; xx < x + w; xx += 8) px('#6a2a28', xx, yy, 1, 4); }
+  };
+  const main = mkq(W, 256, () => {
+    grad(0, 214, W, 42, [[0, '#4e6a4a'], [1, '#1c2830']]);
+    poly([[176, 256], [234, 256], [214, 214], [196, 214]], '#a88c7c');
+    const BL = 100, BR = 316, BASE = 214;
+    poly([[BL - 6, 162], [BL + 14, 132], [BR - 14, 132], [BR + 6, 162]], '#3c3c58');
+    for (let y = 134; y < 162; y += 4) px('#52526e', BL - 4 + (y - 134) * .6, y, BR - BL + 8 - (y - 134) * 1.2, 1);
+    bricks(BL, 162, BR - BL, BASE - 162); bricks(92, 118, 30, 44);
+    px('#c8bca8', BL, 162, BR - BL, 2); px('#c8bca8', BL, 190, BR - BL, 1);
+    poly([[166, 164], [208, 122], [250, 164]], '#e8dcc8'); poly([[172, 162], [208, 128], [244, 162]], '#8a3a30');
+    blob(208, 148, 5, 5, '#e8dcc8'); blob(208, 148, 3, 3, '#1a1a30');
+    poly([[88, 122], [107, 90], [126, 122]], '#3c3c58'); px('#3c3c58', 106, 80, 2, 12);
+    for (const cx of [150, 262]) { px('#6a2a28', cx, 112, 9, 24); px('#3a1a18', cx - 2, 110, 13, 3); }
+    for (const wy of [172, 196]) for (let i = 0; i < 7; i++) {
+      const wx = 130 + i * 24; if (wy === 196 && Math.abs(wx + 4 - 208) < 14) continue;
+      px('#e8dcc8', wx - 1, wy - 1, 10, 17); px('#1a1a30', wx, wy, 8, 15); px('#e8dcc8', wx + 3, wy, 1, 15); px('#e8dcc8', wx, wy + 6, 8, 1); wins.push([wx, wy]);
+    }
+    px('#e8dcc8', 195, 188, 26, 26); px('#2a1a20', 198, 192, 20, 22); px('#c8bca8', 190, 212, 36, 2); px('#a89c8c', 186, 214, 44, 2);
+  });
+  const fg = mkq(W, 256, () => {
+    for (let x = 0; x < W; x += 6) { if (x > 150 && x < 262) continue; px('#241c2c', x, 236, 3, 20); px('#241c2c', x + 1, 234, 1, 2); }
+    for (const [a, b] of [[0, 150], [262, W]]) { px('#241c2c', a, 240, b - a, 2); px('#241c2c', a, 250, b - a, 2); }
+    tree(40, 232, 80, '#27402e', '#4a7050'); tree(395, 232, 90, '#27402e', '#4a7050');
+    px('#241c2c', 329, 196, 3, 60); px('#241c2c', 325, 190, 11, 6);
+  });
+  return t => {
+    const p = f => -Math.floor(Math.min(40, t * .03) * f), ox = p(.6);
+    cg.drawImage(sky, p(.05), 0); cg.drawImage(hills, p(.3), 0); cg.drawImage(main, ox, 0);
+    wins.forEach(([x, y], i) => { if (Math.sin(t * .008 + i * 2.3) < -.35) return; q.globalAlpha = .9; px('#ffd070', x + ox, y, 8, 15); px('#e8dcc8', x + ox + 3, y, 1, 15); px('#e8dcc8', x + ox, y + 6, 8, 1); q.globalAlpha = 1; light(x + ox + 4, y + 8, 18, '255,190,90', .22); });
+    q.globalAlpha = .9; px('#ffc060', 198 + ox, 192, 20, 22); q.globalAlpha = 1; light(208 + ox, 204, 36, '255,190,90', .35);
+    for (const cx of [154, 266]) for (let i = 0; i < 5; i++) { const age = (t * .3 + i * 30) % 150; q.globalAlpha = .35 * (1 - age / 150); blob(cx + ox + age * .35 + Math.sin(age * .05) * 3, 108 - age * .5, 3 + age * .05, 2 + age * .04, '#6a5a78'); }
+    q.globalAlpha = 1;
+    man(205 + ox, 246, 30, { body: '#e0d8ec', skin: '#d8b098', rim: '#ffd8a8', hat: 'top', hatc: '#2a2438' });
+    man(193 + ox, 247, 26, { body: '#d0cce0', skin: '#14122a', rim: '#ffd8a8' });
+    man(221 + ox, 247, 27, { body: '#8a86b0', skin: '#14122a', rim: '#ffd8a8', hat: 'gat', hatc: '#14122a', coat: 1 });
+    cg.drawImage(fg, p(1), 0);
+    light(330 + p(1), 194, 64, '255,200,110', .42 + .06 * Math.sin(t * .3));
+    for (let i = 0; i < 3; i++) { const x = wrap(t * (.35 + i * .12) + i * 130, 440) - 30, y = 50 + i * 16 + Math.sin(t * .09 + i) * 4, f = (t >> 3) % 2 * 2; line(x - 4, y + f, x, y + 2, '#3a2840'); line(x, y + 2, x + 4, y + f, '#3a2840'); }
+  };
+};
+
+// ----- shot 2-2: Sinchon, the poplar avenue (1917) -----
+const B2 = () => {
+  const r = rng(41), VX = 192, VY = 126, motes = Array.from({ length: 30 }, () => ({ x: r() * 384, y: r() * 256, s: .4 + r(), p: r() * 6 }));
+  const bg = mkq(384, 256, () => {
+    grad(0, 0, 384, 132, [[0, '#4a7ac0'], [.5, '#a8c8e0'], [1, '#ffe8b8']]);
+    dglow(60, 120, 90, '#fff4c8', 1.1);
+    ridge(384, 122, 9, 2.7, '#7a9ab0', 140, '#e8e0b8');
+    grad(0, 126, 384, 130, [[0, '#a8c070'], [.4, '#5a8a48'], [1, '#26443a']]);
+    blob(VX, 130, 120, 14, '#5a7a58');
+    const bx = VX - 44;
+    px('#8a7a88', bx, 104, 88, 22); px('#a89898', bx + 30, 86, 28, 40);
+    for (let i = 0; i < 4; i++) px('#a89898', bx + 30 + i * 8, 82, 5, 5);
+    poly([[bx - 2, 104], [bx + 14, 94], [bx + 30, 104]], '#4a4a6a'); poly([[bx + 58, 104], [bx + 74, 94], [bx + 90, 104]], '#4a4a6a');
+    px('#e8d0a8', bx + 30, 86, 2, 40); px('#e8d0a8', bx, 104, 2, 22);
+    for (let i = 0; i < 5; i++) px('#2a2a44', bx + 8 + i * 15, 112, 4, 8);
+    px('#2a2a44', VX - 3, 96, 6, 10);
+    poly([[VX - 6, 126], [VX + 6, 126], [VX + 156, 256], [VX - 156, 256]], '#d8c090');
+    poly([[VX - 2, 126], [VX + 2, 126], [VX + 40, 256], [VX - 40, 256]], '#e8d4a8');
+    for (let y = 128; y < 256; y++) { const hw = 6 + (y - 126) / 130 * 150; for (let x = 0; x < 6; x++) if (B4[(y & 3) * 4 + (x & 3)] > x * 2.5) { px('#a89860', VX - hw + x, y); px('#a89860', VX + hw - x, y); } }
+    for (const y of [134, 139, 146, 155, 167, 183, 205, 236]) {
+      const s = (y - 126) / 130 * 1.7, hw = 6 + (y - 126) / 130 * 150, off = hw + 8 * s + 3;
+      q.globalAlpha = .3; px('#2a2048', VX - off, y, off + hw, Math.max(1, 2 * s)); px('#2a2048', VX + off, y, 50 * s, Math.max(1, 2 * s)); q.globalAlpha = 1;
+      poplar(VX - off, y, s); poplar(VX + off, y, s);
+    }
+    blob(322, 242, 26, 10, '#7a7a88'); blob(332, 235, 14, 8, '#9a9aa4'); blob(306, 246, 12, 6, '#8a8a96');
+    px('#8a6a44', 340, 244, 30, 4); px('#a07a50', 342, 240, 28, 4); px('#8a6a44', 344, 236, 24, 4);
+  });
+  const grass = Array.from({ length: 36 }, (_, i) => ({ x: i < 18 ? i * 5 : 384 - (i - 18) * 5, h: 14 + r() * 16, p: r() * 6 }));
+  return t => {
+    cg.drawImage(bg, 0, 0);
+    for (const k of [0, 1]) {
+      const y = 236 - wrap(t * .06 + k * 45, 90), h = Math.max(8, (y - VY) * .3);
+      q.globalAlpha = Math.max(0, Math.min(1, (y - 148) / 10, (240 - y) / 6));
+      man(VX + (y - VY) * (.22 + k * .1), y, h, { body: '#e4dcc8', hat: 'gat', hatc: '#6a5a40', rim: '#fff0c0', rs: -1, load: 1, skin: '#c89878' });
+      q.globalAlpha = 1;
+    }
+    q.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 3; i++) { const xs = 10 + i * 60; q.fillStyle = `rgba(255,240,180,${.06 + .03 * Math.sin(t * .02 + i * 2)})`; q.beginPath(); q.moveTo(xs, 0); q.lineTo(xs + 26, 0); q.lineTo(xs + 190, 256); q.lineTo(xs + 120, 256); q.fill(); }
+    q.globalCompositeOperation = 'source-over';
+    q.globalAlpha = .75; for (const m of motes) px('#fffbe0', wrap(m.x + t * .12 * m.s + Math.sin(t * .02 + m.p) * 6, 384), wrap(m.y - t * .1 * m.s, 256)); q.globalAlpha = 1;
+    for (const b of grass) { const sw = Math.sin(t * .04 + b.p) * 3; line(b.x, 256, b.x + sw, 256 - b.h, '#12302a'); line(b.x + 1, 256, b.x + 1 + sw, 256 - b.h + 2, '#1a4430'); }
+  };
+};
+
+// ----- shot 3-1: night surveillance, the monument where Underwood's statue stood (1942) -----
+const C1 = () => {
+  const W = 424, r = rng(51);
+  const rain = Array.from({ length: 150 }, () => ({ x: r() * W, y: r() * 290, s: 6 + r() * 4, l: 3 + r() * 4 | 0 }));
+  const sky = mkq(W, 256, () => {
+    grad(0, 0, W, 205, [[0, '#04060e'], [.6, '#0e1828'], [1, '#22344a']]);
+    px('#22344a', 0, 205, W, 51);
+    for (let i = 0; i < 7; i++) { const cx = r() * W | 0, cy = 20 + r() * 110 | 0, rx = 40 + r() * 70, ry = 5 + r() * 6; blob(cx, cy, rx, ry, '#0a1220'); blob(cx, cy - ry * .4, rx * .8, ry * .5, '#16243a'); }
+  });
+  const far = mkq(W, 256, () => ridge(W, 176, 10, 5.5, '#0a1220', 256, '#2a4058'));
+  const main = mkq(W, 256, () => {
+    const B = 206, bw = '#080c16';
+    px(bw, 40, 150, 190, B - 150); px(bw, 120, 92, 40, B - 92);
+    for (let i = 0; i < 5; i++) px(bw, 120 + i * 9, 86, 5, 6);
+    for (const x of [38, 212]) { px(bw, x, 126, 20, B - 126); poly([[x - 2, 128], [x + 10, 104], [x + 22, 128]], bw); }
+    px('#2a4058', 40, 150, 1, 56); px('#2a4058', 120, 92, 1, 114); px('#2a4058', 38, 126, 1, 80);
+    for (let x = 62; x < 210; x += 14) { if (x > 112 && x < 160) continue; for (const y of [160, 184]) px('#14223a', x, y, 5, 10); }
+    for (const y of [108, 128, 148, 170]) px('#14223a', 134, y, 5, 10);
+    px('#1a2230', 300, 196, 36, 12); px('#10182a', 311, 118, 14, 80); poly([[311, 118], [325, 118], [318, 104]], '#10182a');
+    px('#5a7090', 311, 118, 1, 80); px('#aab8c8', 314, 150, 8, 14); for (let y = 153; y < 163; y += 3) px('#4a5a70', 315, y, 6, 1);
+    grad(0, B, W, 256 - B, [[0, '#101a28'], [.3, '#0a121c'], [1, '#05080e']]);
+    for (const [x, y, rx] of [[70, 226, 34], [150, 240, 44], [250, 232, 38], [350, 246, 30]]) { blob(x, y, rx, 4, '#1a2a3e'); px('#34506e', x - rx * .6, y - 1, rx * 1.2, 1); }
+  });
+  return t => {
+    const p = f => -Math.floor(Math.min(40, t * .03) * f), ox = p(.6);
+    cg.drawImage(sky, p(.05), 0); cg.drawImage(far, p(.2), 0);
+    q.globalCompositeOperation = 'lighter';
+    for (const [lx, ph] of [[-20, 0], [430, 2.2]]) { const o = lx + p(.5), a = -Math.PI / 2 + Math.sin(t * .011 + ph) * .55; q.fillStyle = 'rgba(190,215,255,.12)'; q.beginPath(); q.moveTo(o, 250); q.lineTo(o + Math.cos(a - .05) * 420, 250 + Math.sin(a - .05) * 420); q.lineTo(o + Math.cos(a + .05) * 420, 250 + Math.sin(a + .05) * 420); q.fill(); }
+    q.globalCompositeOperation = 'source-over';
+    cg.drawImage(main, ox, 0);
+    const fl = .8 + .2 * Math.sin(t * .31) * Math.sin(t * .13);
+    q.globalAlpha = fl; px('#ffc060', 90 + ox, 160, 5, 10); q.globalAlpha = 1;
+    light(92 + ox, 165, 40, '255,170,70', .35 * fl); light(318 + ox, 186, 90, '200,225,255', .16);
+    q.globalAlpha = .45; px('#ffc060', 88 + ox, 224, 5, 1); px('#ffc060', 87 + ox, 226, 7, 1); q.globalAlpha = 1;
+    for (let k = 0; k < 3; k++) { const rr = (t * .25 + k * 10) % 30; q.globalAlpha = 1 - rr / 30; for (let a = 0; a < 6.3; a += .35) px('#6a90b8', 150 + ox + Math.cos(a) * rr * 1.2, 240 + Math.sin(a) * rr * .15); q.globalAlpha = 1; }
+    const gx = 250 + Math.sin(t * .006) * 50 + ox, dr = Math.cos(t * .006) > 0 ? 1 : -1;
+    man(gx, 236, 38, { body: '#05080e', rim: '#4a6a90', hat: 'cap', rs: dr });
+    line(gx + 5 * dr, 206, gx + 5 * dr, 232, '#05080e');
+    light(gx - 9 * dr, 224, 46, '255,190,90', .5); px('#ffd890', gx - 10 * dr, 222, 2, 3);
+    q.globalAlpha = .4; for (const d of rain) px('#9ab8d8', wrap(d.x - t * d.s * .15, W), wrap(d.y + t * d.s, 290) - 20, 1, d.l); q.globalAlpha = 1;
+    const fz = t % 700; if (t > 150 && fz < 6) { q.fillStyle = `rgba(190,210,255,${.2 - fz * .03})`; q.fillRect(0, 0, 384, 256); }
+  };
+};
+
+// ----- shot 3-2: a lit window, someone copying the manuscript by lamplight -----
+const C2 = () => {
+  const r = rng(61);
+  const bg = mkq(384, 256, () => {
+    px('#0a1018', 0, 0, 384, 256);
+    for (let y = 0; y < 256; y += 6) { px('#0f1826', 0, y, 384, 1); for (let x = ((y / 6) & 1) * 9; x < 384; x += 18) px('#0f1826', x, y, 1, 6); }
+    px('#223040', 104, 32, 176, 166); px('#10161e', 110, 38, 164, 154);
+    q.save(); q.beginPath(); q.rect(114, 42, 156, 146); q.clip();
+    grad(114, 42, 156, 146, [[0, '#6a3a1c'], [.5, '#d88a38'], [1, '#ffc860']]);
+    dglow(246, 134, 90, '#ffe8a0', 1);
+    px('#2a160e', 114, 42, 36, 146);
+    for (let i = 0; i < 7; i++) { const y = 50 + i * 20; px('#4a2a18', 114, y + 14, 36, 2); for (let x = 116; x < 148;) { const w = 2 + r() * 3 | 0, h = 9 + r() * 4 | 0; px(['#5a2a1c', '#2a2a44', '#3a4a30', '#6a4a22', '#44201a'][r() * 5 | 0], x, y + 14 - h, w, h); x += w + 1; } }
+    px('#2a140c', 126, 150, 144, 6); px('#1c0e08', 130, 156, 140, 32);
+    const P1 = '#160b08', RM = '#f0a858';
+    poly([[168, 152], [176, 124], [194, 118], [208, 128], [214, 152]], P1); blob(207, 113, 8, 9, P1);
+    poly([[200, 128], [210, 130], [230, 147], [224, 151]], P1);
+    line(209, 129, 214, 152, RM); px(RM, 215, 110, 1, 8); px(RM, 212, 105, 3, 1);
+    px('#f4ecd0', 214, 147, 32, 3);
+    px('#e8dcc0', 252, 138, 14, 12); px('#bba890', 252, 142, 14, 1); px('#bba890', 252, 146, 14, 1); px('#f4ecd0', 252, 138, 14, 1);
+    px('#1a1010', 238, 144, 4, 6); px('#2a140c', 243, 142, 6, 8); px('#fff0b0', 244, 128, 4, 14);
+    q.restore();
+    for (const x of [166, 218]) px('#10161e', x, 42, 2, 146);
+    for (const y of [90, 139]) px('#10161e', 114, y, 156, 2);
+    px('#2a3848', 100, 194, 184, 6);
+    grad(0, 200, 384, 56, [[0, '#0c141e'], [1, '#04070c']]);
+  });
+  const drips = Array.from({ length: 9 }, (_, i) => ({ x: 119 + i * 17, s: .3 + r() * .4, o: r() * 150 }));
+  const rain = Array.from({ length: 90 }, () => ({ x: r() * 384, y: r() * 280, s: 6 + r() * 4, l: 3 + r() * 4 | 0 }));
+  return t => {
+    cg.drawImage(bg, 0, 0);
+    const fk = Math.sin(t * .37) * .5 + Math.sin(t * .11) * .5;
+    px('#ffe070', 245, 124 + fk, 2, 5); px('#fff8c0', 245, 126, 1, 2);
+    px('#160b08', 224 + Math.sin(t * .22) * 2, 148, 3, 2);
+    q.globalAlpha = .6; for (const d of drips) { const y = 42 + wrap(t * d.s + d.o, 140); px('#ffe8b8', d.x, y, 1, 4); px('#ffe8b8', d.x, y - 8, 1, 1); } q.globalAlpha = 1;
+    light(246, 136, 120, '255,190,90', .3 + .06 * fk); light(192, 118, 190, '255,160,60', .13);
+    q.globalAlpha = .28; for (let i = 0; i < 14; i++) px('#c88a40', 192 - (150 - i * 8) / 2 + Math.sin(t * .05 + i) * 3, 206 + i * 3.4, 150 - i * 8, 1); q.globalAlpha = 1;
+    q.globalAlpha = .35; for (const d of rain) px('#8aa8c8', wrap(d.x - t * d.s * .12, 384), wrap(d.y + t * d.s, 280) - 12, 1, d.l); q.globalAlpha = 1;
+  };
+};
+
+const CUTSCENES = [
+  { tag: 'CHAPTER 1 · 1885', shots: [
+    ["1884년, 갑신정변.\n서울의 밤하늘은 불길에 물들었고, 조선은 혼란에 빠졌다.", A1],
+    ["1885년 4월 5일, 제물포.\n언더우드와 아펜젤러가 같은 배 위에서 조선 땅을 바라본다.", A2],
+    ["1885년 4월 10일, 광혜원이 문을 열었다.\n한국 최초의 서양식 병원 — 연세의 시작이었다.", A3]] },
+  { tag: 'CHAPTER 2 · 1904–1917', shots: [
+    ["1904년 9월, 서울역 앞.\n세브란스기념병원이 완공되었다.", B1],
+    ["1917년, 신촌 — 옛 연희궁 터.\n백양나무 길 끝에서 언더우드가 꿈꾸던 대학이 올라가기 시작했다.", B2]] },
+  { tag: 'CHAPTER 3 · 1942', shots: [
+    ["1942년. 언더우드의 동상이 서 있던 자리에\n일제는 '흥아유신기념탑'을 세웠고, 조선어 강좌는 사라졌다.", C1],
+    ["그러나 불 꺼진 교정의 한 켠에서는\n누군가 우리말 원고를 밤새 베껴 쓰고 있었다.", C2]] },
+];
+
+const VIG = mkq(384, 256, () => {
+  const gr = q.createRadialGradient(192, 128, 70, 192, 128, 260);
+  gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, 'rgba(0,0,0,.6)');
+  q.fillStyle = gr; q.fillRect(0, 0, 384, 256);
+});
+function startShot() {
+  const [cap, make] = cs.sc.shots[cs.i];
+  q = cg; cs.draw = make(); cs.cap = cap; cs.f = 0; cs.n = 0; cs.lf = 0;
+  $('cap').textContent = ''; $('ctag').textContent = `${cs.sc.tag} · ${cs.i + 1}/${cs.sc.shots.length}`;
+}
+function cutNext() { if (cs.lf) return; if (cs.n < cs.cap.length) cs.n = cs.cap.length; else cs.lf = 1; $('cap').textContent = cs.cap.slice(0, cs.n); }
+function cutEnd() { const f = cs.next; cs = null; $('cut').style.display = 'none'; mode = 'play'; f(); }
+function stepCut() {
+  cs.f++;
+  if (cs.lf) { if (++cs.lf > 24) { if (++cs.i >= cs.sc.shots.length) cutEnd(); else startShot(); } return; }
+  if (cs.f > 40 && cs.n < cs.cap.length && cs.f % 2 === 0) { cs.n++; $('cap').textContent = cs.cap.slice(0, cs.n); if (cs.n % 3 === 0) SFX.blip(); }
+  else if (cs.n >= cs.cap.length) $('cap').textContent = cs.cap;
+}
+function drawCut() {
+  q = cg; cg.fillStyle = '#000'; cg.fillRect(0, 0, 384, 336);
+  cg.save(); cg.beginPath(); cg.rect(0, 40, 384, 256); cg.clip(); cg.translate(0, 40);
+  cs.draw(cs.f);
+  cg.restore();
+  cg.drawImage(VIG, 0, 40);
+  const a = cs.lf ? Math.min(1, cs.lf / 24) : 1 - Math.min(1, cs.f / 36);
+  if (a > 0) { cg.fillStyle = `rgba(0,0,0,${a})`; cg.fillRect(0, 40, 384, 256); }
+}
+
+// fixed 60Hz step so speed is the same on 120/144Hz screens
+let acc = 0, last = 0;
+function loop(t) {
+  acc += Math.min(100, t - last); last = t;
+  while (acc >= 1000 / 60) { update(); acc -= 1000 / 60; }
+  draw(); requestAnimationFrame(loop);
+}
+requestAnimationFrame(t => { last = t; loop(t); });
+
+const saved = +(store.get('yonsei-act') || 0);
+overlay(`<h1>연세 역사 탐험</h1><p>1885 – 1945 · 미래를 향한 연세 역사</p>
+  <p class="dim">방향키로 걷고, Z 키로 사람들과 이야기하세요.<br>퀘스트를 끝내야 다음 막으로 갈 수 있어요.</p>
+  ${saved > 0 ? `<button>이어하기 — 제${saved + 1}막 (C)</button>` : ''}
+  <p class="blink">Z 키를 눌러 처음부터 시작</p>`,
+  () => cut(0, () => load(0)), saved > 0 ? () => load(saved) : null);
+</script>
+</body>
+</html>

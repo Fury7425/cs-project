@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>cutscene viewer</title>
+<style>body { background: #111; margin: 0; } canvas { width: 768px; image-rendering: pixelated; }</style>
+<div id="cut" style="display:block;position:relative"><canvas id="cs" width="384" height="336"></canvas><div id="ctag"></div><div id="cskip"></div><div id="cap" style="color:#fff"></div></div>
+<script>document.write(['art', 'cutscenes', 'cutscenes2'].map(f => '<script src="../js/' + f + '.js?v=' + Date.now() + '"><\/script>').join(''));</script>
+<script>
+  // usage: ?id=c3&shot=1&t=200
+  const q = new URLSearchParams(location.search);
+  window.__shot = () => {
+    const sc = Cutscenes.scenes ? Cutscenes.scenes[q.get('id')] : null;
+    return sc;
+  };
+</script>

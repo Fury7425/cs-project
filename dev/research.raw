@@ -1,0 +1,2076 @@
+{
+  "summary": "Research Yonsei history (1884-1957), public-domain portraits and folk melodies for the game, then fact-check",
+  "agentCount": 10,
+  "logs": [],
+  "result": [
+    {
+      "topic": "Yonsei University founding era 1882–1900: Allen, 광혜원/제중원, Underwood, Heron, Lillias Horton Underwood, Avison",
+      "facts": [
+        {
+          "claim": "Horace Newton Allen was born 23 April 1858 in Delaware, Ohio. He got a BS from Ohio Wesleyan in 1881 and graduated from Miami Medical School, Cincinnati, in 1883. He was appointed a Northern Presbyterian medical missionary and arrived in Shanghai on 11 Oct 1883.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen",
+          "confidence": "high"
+        },
+        {
+          "claim": "Allen went to Korea to explore on 20 Sept 1884 (the same Wikipedia article's lead says 15 Sept). He was appointed medical officer of the U.S. Legation, which hid his missionary purpose. He brought his wife Fannie and son Harry to Korea on 26 Oct 1884.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen",
+          "date": "1884-09-20",
+          "confidence": "medium"
+        },
+        {
+          "claim": "On the night of the 갑신정변 (4 Dec 1884), Min Yeong-ik, nephew of Queen Min, was attacked at the banquet celebrating the new post office and had seven sword wounds to his head and body. Möllendorff sent for Allen, who stitched the wounds while 14 Korean court physicians objected. Recovery took about three months, and a rumor that Allen had revived a dead prince brought crowds to his house.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen",
+          "date": "1884-12-04",
+          "confidence": "high"
+        },
+        {
+          "claim": "Allen described finding Min 'all blood and gore'. The court physicians resented him. Min asked whether the women of his household could safely look at his wounds, because Koreans believed women could contaminate wounds. When a wound later became inflamed, the physicians blamed the women. Allen also treated Min for tapeworm with turpentine and castor oil. Min called Allen his brother, but Allen's private diary was often scornful of Min.",
+          "source_url": "https://www.koreatimes.co.kr/amp/southkorea/globalcommunity/20200310/joseon-images-the-first-noble-patient",
+          "date": "1884-12 to 1885-03",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Allen drafted a hospital proposal on 22 Jan 1885 (diary). The government received it on 27 Jan 1885 with a recommendation letter from U.S. chargé George C. Foulk, addressed to 외아문 독판 Kim Yun-sik. Allen asked for a large clean house, about 300 won for medicines and costs, and no salary for himself. In his diary he feared Möllendorff would block the plan.",
+          "source_url": "https://pressian.com/pages/articles/100011",
+          "date": "1885-01-27",
+          "confidence": "high"
+        },
+        {
+          "claim": "On 18 Feb 1885 the confiscated house of Hong Yeong-sik in 재동 was chosen as the hospital site. Hong had been killed after the coup. The Joseon government paid about $600–1,000 to repair the ruined house. On 3 April 1885 notices went up at the four gates and at Bosingak: treatment would be free, 1–5 p.m. Allen's diary says treatment actually began on 9 April.",
+          "source_url": "https://pressian.com/pages/articles/100011",
+          "date": "1885-04-03",
+          "confidence": "high"
+        },
+        {
+          "claim": "Yonsei officially dates 광혜원's opening as a royal hospital to 1885-04-10 and calls it Korea's first Western-style hospital, founded by Allen. About two weeks later 고종 renamed it 제중원. Yonsei also dates the founding of the 제중원 medical school to April 1899 under O. R. Avison.",
+          "source_url": "https://www.yonsei.ac.kr/sc/314/subview.do",
+          "date": "1885-04-10",
+          "confidence": "high"
+        },
+        {
+          "claim": "Encykorea gives a different chronology: 광혜원 was established on lunar 2/29 (solar 14 April 1885). The name was dropped within two weeks and changed to 제중원 on lunar 3/12 (solar 26 April 1885), backdated to the opening. The hospital moved in early 1887 to a royal site at 남부 동현 (구리개), between today's 을지로 입구 and 2가. On 18 July 1894 it was merged into the 내무아문, and management passed to the Northern Presbyterian mission.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0051479",
+          "confidence": "high"
+        },
+        {
+          "claim": "The 재동 site is now inside the northwest grounds of the Constitutional Court (헌법재판소). Once called the house of 박규수 and 홍영식, it is in 북촌. Seoul's account dates the move to 구리개 (now around the Hana Bank head office, 을지로) to about Oct–Nov 1886. The name 구리개 comes from a muddy yellow-earth hill that glinted like copper. At its peak Allen saw up to about 260 patients a day.",
+          "source_url": "https://mediahub.seoul.go.kr/archives/2008477",
+          "confidence": "high"
+        },
+        {
+          "claim": "According to the 'First Annual Report of the Korean Government Hospital', 10,460 patients came between April 1885 and April 1886. 394 had outpatient operations and 265 were admitted, with 6 inpatient deaths.",
+          "source_url": "https://pressian.com/pages/articles/100912",
+          "date": "1885-1886",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Case 1, the first inpatient and first operation, was a 25-year-old man with femur necrosis who had a sequestrectomy. An untrained assistant gave the anesthesia. In a letter of 3 Jan 1887 Allen admitted he had had no clinical experience before Korea, was self-taught, and avoided major surgery. The author also guesses that gisaeng 의녀 were assigned to help with female patients, but this is the author's inference, not a documented fact.",
+          "source_url": "https://pressian.com/pages/articles/100390",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Allen wrote in Things Korean (1908) that Koreans seemed to follow a 'no cure, no pay' principle. Payment was seldom money: grateful patients brought hundreds of eggs, meat, live pigs, chickens and pheasants.",
+          "source_url": "https://www.koreajoongangdaily.com/lifestyle/a-modern-hospital-started-by-chance/11719590",
+          "confidence": "medium"
+        },
+        {
+          "claim": "The 제중원 medical school (제중원의학당) opened on 29 March 1886 with 12 regular students, who studied English, chemistry, anatomy and pharmacy. It produced no graduates and stopped around 1890. In May 1886 Allen was given a 당상관 rank. In 1886 the woman doctor Annie Ellers set up a women's department (부인부), and Lillias Horton later succeeded her.",
+          "source_url": "https://mediahub.seoul.go.kr/archives/2008477",
+          "date": "1886-03-29",
+          "confidence": "high"
+        },
+        {
+          "claim": "In autumn 1887 Allen left Korea as an attendant of envoy 박정양 on the mission to Washington, and Heron took charge of 제중원. Allen returned in July 1890 as Secretary of the U.S. Legation. He became Consul General in 1897 and Minister on 1 Oct 1901, and left Korea in June 1905. He died in Toledo, Ohio, on 11 Dec 1932.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen",
+          "confidence": "high"
+        },
+        {
+          "claim": "Horace Grant Underwood was born in London on 19 July 1859 and moved to the U.S. around 1872. He graduated from NYU in 1881 and from New Brunswick (Dutch Reformed) Theological Seminary in 1884. He and Methodist Henry Appenzeller (with Ella Appenzeller) landed at 제물포 on Easter Sunday, 5 April 1885. He first taught physics and chemistry at Allen's hospital.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood",
+          "date": "1885-04-05",
+          "confidence": "high"
+        },
+        {
+          "claim": "Lillias Underwood's biography gives the India-to-Korea story. Underwood planned to go to India; around age four he had decided to be a missionary after hearing a speaker from India. He urged others to go to Korea, and then the thought came: 'why not go yourself?' The Reformed Board said twice it had no funds, and the Presbyterian Board twice told him it was useless. Just before mailing a letter accepting a pastorate, he felt an inner voice say 'No one for Korea.' He went to Dr. Ellinwood's office once more, learned another candidate had just withdrawn, and was appointed within days.",
+          "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt",
+          "confidence": "high"
+        },
+        {
+          "claim": "Another tradition says Underwood was moved by a letter from 이수정, the first Korean Bible translator, published in an American Bible Society publication.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Underwood's orphanage school started on 11 May 1886 with one boy accepted, according to his letter to Ellinwood of 17 June 1887. It later became 원두우학당 / 예수교학당 / 민노아학당 / 구세학당 and then 경신학교. Encykorea places it in a building attached to his house in 정동. Its line leads to 경신학교, not directly to Yonsei.",
+          "source_url": "https://dh.aks.ac.kr/Edu/wiki/index.php/Letter_From_Underwood_To_Ellinwood_(18870617)",
+          "date": "1886-05-11",
+          "confidence": "high"
+        },
+        {
+          "claim": "Underwood's 1886 orphanage was located at 정동 and later evolved into 경신학교.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0076632",
+          "confidence": "high"
+        },
+        {
+          "claim": "새문안교회 was organized on the evening of Tuesday, 27 Sept 1887, with 14 baptized members in a home in 정동, led by Underwood. It was Korea's first organized Presbyterian church, and two elders, cousins of 서상륜 from 의주, were chosen that day. Ok Sung-deuk's 2023 paper re-examines the founding date.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0027446",
+          "date": "1887-09-27",
+          "confidence": "high"
+        },
+        {
+          "claim": "Underwood's first convert, Mr. No (노춘경), secretly took two gospels, read them overnight, called them 'good and grand', and was secretly baptized on 11 July 1886. Underwood nursed a Harper's Magazine artist dying of 'black small-pox'. In a cholera summer 'people dropped and died in an hour', and Underwood's own cook died. In 1888 an edict banned Christian preaching, and the 'Baby Riots' broke out over rumors that foreigners at the hospital ate children.",
+          "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt",
+          "date": "1886-1888",
+          "confidence": "high"
+        },
+        {
+          "claim": "Underwood's 韓英字典 (A Concise Dictionary of the Korean Language), assisted by James S. Gale, was published in 1890 by Kelly & Walsh in Yokohama in two parts, Korean-English and English-Korean. Its sister volume, An Introduction to the Korean Spoken Language (한영문법), was also published in Yokohama in 1890. The couple went to Japan in Oct 1889 to publish them, and the books were finished on 26 Apr 1890.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0066902",
+          "date": "1890",
+          "confidence": "high"
+        },
+        {
+          "claim": "Underwood worked on Bible translation with Appenzeller, Scranton, Gale and Reynolds; the New Testament was completed in 1900 and the Old Testament in 1910. He became president of the Christian college (later Yonsei) in 1912. He died in Atlantic City on 12 Oct 1916, and his remains were moved to 양화진 in 1999.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood",
+          "confidence": "high"
+        },
+        {
+          "claim": "Lillias Stirling Horton was born 21 June 1851 in Albany, NY, and earned an MD from the Woman's Medical College of Chicago in 1887. She arrived in Seoul in 1888 (27 March per one account) and was physician to Queen Min (명성황후) from 1889 until the queen's murder in 1895. She married Underwood in March 1889 (13 or 14 March in different sources). Their son Horace Horton Underwood was born in 1890. She ran 'The Shelter' clinic, a cholera hospital in 1895, wrote Fifteen Years Among the Top-Knots and Underwood of Korea, died in Seoul on 29 Oct 1921 of tropical sprue, and is buried at 양화진.",
+          "source_url": "https://en.wikipedia.org/wiki/Lillias_Horton_Underwood",
+          "confidence": "high"
+        },
+        {
+          "claim": "In spring 1889 the newly married Underwoods made a trip of more than 1,000 miles through northern Korea to the border, a 'honeymoon' missionary tour that included a standoff with robbers. In autumn 1889 the Queen gave them gold bracelets and a pearl ring as wedding gifts.",
+          "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt",
+          "date": "1889",
+          "confidence": "high"
+        },
+        {
+          "claim": "John W. Heron was born in Derbyshire, England (1856 or 1858; sources conflict) and moved to Knoxville, Tennessee, as a teenager. He graduated from the University of Tennessee in 1883, then turned down a professorship there to go to Korea. He reached 인천 on 20 June 1885 and Seoul on 21 June 1885, became the second head of 제중원 in 1887, and was also a physician to 고종. He caught dysentery from patients and died on 26 or 27 July 1890. His reported last words were 'Jesus loves you. He gave His life for you. Stand by Him!' He was the first Protestant missionary buried at 양화진 (late July 1890). He left his wife Hattie and two daughters, and Yonsei opened the Heron Memorial Hall in 2019.",
+          "source_url": "https://en.wikipedia.org/wiki/John_W._Heron",
+          "date": "1890-07-26",
+          "confidence": "high"
+        },
+        {
+          "claim": "Heron's death in 1890 led to the creation of the 양화진 foreign cemetery. C. C. Vinton from Canada then took over the medical work.",
+          "source_url": "https://mediahub.seoul.go.kr/archives/2008477",
+          "date": "1890",
+          "confidence": "high"
+        },
+        {
+          "claim": "Oliver R. Avison was born 30 June 1860 in Huddersfield, England, and grew up in Ontario. He won a pharmacy gold medal and got his MB from the University of Toronto in 1887, then taught there. He married Jennie Barnes in 1885. He arrived in Busan in June 1893 (son Douglas born 22 July 1893), began work at 제중원 in Seoul by August 1893, and became physician to 고종. During cholera he printed more than 50,000 posters to fight the belief that spirits caused cholera. In 1900 at Carnegie Hall he met Louis H. Severance, and Severance Hospital opened on 23 Sept 1904.",
+          "source_url": "https://en.wikipedia.org/wiki/Oliver_R._Avison",
+          "confidence": "high"
+        },
+        {
+          "claim": "Avison was appointed by the Northern Presbyterian board on 6 Feb 1893 and arrived in Korea in July 1893. Corrupt Korean officials made it impossible to run 제중원 under the government, so he pushed for mission control. After six months of negotiation the cash-strapped Joseon government let go in late Sept 1894; 26 Sept 1894 is often cited. Government funding then stopped. The government took the 구리개 property back in April 1905 and paid compensation.",
+          "source_url": "https://pressian.com/pages/articles/65185",
+          "date": "1894-09-26",
+          "confidence": "medium"
+        }
+      ],
+      "people": [
+        {
+          "name_ko": "알렌 (안련)",
+          "name_en": "Horace Newton Allen",
+          "role": "Presbyterian medical missionary and U.S. Legation doctor. He saved 민영익, proposed and ran 광혜원/제중원, and later became a U.S. diplomat (Minister 1901–05).",
+          "years": "1858–1932 (in Korea 1884–1887, 1890–1905)",
+          "appearance": "Age 26–27 in 1884–85. Wikipedia mentions a period rumor about his 'bushy red beard', so draw a reddish full beard (medium confidence). 1880s Western frock coat or dark three-piece suit with a high collar, doctor's bag. Check the Yonsei/Severance archive photos for an exact likeness.",
+          "personality": "Ambitious and politically shrewd; became a confident bluffer in the operating room though self-taught (he admitted he avoided major surgery). In private he was often scornful of Koreans, including Min. Worried about rivals such as Möllendorff."
+        },
+        {
+          "name_ko": "민영익",
+          "name_en": "Min Yeong-ik",
+          "role": "Queen Min's nephew and a powerful conservative official. He was nearly killed in the 갑신정변 and became Allen's first famous patient.",
+          "years": "1860–1914",
+          "appearance": "About 24 in 1884. Joseon high official: topknot (상투) under a black 갓 or official 사모, silk 도포 or official robe. After the attack, a bandaged head and torso. Not verified from a photo here.",
+          "personality": "Grateful after his recovery and declared Allen his 'brother'. Followed traditional beliefs, for example that women's gaze could contaminate wounds."
+        },
+        {
+          "name_ko": "언더우드 (원두우)",
+          "name_en": "Horace Grant Underwood",
+          "role": "First Presbyterian clergy missionary in Korea. Founded the 정동 orphanage school (1886) and 새문안교회 (1887), compiled the 한영자전 (1890), translated the Bible, and was founder and first president of the Christian college that became Yonsei.",
+          "years": "1859–1916 (arrived 1885-04-05)",
+          "appearance": "Age 25–26 on arrival. His wife describes him (around age 22) as about 5'8\"–5'9\", broad-shouldered, with a large head, thick dark-chestnut curly hair low on the forehead, a slightly aquiline nose, a firm chin, clear dark-brown eyes and a calm brow. Later photos: dark suit. A moustache or beard in later years is likely but not verified here.",
+          "personality": "Tireless and unable to spare himself: as a student he walked 7 miles a day, studied until midnight and rose at 5. Devout since childhood (preached from a stool playing 'church'). Persistent: applied to mission boards again and again. Tender toward the sick, e.g. nursed a smallpox victim like a brother."
+        },
+        {
+          "name_ko": "릴리어스 호튼 언더우드",
+          "name_en": "Lillias Stirling Horton Underwood",
+          "role": "Woman physician. Headed the women's department at 제중원, was physician to Queen Min (1889–95), married Underwood, and wrote about Korea.",
+          "years": "1851–1921 (arrived 1888)",
+          "appearance": "About 37 when she arrived, older than her husband. Late-Victorian dress: high-collared white lace blouse, long dark skirt, hair up in a bouffant updo; in later life a large black hat and greying hair (per photo caption).",
+          "personality": "Determined and outspoken. Argued for married women missionaries' right to vote in the mission, and described her honeymoon as 'arduous' missionary travel. A writer and observer."
+        },
+        {
+          "name_ko": "헤론 (혜론)",
+          "name_en": "John W. Heron",
+          "role": "Second director of 제중원 and physician to 고종. Died of dysentery caught from patients; first missionary buried at 양화진.",
+          "years": "1856/58–1890 (arrived 1885-06-21)",
+          "appearance": "About 27 on arrival, about 32 at death. Appearance not described in the sources consulted; use the photo on his Wikipedia page or the Yonsei Heron Memorial Hall. Draw a dark Victorian suit and a doctor's bag.",
+          "personality": "Meticulous and devoted, sometimes over-focused on small details and slow to let go. Gave up a professorship in Tennessee for Korea. Last words were of faith."
+        },
+        {
+          "name_ko": "에비슨 (어비신)",
+          "name_en": "Oliver R. Avison",
+          "role": "Canadian (Toronto) doctor. Took over 제중원 in 1893, won mission control of it in 1894, founded the medical school (1899) and Severance Hospital (1904), and later led both Severance and the Chosen Christian College.",
+          "years": "1860–1956 (arrived 1893)",
+          "appearance": "About 33 on arrival, with wife Jennie and young children. Appearance not described in the sources consulted; check Yonsei/Severance photos. Draw a Victorian or Edwardian suit, round spectacles optional (unverified).",
+          "personality": "Practical organizer and public-health crusader: printed 50,000 cholera posters to counter spirit beliefs. Firm against corruption. Promoted cooperation between missions and eventually handing the hospital over to Koreans."
+        },
+        {
+          "name_ko": "아펜젤러",
+          "name_en": "Henry G. Appenzeller",
+          "role": "Methodist missionary who landed with Underwood at 제물포 on Easter 1885 and later founded 배재학당.",
+          "years": "1858–1902",
+          "appearance": "About 27 in 1885. Appearance not verified here.",
+          "personality": "Underwood's companion and fellow Bible translator."
+        }
+      ],
+      "story_hooks": [
+        "Night of 4 Dec 1884, post-office banquet: Queen Min's nephew 민영익 is cut seven times by swords. A 26-year-old American doctor who had never worked in a hospital pushes past 14 royal physicians and stitches him up 'all blood and gore'. Rumors spread that he revived a dead prince, and crowds gather at his gate.",
+        "Min worries that the women of his house might 'poison' his wounds just by looking at them. Allen laughs it off, then the wound gets inflamed and the court doctors blame the women. This shows the clash between traditional and Western medicine.",
+        "April 1885, 재동: the new hospital is in the confiscated house of 홍영식, a coup leader who had just been killed. Notices at the four city gates and Bosingak announce free treatment from 1 to 5 p.m. The first inpatient is a young man with a rotting thigh bone, operated on while an untrained assistant handles the anesthesia.",
+        "Payment at 제중원 was 'no cure, no pay'. Grateful patients came back with hundreds of eggs, live pigs, chickens and pheasants instead of money. Good for a funny game scene where the doctor's yard fills with animals.",
+        "Underwood almost became a pastor at home. His acceptance letter was ready to mail when he heard an inner voice say 'No one for Korea.' He walked into the Presbyterian board office once more and learned another candidate had just dropped out, so the post was his.",
+        "Easter Sunday, 5 April 1885, 제물포: Underwood and the Appenzellers step ashore together. Christian preaching is still illegal, so Underwood starts as a chemistry and physics teacher at Allen's hospital.",
+        "11 May 1886, 정동: Underwood's orphanage school opens with exactly one boy. Up to then he had secretly baptized Mr. No (11 July 1886), a man who stole two gospels and read them all night.",
+        "Tuesday evening, 27 Sept 1887: in a small house in 정동, 14 Korean believers and Underwood organize Korea's first Presbyterian church, 새문안교회.",
+        "1888 'Baby Riots': rumors say the foreigners at the hospital eat children, and mobs threaten them. Underwood spends the summer in a hut in the city, building a boys' school anyway.",
+        "March 1889: Underwood marries Dr. Lillias Horton, Queen Min's physician. Their honeymoon is a 1,000-mile trek to the northern border, including a standoff with robbers. That autumn the Queen sends them gold bracelets and a pearl ring.",
+        "July 1890: Dr. Heron, who gave up a Tennessee professorship for Korea, catches dysentery from his patients and dies at about 32, leaving his wife and two daughters. He becomes the first person buried at 양화진. His last words were 'Jesus loves you... Stand by Him!'",
+        "1893–94: the Canadian Dr. Avison finds 제중원 drained by corrupt officials. After six months of negotiation (late Sept 1894, at the time of the 갑오개혁 and the Sino-Japanese War), the government hands the hospital to the mission. During cholera he plasters Seoul with 50,000 posters saying germs, not spirits, cause the disease.",
+        "1900, Carnegie Hall, New York: after Avison's speech, businessman Louis Severance comes up to him and offers money for a new hospital. Severance Hospital opens in 1904 and leads directly to today's Yonsei medical school."
+      ],
+      "key": "founding",
+      "verification": {
+        "corrections": [
+          {
+            "original_claim": "1. Allen born 23 Apr 1858 Delaware OH; BS Ohio Wesleyan 1881; Miami Medical School 1883; arrived Shanghai 11 Oct 1883.",
+            "verdict": "confirmed",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen"
+          },
+          {
+            "original_claim": "2. Allen went to Korea 20 Sept 1884 (lead says 15 Sept); U.S. Legation physician hid his missionary role; brought wife Fannie and son Harry 26 Oct 1884.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed, but Wikipedia contradicts itself (15 vs 20 Sept 1884). Treat the arrival as 'September 1884' unless a primary source settles it.",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen"
+          },
+          {
+            "original_claim": "3. Night of 갑신정변 (4 Dec 1884): Min Yeong-ik had 7 sword wounds; Möllendorff sent for Allen; 14 court physicians objected; about 3 months to recover; rumor of a revived dead prince.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. The rumor said a red-bearded foreigner had revived a dead prince; Min never actually died. Only Wikipedia gives the rumor; no second source found.",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Newton_Allen"
+          },
+          {
+            "original_claim": "4. Allen found Min 'all blood and gore'; physicians resented him; women-contamination belief; inflamed wound blamed on women; tapeworm treated with turpentine and castor oil; Min called Allen his brother; diary scornful.",
+            "verdict": "confirmed",
+            "source_url": "https://www.koreatimes.co.kr/amp/southkorea/globalcommunity/20200310/joseon-images-the-first-noble-patient"
+          },
+          {
+            "original_claim": "5. Proposal drafted 22 Jan 1885, received 27 Jan 1885 with Foulk's letter to 외아문 독판 Kim Yun-sik; asked for a house, about 300 won, no salary; feared Möllendorff.",
+            "verdict": "corrected",
+            "corrected_claim": "Dates, Foulk letter and addressee confirmed. Exact ask: a large, airy, clean house; running costs (lamps, fuel, staff, meals for poor patients); a 300-won LOAN for medicines; no government pay for Allen. The 300 won covered drugs only, not all costs. Allen's fear that Möllendorff would block the plan was not found in the cited article.",
+            "source_url": "https://pressian.com/pages/articles/100011"
+          },
+          {
+            "original_claim": "6. 18 Feb 1885 Hong Yeong-sik's house in 재동 chosen; $600-1,000 repairs; notices 3 Apr 1885 at four gates and Bosingak; free, 1-5 pm; diary says treatment began 9 Apr.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Notices went up at the four gates and 종각 (=Bosingak), and the 외아문 also ordered notices in Seoul's wards and in provincial counties. The 9 April start is in a photo caption, which does not say it comes from Allen's diary. Kim Yun-sik was put in charge on 16 Feb 1885.",
+            "source_url": "https://pressian.com/pages/articles/100011"
+          },
+          {
+            "original_claim": "7. Yonsei dates 광혜원 opening 1885-04-10; renamed 제중원 by 고종 about 2 weeks later; 제중원 medical school founded April 1899 under Avison.",
+            "verdict": "confirmed",
+            "source_url": "https://www.yonsei.ac.kr/sc/314/subview.do"
+          },
+          {
+            "original_claim": "8. Encykorea: 광혜원 established lunar 2/29 (14 Apr 1885); renamed 제중원 lunar 3/12 (26 Apr 1885); moved 1887 to 남부 동현 between 을지로 입구 and 2가; merged into 내무아문 18 Jul 1894; passed to Presbyterian mission.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Encykorea gives only '1887' for the move, not 'early 1887', and does not use the name 구리개. It also says the busiest day had at most 70 patients, which conflicts with Seoul Mediahub's 260 (claim 9).",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0051479"
+          },
+          {
+            "original_claim": "9. 재동 site now in the Constitutional Court grounds (former houses of 박규수/홍영식, 북촌); move to 구리개 (Hana Bank HQ, 을지로) about Oct-Nov 1886; 구리개 named for a muddy hill that glinted like copper; up to about 260 patients a day.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed as stated by Seoul Mediahub. The article does not say 'northwest grounds'. Two conflicts: Encykorea dates the move to 1887 and puts the peak at 70 patients a day, not 260.",
+            "source_url": "https://mediahub.seoul.go.kr/archives/2008477"
+          },
+          {
+            "original_claim": "10. First Annual Report: 10,460 patients Apr 1885-Apr 1886; 394 outpatient operations; 265 inpatients; 6 inpatient deaths.",
+            "verdict": "corrected",
+            "corrected_claim": "The numbers check out, but the cited article (100912) does not contain them. 10,460 patients and 394 outpatient operations are in pressian 101063; 265 inpatients (229 men, 36 women) and 6 deaths are in pressian 101121. That author argues the detailed records show 7 deaths.",
+            "source_url": "https://pressian.com/pages/articles/101063"
+          },
+          {
+            "original_claim": "11. Case 1: 25-year-old man with femur necrosis, sequestrectomy, untrained assistant gave anesthesia; 3 Jan 1887 letter says Allen had no clinical experience, was self-taught, avoided major surgery; gisaeng 의녀 role is the author's inference.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Untrained assistants (plural) gave the chloroform. The letter went to Ellinwood. Gisaeng 의녀 were assigned from Aug 1885; only their role as assistants is the author's inference.",
+            "source_url": "https://pressian.com/pages/articles/100390"
+          },
+          {
+            "original_claim": "12. Allen in Things Korean (1908): 'no cure, no pay'; paid in eggs, meat, live pigs, chickens, pheasants.",
+            "verdict": "confirmed",
+            "corrected_claim": "The quote and the list of gifts are confirmed. The JoongAng article does not name Things Korean as the source of this passage, so the book attribution is plausible but not confirmed there.",
+            "source_url": "https://www.koreajoongangdaily.com/lifestyle/a-modern-hospital-started-by-chance/11719590"
+          },
+          {
+            "original_claim": "13. 제중원의학당 opened 29 Mar 1886 with 12 students; no graduates; stopped about 1890; Allen given 당상관 in May 1886; Ellers set up 부인부 in 1886; Horton later succeeded her.",
+            "verdict": "confirmed",
+            "corrected_claim": "Opening date, 12 students, 당상관 (May 1886), Ellers and the 부인부 (1886), and 'no graduates' (Encykorea) are confirmed. 'Stopped about 1890' and the Horton succession are not in the cited source; they are plausible but unverified.",
+            "source_url": "https://mediahub.seoul.go.kr/archives/2008477"
+          },
+          {
+            "original_claim": "14. Autumn 1887 Allen left with envoy 박정양's mission; Heron took over 제중원; Allen returned July 1890 as Legation Secretary; Consul General 1897; Minister 1 Oct 1901; left June 1905; died Toledo 11 Dec 1932.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Allen left in November 1887. State Dept: Minister Resident/Consul General, appointed 17 Jul 1897 with credentials 13 Sep 1897; Envoy Extraordinary and Minister Plenipotentiary, appointed 17 Jun 1901 with credentials 1 Oct 1901; left Korea 9 Jun 1905.",
+            "source_url": "https://history.state.gov/departmenthistory/people/allen-horace-newton"
+          },
+          {
+            "original_claim": "15. Underwood born London 19 Jul 1859; moved to US about 1872; NYU 1881; New Brunswick Seminary 1884; landed 제물포 Easter 5 Apr 1885 with Appenzellers; taught physics and chemistry at Allen's hospital.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Wikipedia says he emigrated 'at age 12' (about 1871-72) and gives no exact year.",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood"
+          },
+          {
+            "original_claim": "16. Underwood of Korea: India plan; decided at age four to be a missionary; 'why not go yourself?'; Reformed Board twice no funds; Presbyterian Board twice 'useless'; inner voice 'No one for Korea'; Ellinwood's office, another candidate withdrew.",
+            "verdict": "confirmed",
+            "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt"
+          },
+          {
+            "original_claim": "17. Tradition: Underwood moved by 이수정's letter in an American Bible Society publication.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed as a tradition that Wikipedia reports with 'it is said'. Not documented beyond that.",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood"
+          },
+          {
+            "original_claim": "18. Orphanage school started 11 May 1886 with one boy (letter to Ellinwood 17 Jun 1887); later names 원두우학당/예수교학당/민노아학당/구세학당, then 경신학교; Encykorea: building attached to his house in 정동; leads to 경신, not directly to Yonsei.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed ('On May 11th 1886 we commenced work with one boy accepted'). Encykorea adds that the government approved it in 1885, and it was renamed 경신학교 in 1905 under E. H. Miller.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0076632"
+          },
+          {
+            "original_claim": "19. 1886 orphanage located in 정동, later became 경신학교.",
+            "verdict": "confirmed",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0076632"
+          },
+          {
+            "original_claim": "20. 새문안교회 organized 27 Sep 1887 with 14 baptized members at an 정동 home under Underwood; first organized Presbyterian church; two elders, cousins of 서상륜 from 의주; Ok Sung-deuk 2023 re-examination.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. The founding was at Underwood's house in 정동. The elders were ordained on 2 Oct by Underwood and Ross. The source does not say it was a Tuesday evening, though 27 Sep 1887 did fall on a Tuesday.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0027446"
+          },
+          {
+            "original_claim": "21. Mr. No's secret gospels, 'good and grand', baptized 11 Jul 1886; Harper's artist dying of smallpox; cholera 'dropped and died in an hour', cook died; 1888 edict and 'Baby Riots'.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed from Underwood of Korea. The cholera was in the summer of 1886. The book says only 'smallpox' in the passage read; the phrase 'black small-pox' was not confirmed. The Baby Riots took their name from earlier riots in China and targeted foreigners.",
+            "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt"
+          },
+          {
+            "original_claim": "22. 韓英字典 (Concise Dictionary), assisted by James S. Gale, Kelly & Walsh, Yokohama, 1890, two parts; sister volume 한영문법 1890 Yokohama; trip to Japan Oct 1889; finished 26 Apr 1890.",
+            "verdict": "corrected",
+            "corrected_claim": "The title page reads 'assisted by Homer B. Hulbert & James S. Gale', so the claim leaves out Hulbert. Imprint: Yokohama: Kelly & Walsh (also New York: Randolph / London: Trübner), 1890, two parts. Encykorea confirms Yokohama 1890 and the sister grammar. The Oct 1889 trip and 'finished April 26, 1890' come from Underwood of Korea, not from Encykorea.",
+            "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt"
+          },
+          {
+            "original_claim": "23. Bible translation with Appenzeller, Scranton, Gale, Reynolds; NT 1900, OT 1910; Underwood became president of the Christian college (later Yonsei) in 1912; died Atlantic City 12 Oct 1916; remains moved to 양화진 in 1999.",
+            "verdict": "corrected",
+            "corrected_claim": "The 1912 date is wrong for Yonsei. Yonsei's official history says Chosen Christian College opened on 5 Mar 1915 at the YMCA, with Underwood (원두우) as first president and Avison as vice-president. Wikipedia's '1912' mixes this up with 경신학교. The rest is confirmed.",
+            "source_url": "https://www.yonsei.ac.kr/sc/314/subview.do"
+          },
+          {
+            "original_claim": "24. Lillias Horton born 21 Jun 1851 Albany; MD Woman's Medical College of Chicago 1887; arrived 1888; physician to Queen Min 1889-1895; married Underwood Mar 1889; son H. H. Underwood 1890; The Shelter, cholera hospital 1895; books; died Seoul 29 Oct 1921 of sprue; buried 양화진.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Wikipedia gives only '1888' for her arrival and '1889' for the marriage; the 27 March 1888 and 13/14 March 1889 dates were not cross-checked. Underwood of Korea confirms a March 1889 wedding.",
+            "source_url": "https://en.wikipedia.org/wiki/Lillias_Horton_Underwood"
+          },
+          {
+            "original_claim": "25. Spring 1889 honeymoon trip of over 1,000 miles to the northern border with a robber standoff; Queen gave gold bracelets and a pearl ring as wedding gifts in autumn 1889.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. The gold bracelets were for Lillias and the pearl ring for Horace. The gifts were not ready before the trip, so 'autumn' is inferred, not stated.",
+            "source_url": "https://archive.org/stream/pts_underwoodofkorea_3720-1054/pts_underwoodofkorea_3720-1054_djvu.txt"
+          },
+          {
+            "original_claim": "26. Heron born Derbyshire 1856/1858; Knoxville as a teen; UT 1883; declined professorship; Incheon 20 Jun / Seoul 21 Jun 1885; 2nd head of 제중원 1887 and physician to 고종; dysentery, died 26/27 Jul 1890; last words; first Protestant buried at 양화진; wife Hattie, two daughters; Heron Memorial Hall 2019.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed (Wikipedia is internally inconsistent: 15 Jun 1856 vs 16 Jun 1858). He moved to Knoxville in 1870 at age 14 and was buried 30/31 Jul 1890. The memorial hall opened in May 2019.",
+            "source_url": "https://en.wikipedia.org/wiki/John_W._Heron"
+          },
+          {
+            "original_claim": "27. Heron's 1890 death led to the 양화진 foreign cemetery; C. C. Vinton from Canada then took over the medical work.",
+            "verdict": "corrected",
+            "corrected_claim": "The 양화진 origin is confirmed. 'Vinton from Canada' is doubtful. C. C. Vinton was an American Northern Presbyterian (PCUSA) appointee. Sources list the succession as Heron, then R. A. Hardie (a Canadian), then C. C. Vinton, then O. R. Avison in 1893. Mediahub seems to have mixed up Vinton and Hardie. Vinton's nationality was not confirmed by a second source.",
+            "source_url": "https://mediahub.seoul.go.kr/archives/2008477"
+          },
+          {
+            "original_claim": "28. Avison born 30 Jun 1860 Huddersfield; grew up in Ontario; pharmacy gold medal; MB Toronto 1887; married Jennie Barnes 1885; arrived Busan June 1893 (Douglas born 22 Jul 1893); began at 제중원 by Aug 1893; physician to 고종; over 50,000 cholera posters; met Severance at Carnegie Hall 1900; Severance Hospital opened 23 Sep 1904.",
+            "verdict": "corrected",
+            "corrected_claim": "Mostly confirmed. The Wikipedia infobox says 30 July 1860, which conflicts with its body text. The gold medal was from the Ontario College of Pharmacy. He married on 28 Jul 1885. Korean sources say Avison took charge of 제중원 in November 1893, not by August. The Carnegie Hall meeting was at the 1900 Ecumenical Conference on Foreign Missions; Wikipedia gives no year.",
+            "source_url": "https://pressian.com/pages/articles/65185"
+          },
+          {
+            "original_claim": "29. Avison appointed by the Northern Presbyterian board 6 Feb 1893; arrived July 1893; pushed for mission control because of corrupt officials; about 6 months of negotiation; released late Sept 1894 (26 Sept often cited); government funding stopped; government took 구리개 back in April 1905 with compensation.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed by other sources: 6 Feb 1893 appointment and July 1893 arrival (pressian); 26 Sep 1894 transfer (SNUH and Yonsei materials; pressian 65185 says only 'September'). Compensation in April 1905: 11,269 won 90 jeon, plus 1,700 won rent and moving costs in some accounts. Whether funding fully stopped is disputed: Allen's 1902 and 1905 letters disagree.",
+            "source_url": "https://www.snuh.org/board/B001/view.do?bbs_no=55"
+          }
+        ]
+      }
+    },
+    {
+      "topic": "1899–1925 두 기둥: 세브란스(의학) + 연희(조선기독교대학)",
+      "facts": [
+        {
+          "claim": "에비슨(O.R. Avison)이 1900년 뉴욕 카네기홀 Ecumenical Missionary Conference에서 'Comity in Medical Missions' 발표. 날짜 4월 27일 vs 4월 30일로 자료 상이.",
+          "source_url": "https://en.wikipedia.org/wiki/Oliver_R._Avison",
+          "date": "1900-04",
+          "confidence": "high"
+        },
+        {
+          "claim": "클리블랜드의 L.H. Severance가 발표를 듣고 에비슨과 상의. 에비슨은 'I have in my pocket right now a plan for such a hospital'(고든 설계도)이라 답함. 최초 기부액 $10,000. 완공 전 땅·사택 3채 등으로 원래 금액의 3배가 들어감.",
+          "source_url": "https://synapse.koreamed.org/articles/1093699",
+          "date": "1900",
+          "confidence": "high"
+        },
+        {
+          "claim": "세브란스병원 공식 연혁: 1900.5 L.H. Severance가 병원 설립 기금 기증.",
+          "source_url": "https://sev.severance.healthcare/sev/about/history.do",
+          "date": "1900-05",
+          "confidence": "high"
+        },
+        {
+          "claim": "'You give, I receive'라는 말은 확인 안 됨. PCUSA 기사는 Severance의 말로 'It is more blessed to give than to receive and to serve than to be served'를 인용(사도행전 20:35 변형). 한국 칼럼들은 '주는 기쁨이 받는 기쁨보다 훨씬 크다'는 취지로 전하지만 원출처가 불명확함. 게임에서는 의역으로 처리 권장.",
+          "source_url": "https://new14.pcusa.org/news/2014/10/9/severance-pay",
+          "confidence": "low"
+        },
+        {
+          "claim": "Louis H. Severance(1838–1913): Standard Oil 재무책임자, 록펠러의 동업자, Woodland Avenue 장로교회 장로이자 주일학교 교사.",
+          "source_url": "https://new14.pcusa.org/news/2014/10/9/severance-pay",
+          "confidence": "high"
+        },
+        {
+          "claim": "설계: 토론토 건축가 Henry Bauld Gordon. 계획안은 환자 40명 수용, 약 $10,000.",
+          "source_url": "https://colonialkorea.com/2020/07/09/the-architecture-of-henry-bauld-gordon-in-korea-1899-1905/",
+          "confidence": "medium"
+        },
+        {
+          "claim": "신제중원(세브란스기념병원) 정초식 초청장 날짜는 1902년 11월, 장소는 '남대문 밖'. 미 국무부에 1902-11-28자 정초 보고가 있음. 11월 27일이라는 날짜와 알렌 공사가 머릿돌을 놓았다는 이야기는 미확인.",
+          "source_url": "https://www.medicaltimes.com/Main/view.html?ID=1111040",
+          "date": "1902-11",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1904.9.23 남대문 밖 복숭아골(현 도동)에 병원 준공·이전하고 제중원을 세브란스병원으로 개칭(세브란스 공식). 연세대 연표는 1904.09.03 완공으로 표기. 11월 개원설은 근거 없음.",
+          "source_url": "https://sev.severance.healthcare/sev/about/history.do",
+          "date": "1904-09-23",
+          "confidence": "high"
+        },
+        {
+          "claim": "제1회 졸업식 1908년 6월 3일 오후 4시. 졸업생 7명: 김필순, 김희영, 박서양, 신창희, 주현칙(주현측), 홍석후, 홍종은. 다음 날 6월 4일 내부 위생국에서 한국 최초의 의사면허(의술개업인허장) 수여. 에비슨 회고록은 6월 8일로 적음.",
+          "source_url": "https://www.pressian.com/pages/articles/96340",
+          "date": "1908-06-03",
+          "confidence": "high"
+        },
+        {
+          "claim": "졸업식 장면: 잔디밭·테니스장에 통감부가 빌려준 큰 텐트를 치고 의자 700석 배치. 이토 히로부미 통감이 귀빈석, 김윤식도 참석. 하객 약 1,000명.",
+          "source_url": "https://www.pressian.com/pages/articles/96340",
+          "date": "1908-06-03",
+          "confidence": "medium"
+        },
+        {
+          "claim": "2023년 자료집에서 졸업 사진 속 주현칙·홍종은의 위치가 서로 바뀌어 알려졌음을 밝힘.",
+          "source_url": "https://www.dailymedi.com/news/news_view.php?wr_id=899647",
+          "confidence": "medium"
+        },
+        {
+          "claim": "김필순·홍석후·홍종은 등이 에비슨 지도로 우리말 의학 교과서를 거의 전 과목에 걸쳐 편찬.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0029806",
+          "confidence": "medium"
+        },
+        {
+          "claim": "졸업 후: 홍석후는 가장 오래 남아 안·이비인후과 교수, 동창회 조직, 학감 역임. 홍종은은 모교에서 교육. 김희영·신창희는 간호원양성소 교수 1년 후 개업. 신창희는 중국에서 김구와 연결됨. 주현칙만 학교에 남지 않음. 김필순·주현칙·신창희·박서양 4명은 독립유공 포상.",
+          "source_url": "https://www.pressian.com/pages/articles/96340",
+          "confidence": "medium"
+        },
+        {
+          "claim": "박서양(1885/1887–1940, 본명 봉출): 백정 박성춘의 아들. 박성춘(1862–1933)은 에비슨이 병을 고쳐 준 뒤 기독교인이 되었고 백정 차별 철폐 탄원(1895)을 냈으며 1898년 관민공동회에서 연설, 1911년 승동교회 장로가 됨. 박서양은 모교 화학·외과 교수를 지내다 1917~18년 만주(간도)로 이주.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0076573",
+          "confidence": "high"
+        },
+        {
+          "claim": "박서양은 간도에 구세병원과 숭신학교를 세움. 대한국민회 군사령부 군의로 활동했고 건국포장을 추서받음.",
+          "source_url": "https://pressian.com/pages/articles/90421",
+          "confidence": "medium"
+        },
+        {
+          "claim": "김필순(1878–1919): 황해도 장연 출생, 배재학당 출신. 에비슨의 통역·조수로 일함. 안창호와 가까웠고 신민회 참여. 105인 사건 체포가 임박하자 1911년 말 중국으로 망명. 통화·치치하얼에서 병원을 열어 수입을 군자금으로 보냄. 1919-09-01 사망(일본인 의사가 준 독이 든 우유설이 있으나 출처는 주장 수준). 건국훈장 애족장. 누이 김순애(김규식 부인), 조카 김마리아, 아들 김염(중국 영화배우).",
+          "source_url": "https://ko.wikipedia.org/wiki/김필순",
+          "date": "1919-09-01",
+          "confidence": "medium"
+        },
+        {
+          "claim": "교명 변천: 1909.7 세브란스병원의학교 학부 인가 → 1913.6 세브란스연합의학교 → 1917.5.14 세브란스연합의학전문학교 인가(의대 연혁 기준. 병원 연혁은 1922.4.1 개칭으로 표기).",
+          "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "1914 한국 최초의 인턴제도 실시(세브란스).",
+          "source_url": "https://sev.severance.healthcare/sev/about/history.do",
+          "date": "1914",
+          "confidence": "medium"
+        },
+        {
+          "claim": "조선기독교대학(Chosen Christian College): 1915.03.05 현지이사회 조직, 1915.04.12 종로 YMCA에서 개교식. 초대 교장 원두우(Underwood), 부교장 에비슨. 1914년 4월 YMCA에서 배재·경신 대학반을 합친 예비반을 시작했다는 견해도 있음. '60명'이라는 입학생 수는 미확인.",
+          "source_url": "https://scholar.kyobobook.co.kr/article/detail/4010028559723",
+          "date": "1915-04-12",
+          "confidence": "high"
+        },
+        {
+          "claim": "Horace Grant Underwood: 1859-07-19 런던 출생, 1885년 부활절(4/5)에 아펜젤러와 같은 배로 제물포 도착, 1889년 Lillias Horton과 결혼. 1916-10-12 뉴저지 애틀랜틱시티에서 사망. 1999년 양화진외국인묘원으로 이장.",
+          "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood",
+          "date": "1916-10-12",
+          "confidence": "high"
+        },
+        {
+          "claim": "형 John T. Underwood(뉴욕의 타자기 회사 사업가)가 선교를 후원했고, 신촌 부지 구입에 $50,000을 냄. Charles M. Stimson은 첫 건물 비용 $25,000을 기부.",
+          "source_url": "https://colonialkorea.com/2020/02/15/chosen-christian-college-1910s-1950s/",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1917년 사립 연희전문학교 인가(문과·신과·상과·수물과·응용화학과·농과). 날짜는 4월 7일(연세 연표) / 5월 14일 / 4월 17일 등으로 엇갈림.",
+          "source_url": "https://www.yonsei.ac.kr/wj/1390/subview.do",
+          "date": "1917-04",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1917년 언더우드 기부금으로 고양군 연희면 창천리 대지 약 19만 평(약 200 acres)을 교지로 구입. 연희동 지명은 정종이 양위 후 살던 연희궁에서 유래했고, 궁터는 지금 연세대 부근으로 추정됨.",
+          "source_url": "https://mediahub.seoul.go.kr/archives/175802",
+          "date": "1917",
+          "confidence": "medium"
+        },
+        {
+          "claim": "캠퍼스 설계 Murphy & Dana(Henry K. Murphy): 1917-12 첫 배치도, 1919-05 수정안. 스팀슨관은 1919-04 정초, 1920 준공(최초의 건물). 언더우드관·아펜젤러관은 1921-10-05 정초, 1924 완공.",
+          "source_url": "https://colonialkorea.com/2020/02/15/chosen-christian-college-1910s-1950s/",
+          "confidence": "medium"
+        },
+        {
+          "claim": "에비슨: 1860년 영국 허더스필드 출생, 1893년 6월 부산 도착. 고종의 시의(옻 중독 치료 후). 1916.12 연희전문 2대 교장(~1934), 1913–1935 세브란스 교장. 1956년 플로리다에서 사망.",
+          "source_url": "https://en.wikipedia.org/wiki/Oliver_R._Avison",
+          "confidence": "high"
+        },
+        {
+          "claim": "이갑성(1889–1981, 대구): 세브란스를 1915년 졸업하고 제약부 주임. 민족대표 33인(개신교). 독립선언서를 인쇄·배포했고 강기덕에게 1,500매를 맡김. 징역 2년 6개월. 훗날 밀정설·창씨개명 논란이 있으나 미확정.",
+          "source_url": "https://ko.wikipedia.org/wiki/이갑성",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1919 세브란스 교직원(이갑성 등)이 기독교계 독립운동을 조직했고, 학생들은 YMCA망을 통해 전국화. 선언서를 해부학 실습실에 숨겼다는 일화는 미술 전시 설명에 나오는 것으로 낮은 신뢰.",
+          "source_url": "https://ir.ymlib.yonsei.ac.kr/bitstream/22282913/166619/1/T201804236.pdf",
+          "confidence": "medium"
+        },
+        {
+          "claim": "스코필드(Frank W. Schofield, 석호필, 1889–1970): 영국 워릭셔 출생. 소아마비로 한쪽 팔과 다리가 마비됨. 1916년 세브란스 세균학 교수로 옴. 1919-02-28 제자 이갑성에게 거사 계획을 듣고 선언서를 받아 시위 촬영을 부탁받음. 4/15 제암리 학살 후 현장에 들어가 사진을 찍고 생존자를 면담해 해외 언론에 알림. 1920년 3월 사실상 추방. '34번째 민족대표'로 불리며 외국인 최초로 국립서울현충원에 안장. 석호필 = 돌(石)·호랑이(虎)·도울 필(弼).",
+          "source_url": "https://en.wikipedia.org/wiki/Frank_Schofield",
+          "date": "1919-04",
+          "confidence": "high"
+        },
+        {
+          "claim": "원한경(H.H. Underwood, 언더우드의 아들)도 1919.03 제암리 학살을 폭로함.",
+          "source_url": "https://yonsei.ac.kr/sc/312/subview.do",
+          "confidence": "medium"
+        },
+        {
+          "claim": "김원벽(1894-06-24 황해도 은율 – 1928-04-09 사리원): 연희전문 학생이자 승동교회 청년회장. 1919년 1월 중순 박희도가 대관원(중국음식점)에 학생들을 모음. 3/1 민족대표를 찾아다님. 3/5 남대문역 광장에서 강기덕과 '조선독립' 깃발을 들고 인력거에 올라 시위를 지휘하다 체포, 징역 2년. 출옥 후 신생활·시대일보 기자. 1962년 건국훈장 독립장.",
+          "source_url": "https://ko.wikipedia.org/wiki/김원벽",
+          "date": "1919-03-05",
+          "confidence": "medium"
+        },
+        {
+          "claim": "3/5 남대문역 시위 세부(인력거, 깃발, 수만 군중, 대한문 부근에서 충돌).",
+          "source_url": "https://www.kyeongin.com/article/1747131",
+          "date": "1919-03-05",
+          "confidence": "medium"
+        }
+      ],
+      "people": [
+        {
+          "name_ko": "올리버 R. 에비슨",
+          "name_en": "Oliver R. Avison",
+          "role": "세브란스병원장, 연희전문 2대 교장, 두 학교를 잇는 인물",
+          "years": "1860–1956",
+          "personality": "실용적 조직가, 설득력 있는 연설가, 계획서를 늘 품고 다님",
+          "appearance": "(사진 기반·저신뢰) 1900년대 40대 백인 남성. 콧수염, 이마가 넓고 머리숱이 적음, 작은 안경, 짙은 정장에 하이칼라 셔츠. 병원 장면에서는 흰 가운."
+        },
+        {
+          "name_ko": "루이스 H. 세브란스",
+          "name_en": "Louis H. Severance",
+          "role": "Standard Oil 재무책임자, 병원 기부자",
+          "years": "1838–1913",
+          "personality": "독실한 장로, 겸손한 자선가",
+          "appearance": "(저신뢰) 1900년 60대. 흰 턱수염·콧수염, 프록코트, 회중시계 줄"
+        },
+        {
+          "name_ko": "원두우",
+          "name_en": "Horace Grant Underwood",
+          "role": "조선기독교대학 초대 교장",
+          "years": "1859–1916",
+          "personality": "열정적, 쉬지 않는 개척자, 결국 건강 악화",
+          "appearance": "(저신뢰) 1915년 50대. 짙은(희끗해진) 풍성한 턱수염과 콧수염, 짙은 정장"
+        },
+        {
+          "name_ko": "존 T. 언더우드",
+          "name_en": "John T. Underwood",
+          "role": "형, 타자기 사업가, 신촌 부지·언더우드관 기부",
+          "years": "1857–1937"
+        },
+        {
+          "name_ko": "박서양",
+          "name_en": "Park Seo-yang",
+          "role": "1회 졸업생, 백정의 아들, 교수, 간도 독립운동",
+          "years": "1885/1887–1940",
+          "personality": "신분 차별을 넘어선 끈기, 조용한 결단",
+          "appearance": "(저신뢰) 1908년 20대 초. 짧은 머리, 졸업 사진에서 양복 차림"
+        },
+        {
+          "name_ko": "박성춘",
+          "role": "백정, 박서양의 아버지, 백정 해방운동가, 승동교회 장로",
+          "years": "1862–1933",
+          "personality": "에비슨에게 치료받은 뒤 회심, 관민공동회 연설"
+        },
+        {
+          "name_ko": "김필순",
+          "name_en": "Kim Pil-sun",
+          "role": "1회 졸업생, 에비슨의 통역·교과서 번역, 신민회, 만주 망명",
+          "years": "1878–1919",
+          "personality": "학구적, 애국적, 비극적 결말",
+          "appearance": "(저신뢰) 30세 무렵 짧은 머리, 콧수염, 양복"
+        },
+        {
+          "name_ko": "홍석후",
+          "role": "1회 졸업생, 안·이비인후과 교수, 학감",
+          "years": "?"
+        },
+        {
+          "name_ko": "이갑성",
+          "role": "세브란스 제약주임, 민족대표 33인",
+          "years": "1889–1981",
+          "personality": "학생과 원로를 잇는 연락책, 훗날 논란이 있음"
+        },
+        {
+          "name_ko": "프랭크 스코필드 (석호필)",
+          "name_en": "Frank W. Schofield",
+          "role": "세브란스 세균학 교수, 3·1운동·제암리 사진 기록자",
+          "years": "1889–1970",
+          "personality": "불의에 분노, 고집 셈, 한국을 사랑함",
+          "appearance": "소아마비로 한쪽 팔과 다리가 불편해 지팡이를 짚음(기록됨). (저신뢰) 30세 무렵 콧수염, 안경, 목에 카메라"
+        },
+        {
+          "name_ko": "김원벽",
+          "role": "연희전문 학생, 3월 5일 남대문역 시위 지휘",
+          "years": "1894–1928",
+          "personality": "대담한 청년 지도자",
+          "appearance": "(저신뢰) 25세 학생, 짧은 머리, 두루마기 또는 교복, 인력거 위에서 깃발을 든 모습"
+        },
+        {
+          "name_ko": "찰스 스팀슨",
+          "name_en": "Charles M. Stimson",
+          "role": "첫 건물 스팀슨관 기부자($25,000)"
+        }
+      ],
+      "story_hooks": [
+        "1900년 4월 카네기홀: 에비슨이 '일곱 개의 부실한 병원보다 하나의 좋은 병원'을 호소하자, 낯선 신사 세브란스가 다가와 계획을 묻는다. 에비슨이 '그런 병원 계획서가 지금 제 주머니에 있습니다'라며 고든의 설계도를 꺼낸다.",
+        "1902년 11월 남대문 밖: 신제중원 머릿돌 놓는 날의 초청장. 1904년 9월 23일 복숭아골에 세브란스병원이 문을 열고, 오후 5시 열쇠를 여는 의식이 열린다.",
+        "백정 박성춘은 죽을 병에서 에비슨에게 치료받은 뒤 백정 해방 탄원서를 쓴다. 그 아들 봉출(박서양)은 1908년 한국 최초의 면허 의사 7명 중 하나가 된다. 백정의 아들이 의사 가운을 입는 장면.",
+        "1908년 6월 3일 오후 4시: 테니스장 위 대형 텐트와 의자 700석, 하객 약 1,000명. 이토 히로부미가 귀빈석에 앉은 가운데 조선인 졸업생 7명이 졸업장을 받는 긴장된 순간.",
+        "김필순의 집과 안창호, 신민회. 105인 사건 체포망이 좁혀 오자 1911년 말 김필순은 동료 의사에서 망명객이 되어 만주로 떠나고, 1919년 치치하얼에서 의문의 죽음을 맞는다.",
+        "1915년 4월 12일 종로 YMCA 빌린 교실: 원두우가 조선기독교대학을 연다. 1년 반 뒤인 1916년 10월 12일, 그는 신촌 캠퍼스를 보지 못한 채 애틀랜틱시티에서 숨진다.",
+        "1917년 형 존 언더우드의 기부금으로 연희궁 옛터 근처 창천리 약 19만 평을 산다. 1919년 4월 3·1운동 한복판에서 스팀슨관 머릿돌이 놓인다.",
+        "1919년 2월 28일: 제자 이갑성이 지팡이 짚은 스코필드 교수에게 선언서를 건네며 '사진을 찍어 세계에 알려 달라'고 부탁한다.",
+        "1919년 3월 5일 남대문역 광장: 연희전문생 김원벽이 인력거 위에서 '조선독립' 깃발을 흔들고 수만 군중이 환호한다. 그는 체포되어 징역 2년을 받는다.",
+        "1919년 4월 제암리: 스코필드가 경찰을 피해 불탄 교회 터에 들어가 셔터를 누른다. 그는 '34번째 민족대표'가 되고, 1920년 쫓겨나듯 한국을 떠난다."
+      ],
+      "key": "pillars",
+      "verification": {
+        "corrections": [
+          {
+            "original_claim": "1. 에비슨 1900 뉴욕 카네기홀 Ecumenical Missionary Conference에서 'Comity in Medical Missions' 발표, 날짜 4/27 vs 4/30",
+            "verdict": "confirmed",
+            "corrected_claim": "Conference ran Apr 21–May 1, 1900 (Carnegie Hall + nearby churches). Proceedings title = 'Comity in Medical Mission Work'. Apr 27 given by Korean medical-history sources (YMJ/PMC); Apr 30 not found anywhere. Use 'late April 1900'.",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5725344"
+          },
+          {
+            "original_claim": "2. Severance가 발표 듣고 상의; 'I have in my pocket right now a plan for such a hospital'; 최초 $10,000; 완공 전 땅·사택 3채로 3배 소요",
+            "verdict": "confirmed",
+            "corrected_claim": "Quote, $10,000, and 'three times the original gift... ground and three residences' all verbatim in J Severance Union Med Coll article (Avison-derived account). PCUSA article independently confirms initial $10,000. Quote itself single-sourced.",
+            "source_url": "https://synapse.koreamed.org/articles/1093699"
+          },
+          {
+            "original_claim": "3. 세브란스병원 공식 연혁: 1900.5 L.H. Severance 병원 설립 기금 기증",
+            "verdict": "confirmed",
+            "corrected_claim": "Official entry: '1900. 5 미국인 L.H.Severance가 병원 설립 기금 기증'.",
+            "source_url": "https://sev.severance.healthcare/sev/about/history.do"
+          },
+          {
+            "original_claim": "4. 'You give, I receive' 미확인; PCUSA는 'It is more blessed to give than to receive and to serve than to be served' 인용",
+            "verdict": "confirmed",
+            "corrected_claim": "PCUSA quote verified verbatim. No source found for 'You give, I receive'. Treat as paraphrase.",
+            "source_url": "https://new14.pcusa.org/news/2014/10/9/severance-pay"
+          },
+          {
+            "original_claim": "5. L.H. Severance(1838–1913): Standard Oil 재무책임자, 록펠러 동업자, Woodland Avenue 장로교회 장로·주일학교 교사",
+            "verdict": "confirmed",
+            "corrected_claim": "Aug 1838–Jun 1913; Standard Oil treasurer 1876–1894 (Case Western Encyclopedia of Cleveland History / Wikipedia). Presbyterian mission sponsor confirmed; Woodland Avenue elder/Sunday-school detail only in PCUSA article.",
+            "source_url": "https://case.edu/ech/articles/s/severance-louis-henry"
+          },
+          {
+            "original_claim": "6. 설계 Henry Bauld Gordon; 계획안 환자 40명 수용, 약 $10,000",
+            "verdict": "unverifiable",
+            "corrected_claim": "Gordon as designer (donated plans, supervised construction 1903, left Sept 1904 before dedication) confirmed. '40 patients' capacity and '$10,000 plan cost' not in cited colonialkorea article or any other source found. Drop or soften the numbers.",
+            "source_url": "https://colonialkorea.com/2020/07/09/the-architecture-of-henry-bauld-gordon-in-korea-1899-1905/"
+          },
+          {
+            "original_claim": "7. 정초식 초청장 1902년 11월, '남대문 밖'; 미 국무부 1902-11-28 정초 보고; 11/27 날짜·알렌 머릿돌설 미확인",
+            "verdict": "confirmed",
+            "corrected_claim": "Invitation dated Nov 1902, outside Namdaemun confirmed. Allen dispatch No. 542 dated Nov 28, 1902 on cornerstone of Severance Memorial Hospital confirmed. Nov 27 date and Allen personally laying stone still unconfirmed. Allen only reported it.",
+            "source_url": "https://search.library.wisc.edu/digital/A6MPC7E6LKDRFG86/text/A4IQ2TOPZYWICS8T"
+          },
+          {
+            "original_claim": "8. 1904.9.23 남대문 밖 복숭아골(도동) 준공·이전, 제중원→세브란스병원 개칭; 연세 연표는 09.03",
+            "verdict": "confirmed",
+            "corrected_claim": "Hospital official = 1904.9.23. Yonsei chronology does show '09. 03.' Colonialkorea (Gordon article) also gives dedication Sept 23. One English source gives Nov 16, 1904 opening, but Sept 23 is best supported.",
+            "source_url": "https://sev.severance.healthcare/sev/about/history.do"
+          },
+          {
+            "original_claim": "9. 제1회 졸업식 1908-06-03 오후 4시, 7명; 6/4 의술개업인허장; 에비슨 회고록 6/8",
+            "verdict": "confirmed",
+            "corrected_claim": "Date, 4 p.m., 7 names, Jun 4 license confirmed (Pressian + Yonsei medicine history '1908.6.3 ... 7명 배출'). Avison memoir 'June 8' not verified; omit.",
+            "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do"
+          },
+          {
+            "original_claim": "10. 졸업식: 통감부 텐트, 700석, 이토 히로부미 귀빈석, 김윤식 참석, 하객 약 1,000명",
+            "verdict": "confirmed",
+            "corrected_claim": "All details in Pressian (Park Hyoung-woo series). No independent second source found; single-source.",
+            "source_url": "https://www.pressian.com/pages/articles/96340"
+          },
+          {
+            "original_claim": "11. 2023년 자료집에서 졸업 사진 속 주현칙·홍종은 위치 바뀌어 알려졌음",
+            "verdict": "confirmed",
+            "corrected_claim": "『올리버 R. 에비슨 자료집Ⅵ - 한국의 첫 면허 의사 배출』 (박형우 편, 2023), article dated 2023-07-06.",
+            "source_url": "https://www.dailymedi.com/news/news_view.php?wr_id=899647"
+          },
+          {
+            "original_claim": "12. 김필순·홍석후·홍종은 등이 에비슨 지도로 우리말 의학 교과서 거의 전 과목 편찬",
+            "verdict": "confirmed",
+            "corrected_claim": "Supported by Pressian (e.g., 김필순 translated anatomy 1906, Avison revised; 홍석후 『신편생리교과서』 1906). Cited encykorea E0029806 does NOT mention this; replace source.",
+            "source_url": "https://pressian.com/pages/articles/96261"
+          },
+          {
+            "original_claim": "13. 졸업 후 진로(홍석후 최장 재직·동창회·학감, 김희영·신창희 간호원양성소 1년 후 개업, 주현칙만 학교 안 남음); 김필순·주현칙·신창희·박서양 4명 독립유공 포상",
+            "verdict": "confirmed",
+            "corrected_claim": "Careers match Pressian. Four-person award confirmed by Yonsei thesis T201804236. 'Shin Chang-hee linked to Kim Gu in China' not checked; keep vague.",
+            "source_url": "https://ir.ymlib.yonsei.ac.kr/bitstream/22282913/166619/1/T201804236.pdf"
+          },
+          {
+            "original_claim": "14. 박서양(1885/1887–1940, 본명 봉출): 백정 박성춘 아들; 박성춘(1862–1933) 에비슨 치료 후 기독교, 1895 탄원, 1898 관민공동회 연설, 1911 승동교회 장로; 박서양 화학·외과 교수, 1917~18 만주 이주",
+            "verdict": "confirmed",
+            "corrected_claim": "Encykorea 박성춘 entry confirms 1862–1933, ~1894 Avison treatment, Apr 1895 petition, 1898-10-28 관민공동회 speech, 승동교회 장로, son moved to Manchuria 1918. Chemistry→surgery teaching from Pressian. Birth year 1885 (en wiki) vs 1887 (Korean press) remains split.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0076573"
+          },
+          {
+            "original_claim": "15. 박서양 간도에 구세병원·숭신학교 설립, 대한국민회 군사령부 군의, 건국포장 추서",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed by Pressian and medigatenews. One Pressian line puts 구세병원 in 의주, which is likely an error; Gando/Yongjeong is correct.",
+            "source_url": "https://medigatenews.com/news/2751341456"
+          },
+          {
+            "original_claim": "16. 김필순(1878–1919): 황해도 장연, 배재학당, 에비슨 통역·조수, 안창호·신민회, 1911년 말 망명, 통화·치치하얼 병원, 1919-09-01 사망(독우유설), 건국훈장 애족장, 누이 김순애, 조카 김마리아, 아들 김염",
+            "verdict": "confirmed",
+            "corrected_claim": "Encykorea confirms 1878-06-25 to 1919-09-01, Kim Kyu-sik's brother-in-law, Kim Maria's uncle, Qiqihar hospital. Moved Tonghua→Qiqihar 1916. Award: ko.wikipedia says first awarded 1977; exact grade (애족장) not independently confirmed in this check. Verify on e-gonghun.mpva.go.kr. Poison-milk story is claim-level only.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0073807"
+          },
+          {
+            "original_claim": "17. 1909.7 세브란스병원의학교 학부 인가 → 1913.6 세브란스연합의학교 → 1917.5.14 세브란스연합의학전문학교 인가(병원 연혁은 1922.4.1 개칭)",
+            "verdict": "confirmed",
+            "corrected_claim": "Medical school history matches exactly. Hospital history lists 1909.7 as '사립 세브란스의학교로 교명 제정' and 1922.4.1 '세브란스 연합 의학전문학교로 개칭'. Yonsei chronology also confirms 1917.05.14 인가.",
+            "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do"
+          },
+          {
+            "original_claim": "18. 1914 한국 최초 인턴제도 실시(세브란스)",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Per 연세의사학 2024 (이경록), the program began in April 1914 with 6 interns.",
+            "source_url": "https://ir.ymlib.yonsei.ac.kr/handle/22282913/201266"
+          },
+          {
+            "original_claim": "19. 조선기독교대학 1915.03.05 현지이사회, 1915.04.12 YMCA 개교식, 초대 교장 원두우·부교장 에비슨; 1914.4 예비반설; 60명 미확인",
+            "verdict": "confirmed",
+            "corrected_claim": "Yonsei chronology confirms 1915.04.12, Underwood/Avison. 안종철 paper: Becker began joint preparatory class at YMCA on 1914-04-12. '60 students' still unverified.",
+            "source_url": "https://www.yonsei.ac.kr/wj/1390/subview.do"
+          },
+          {
+            "original_claim": "20. H.G. Underwood: 1859-07-19 런던, 1885 부활절(4/5) 아펜젤러와 제물포 도착, 1889 Lillias Horton 결혼, 1916-10-12 애틀랜틱시티 사망, 1999 양화진 이장",
+            "verdict": "confirmed",
+            "corrected_claim": "All confirmed. Originally buried at Grove Church Cemetery, North Bergen NJ.",
+            "source_url": "https://en.wikipedia.org/wiki/Horace_Grant_Underwood"
+          },
+          {
+            "original_claim": "21. 형 John T. Underwood(타자기 사업가) 후원, 신촌 부지 구입에 $50,000; Stimson 첫 건물 $25,000",
+            "verdict": "corrected",
+            "corrected_claim": "John T. gave $50,000 'to cover the cost of setting up the physical site', not explicitly land purchase. He gave ~$300,000 over his lifetime. Stimson $25,000 for first building confirmed. Older brother, typewriter entrepreneur confirmed.",
+            "source_url": "https://colonialkorea.com/2020/02/15/chosen-christian-college-1910s-1950s/"
+          },
+          {
+            "original_claim": "22. 1917 사립 연희전문학교 인가(6개 과); 날짜 4/7 / 5/14 / 4/17 엇갈림",
+            "verdict": "corrected",
+            "corrected_claim": "Yonsei chronology: 1917.04.07 사립 연희전문학교 인가 (문과·신과·상과·수물과·응용화학과·농과). 5/14 is the Severance Union Medical College 인가 date (confused). 4/17 has no source. Use April 7, 1917.",
+            "source_url": "https://www.yonsei.ac.kr/wj/1390/subview.do"
+          },
+          {
+            "original_claim": "23. 1917 언더우드 기부금으로 고양군 연희면 창천리 대지 약 19만 평(약 200 acres) 구입; 연희동 지명은 정종이 양위 후 살던 연희궁에서 유래, 궁터 연세대 부근",
+            "verdict": "corrected",
+            "corrected_claim": "Purchase confirmed: Yonsei chronology 1917.09, 19만평 (colonialkorea: '>200 acres'). 연희궁 site near Yonsei main gate confirmed (교내 '연희궁터 서잠실터' 표석). 정종 양위 후 거처 link is disputed: some cite 서이궁 for 정종, others say he lived at 인덕궁, and 세종 rebuilt 서이궁 for 태종 and renamed it 衍禧宮 in 1425. Present the 정종 link as one tradition, not fact.",
+            "source_url": "https://brunch.co.kr/@gilbert-story/67"
+          },
+          {
+            "original_claim": "24. Murphy & Dana: 1917-12 배치도, 1919-05 수정안; 스팀슨관 1919-04 정초·1920 준공; 언더우드관·아펜젤러관 1921-10-05 정초·1924 완공",
+            "verdict": "corrected",
+            "corrected_claim": "Plans 1917-12 / 1919-05 and Stimson cornerstone April 1919 (YMJ: Apr 19, 1919; laid by Lillias Underwood), completed 1920 confirmed. 1921-10-05 cornerstones 'reportedly'. Completion dates conflict: Yonsei says 1924, but a Korean architecture journal gives Appenzeller Oct 1922 and Underwood 1925. Say 'early-to-mid 1920s'.",
+            "source_url": "https://colonialkorea.com/2020/02/15/chosen-christian-college-1910s-1950s/"
+          },
+          {
+            "original_claim": "25. 에비슨: 1860 허더스필드, 1893.6 부산 도착, 옻 중독 치료 후 고종 시의, 1916.12 연희전문 2대 교장(~1934), 1913–1935 세브란스 교장, 1956 플로리다 사망",
+            "verdict": "corrected",
+            "corrected_claim": "Born June 30, 1860 (infobox says July 30), Huddersfield. Arrived Busan June/July 1893. Lacquer-poisoning story and CCC 2nd president from Dec 1916 to 1934 confirmed. Severance headship ended 1934 (오긍선 became 2nd principal 1934); 1934.03 made honorary principal; retired and left Korea 1935.11. Died Aug 28/29, 1956, St. Petersburg FL. Replace '1913–1935' with '~1934'.",
+            "source_url": "https://en.wikipedia.org/wiki/List_of_Yonsei_University_presidents"
+          },
+          {
+            "original_claim": "26. 이갑성(1889–1981, 대구): 세브란스 1915 졸업, 제약부 주임, 33인(개신교), 강기덕에게 1,500매, 징역 2년 6개월, 밀정설·창씨개명 논란 미확정",
+            "verdict": "confirmed",
+            "corrected_claim": "ko.wikipedia confirms 1889-10-23 to 1981-03-25, Daegu, 1,500 copies to 강기덕, 2y6m. Education is murky: same page also says 1913 pharmacy course, and Seoul Shinmun says he was a Severance clerk from 1913. Spy allegations unproven; 창씨개명 claim and 1993 보훈처 list are mentioned.",
+            "source_url": "https://ko.wikipedia.org/wiki/이갑성"
+          },
+          {
+            "original_claim": "27. 1919 세브란스 교직원(이갑성 등)이 기독교계 독립운동 조직, 학생은 YMCA망으로 전국화; 해부학 실습실 은닉 일화는 낮은 신뢰",
+            "verdict": "confirmed",
+            "corrected_claim": "Severance central role confirmed (Yonsei thesis; Seoul Shinmun 1999). Anatomy-lab hiding anecdote: no source found. Keep it flagged as legend or drop it.",
+            "source_url": "https://ir.ymlib.yonsei.ac.kr/bitstream/22282913/166619/1/T201804236.pdf"
+          },
+          {
+            "original_claim": "28. 스코필드(1889–1970): 워릭셔 출생, 소아마비, 1916 세브란스 세균학 교수, 1919-02-28 이갑성에게 선언서·촬영 부탁, 4/15 제암리 후 현장 촬영·해외 보도, 1920.3 사실상 추방, 34번째 민족대표, 외국인 최초 현충원 안장, 石虎弼",
+            "verdict": "confirmed",
+            "corrected_claim": "Born 15 Mar 1889, Warwickshire. Died 12 Apr 1970 (funeral 16 Apr). Polio left one arm and one leg paralyzed. Arrived Nov 1916 (sources vary: Aug/Oct/Nov). Feb 28 Yi Gap-seong episode confirmed on en.wikipedia. He learned of Jeam-ri on Apr 17 and went ~Apr 18. Left when contract ended Mar 1920. Canadian (emigrated 1907).",
+            "source_url": "https://en.wikipedia.org/wiki/Frank_Schofield"
+          },
+          {
+            "original_claim": "29. 원한경(H.H. Underwood)도 1919.03 제암리 학살 폭로",
+            "verdict": "corrected",
+            "corrected_claim": "The massacre was Apr 15, 1919, so '1919.03' (Yonsei page) is impossible. H.H. Underwood visited Jeam-ri about Apr 16, 1919 with US consul R.S. Curtice and A.W. Taylor, then publicized it. Use April 1919.",
+            "source_url": "https://accesson.kr/ksq/assets/pdf/41083/journal-41-4-105.pdf"
+          },
+          {
+            "original_claim": "30. 김원벽(1894-06-24 은율 – 1928-04-09 사리원): 연희전문, 승동교회 청년회장, 1919.1 중순 박희도 대관원 모임, 3/5 남대문역 강기덕과 인력거·깃발 지휘 체포, 징역 2년, 신생활·시대일보, 1962 건국훈장 독립장",
+            "verdict": "confirmed",
+            "corrected_claim": "All confirmed by ko.wikipedia and 경인일보. Daegwanwon timing varies: 경인 says mid-January, Encykorea says late January, and ko.wiki also cites a Feb 27 대관원 meeting.",
+            "source_url": "https://ko.wikipedia.org/wiki/김원벽"
+          },
+          {
+            "original_claim": "31. 3/5 남대문역 시위 세부(인력거, 깃발, 수만 군중, 대한문 부근 충돌)",
+            "verdict": "confirmed",
+            "corrected_claim": "경인일보: 9 a.m. assembly plan, 400 notices, tens of thousands by ~8 a.m., infantry company posted near 대한문. 인력거/깃발 detail from ko.wikipedia. 'Clash at 대한문' only implied by troop placement.",
+            "source_url": "https://www.kyeongin.com/article/1747131"
+          }
+        ]
+      }
+    },
+    {
+      "topic": "Yonsei 1925–1957: dark age, preservation, liberation, birth of 연세 (최현배, 이윤재, 정인보, 백남운, 백낙준, 원한경, 윤치호, 윤동주, 1942 seizure, 1944 rename, 1946 연희대, 1957 merger)",
+      "facts": [
+        {
+          "claim": "Yonsei official principal list: 3rd 교장 원한경 (H.H. Underwood) 1934.09–1941.12; 4th 교장 윤치호 1941.12–1942.08; 5th 유억겸 1945.08–1945.12; 6th 백낙준 1945.12–1946.08; 연희대학교 1st 총장 백낙준 1946.08–1957.01. Same site's individual profiles give slightly different dates (윤치호 '1941.04~1942.04'; 백낙준 교장 '1946.01~1946.10'). No principal listed 1942.08–1945.08 (Japanese-run period).",
+          "source_url": "https://yonsei.ac.kr/sc/312/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "원한경 profile on Yonsei site: resigned 1941 under Japanese coercion (일제의 강요로 사임), then elected honorary principal.",
+          "source_url": "https://yonsei.ac.kr/sc/312/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "1942.08.17: Japan seized 연희전문 as enemy property (적산) and the first Japanese principal took office. Japan took the Underwood statue and built a stone '興亞紀念塔' (흥아기념탑) in its place. (Official chronology spells it 興亞紀念塔, not 흥아유신기념탑.)",
+          "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "1944.04: 연희전문학교 renamed '경성공업경영전문학교' (Keijo Industrial Management College).",
+          "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "Severance medical school forcibly renamed 아사히(旭)의학전문학교 and hospital. Date conflict: Severance medicine history page says 1942.1.31; Yonsei main chronology says 1942.06. Name restored to 세브란스의학전문학교 on 1945.8.15; upgraded to 세브란스의과대학 1947.7.5.",
+          "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "In December 1941 when the Pacific War began, American and British trustees and instructors were removed; government took direct control August 1942. 연희 reopened 1946-01-21 and was recognized as a university 1946-08-15 (per EN wiki).",
+          "source_url": "https://en.wikipedia.org/wiki/Yonsei_University",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1946.08: 연희대학교 학칙 인가, 초대 총장 백낙준 취임; launched as comprehensive university with 4 colleges (학원), 11 departments. 1955.03.23: final decision to merge 연희대 and 세브란스의대.",
+          "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "1957.1.5: 연희대학교 and 세브란스의과대학 merged (합동) to form 연세대학교. Name = 'Yon' (연희) + 'Sei' (세브란스).",
+          "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "백낙준: after liberation, 1945-09 appointed to US Military Government education committee and became 연희전문 접수위원 (takeover committee), reorganizing facilities and staff; became principal 1946-01, first 총장 when it became 연희대학교 1946-08.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0022020",
+          "confidence": "medium"
+        },
+        {
+          "claim": "백낙준 (호 용재, 1895-03-09 정주 – 1985-01-13): Yale PhD 1927 on Korean Protestant history; joined 연희전문 1927; arrested 1939 and resigned; listed in 친일인명사전 for wartime pro-Japanese org activity; 1st 연세대 총장 1957; 문교부 장관 1950.05–1952.10.",
+          "source_url": "https://ko.wikipedia.org/wiki/백낙준",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Yonsei school song (교가) lyrics by 백낙준, music by 박태준 — NOT 정인보. 정인보 wrote lyrics for 3·1절, 광복절, 제헌절, 개천절 songs and several other schools' songs.",
+          "source_url": "https://yonsei.ac.kr/bbs/sc/61/982034/download.do",
+          "confidence": "medium"
+        },
+        {
+          "claim": "정인보 (鄭寅普, 1893-05-06 – 1950-11?; 호 위당/담원): invited to 연희전문 1922 teaching 한문·조선문학; columnist 동아일보; left 연희 1937 to escape colonial pressure; 1940 retreated to 양주, 1945 익산; '얼' concept, 《오천년간 조선의 얼》; abducted north 1950-07-31, death date unclear.",
+          "source_url": "https://ko.wikipedia.org/wiki/정인보",
+          "confidence": "high"
+        },
+        {
+          "claim": "백남운 (1895 고창 – 1979): professor at 연희전문 1925–1938; 『조선사회경제사』 1933 (Japanese, 改造社 경제학전집 vol. 61), first socioeconomic history of Korean ancient society; arrested 1938 in '조선사정연구회사건' (often called 연전 경제연구회 사건) with 이순탁, 노동규 and 10 students; imprisoned. 1938 Seodaemun prison ID photo at age 44 exists. Went north; DPRK education minister 1948-09.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0022026",
+          "confidence": "high"
+        },
+        {
+          "claim": "최현배 (외솔, 1894-10-19 울산 – 1970-03-23): 『우리말본』 completed 1937 (partial 1929); 『한글갈』 1940; taught 윤동주 at 연희 in 1939 (윤 scored 100 in Korean); barred from teaching Korean, worked as library clerk; 1942 조선어학회 사건 sentenced 4 years, 함흥 prison; post-liberation 미군정/문교부 편수국장; returned to 연희 1954, vice-president; retired 1959.",
+          "source_url": "https://ko.wikipedia.org/wiki/최현배",
+          "confidence": "high"
+        },
+        {
+          "claim": "조선어학회 사건: began with 정태진 taken 1942-09-05; 1942-10-01 eleven members arrested in Seoul and sent to 홍원 next day; 33 arrested by 1943-04-01; held at 함흥형무소 미결감; 이극로 6 yrs, 최현배 4 yrs; appeal dismissed 1945-08-13; 최현배 released from 함흥 1945-08-17 (wiki says 08-15).",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0052129",
+          "confidence": "high"
+        },
+        {
+          "claim": "이윤재 died in prison (함흥) 1943-12-08; 한징 died 1944-02-22. (Encykorea fetch read death year as 1942 — likely extraction error; most sources say 1943.) No source found confirming 이윤재 taught at 연희전문.",
+          "source_url": "https://sgsg.hankyung.com/article/2024090623071",
+          "confidence": "medium"
+        },
+        {
+          "claim": "윤동주: born 1917-12-30 명동촌, 북간도; entered 연희전문 문과 April 1938; graduated 1941-12-27; Rikkyo Univ English lit 1942-03; Doshisha 1942-10; arrested 1943-07-14 under 치안유지법 (Kyoto, 시모가모 police); sentenced 1944-03-31 to 2 years by Kyoto District Court; died Fukuoka prison 1945-02-16 03:36, age 27.",
+          "source_url": "https://ko.wikipedia.org/wiki/윤동주",
+          "confidence": "high"
+        },
+        {
+          "claim": "송몽규 (윤동주's cousin, same class) also got 2 years and died in Fukuoka prison 1945-03-07, less than a month after 윤동주.",
+          "source_url": "https://www.heraldk.com/article/2025081406500000699",
+          "confidence": "medium"
+        },
+        {
+          "claim": "1941 graduation: 윤동주 hand-copied 19 poems into 3 copies of 『하늘과 바람과 별과 시』; kept one, gave one to professor 이양하, one to junior 정병욱. 이양하 advised delay because content was 'too nationalistic'. Yun's and 이양하's copies were lost.",
+          "source_url": "https://www.hankyung.com/article/202507186262i",
+          "confidence": "high"
+        },
+        {
+          "claim": "정병욱, drafted as student soldier (학병), left the manuscript with his mother in 광양 망덕포구, saying keep it until he returned alive; she wrapped it in silk (명주보자기) and hid it in a jar under the wooden floor (마루 밑). House (built 1925, former brewery) registered cultural heritage 2007, 제341호 '윤동주 유고 보존 정병욱 가옥'.",
+          "source_url": "https://m.go.seoul.co.kr/news/2025/02/14/20250214500057",
+          "confidence": "high"
+        },
+        {
+          "claim": "Posthumous 『하늘과 바람과 별과 시』 published by 정음사 1948 (Jan/Feb 1948 first, 31 poems, preface by 정지용; 정병욱 handed manuscript to 강처중). 1976 3rd edition 116 poems.",
+          "source_url": "https://ko.wikipedia.org/wiki/윤동주",
+          "confidence": "high"
+        },
+        {
+          "claim": "서시 full text (dated 1941.11.20): 죽는 날까지 하늘을 우러러 / 한 점 부끄럼이 없기를, / 잎새에 이는 바람에도 / 나는 괴로워했다. / 별을 노래하는 마음으로 / 모든 죽어가는것을 사랑해야지 / 그리고 나한테 주어진 길을 / 걸어가야겠다. // 오늘 밤에도 별이 바람에 스치운다. (Manuscript spelling has '나안테'; untitled originally, called 序詩 as collection preface.)",
+          "source_url": "https://www.korean.go.kr/nkview/nknews/200401/66_8.html",
+          "confidence": "high"
+        },
+        {
+          "claim": "Copyright: Korean term is life+70 (from 2013-07-01; previously +50, and under old 1957 Act +30, non-retroactive). Yun died 1945, so 서시 is public domain in Korea under any rule. (Inference from law; no official gongu listing found.)",
+          "source_url": "https://www.mcst.go.kr/kor/s_policy/copyright/question/question11.jsp",
+          "confidence": "medium"
+        },
+        {
+          "claim": "윤동주 lived in the 연희 dormitory, now 핀슨관 (registered heritage 770; 윤동주기념관 since 2020) with 송몽규, 강처중; April 1940 정병욱 met him in the 3rd-floor attic room; later boarded with 정병욱 at 누상동 9번지 etc. 1941 photo of Yun and 정병욱 and 1941 graduation album group photo held at 윤동주기념관.",
+          "source_url": "https://www.hankyung.com/article/202507186262i",
+          "confidence": "high"
+        },
+        {
+          "claim": "원한경 (H.H. Underwood, 1890-09-06 정동 – 1951-02-20 부산): interned right after Pearl Harbor Dec 1941; deported to US May 1942; returned as US Military Government adviser; honorary president of 연희 1946/47; died of heart attack in Busan Feb 1951, buried 양화진 beside wife and mother.",
+          "source_url": "https://v.daum.net/v/20260124004127519",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Ethel Underwood (b.1888 Michigan), wife of 원한경, shot 1949-03-17 ~2pm by two masked men at Underwood house during a gathering of ~20 faculty wives hearing 모윤숙's talk; died en route to Severance. Nine 연희대 students of 남로당-linked 민주학련 (leader 김석준) blamed; police said target was 모윤숙.",
+          "source_url": "https://v.daum.net/v/20260124004127519",
+          "confidence": "medium"
+        },
+        {
+          "claim": "윤치호 described as first Korean head of present-day Yonsei (BU source says president 1930–1941 — likely board chair; Yonsei lists him as 4th 교장 1941.12–1942.08). Notorious pro-Japanese collaborator; later Japanese House of Peers member.",
+          "source_url": "https://www.bu.edu/missiology/?p=4869",
+          "confidence": "medium"
+        }
+      ],
+      "people": [
+        {
+          "name_ko": "윤동주",
+          "name_en": "Yun Dong-ju",
+          "years": "1917–1945",
+          "role": "Poet, 연희전문 문과 1938–1941; died Fukuoka prison",
+          "appearance": "Age 20–24 in era. Slim build, fair 'transparent' skin, bright dreamy eyes (정병욱 testimony). Always neat black school uniform, never knee-worn; school cap with badge; short neat hair, clean-shaven, no glasses. 1941 photos at 윤동주기념관.",
+          "personality": "Quiet, gentle, introspective, morally scrupulous (shame/conscience theme); fastidious dresser; close bond with cousin 송몽규 and junior 정병욱."
+        },
+        {
+          "name_ko": "정병욱",
+          "name_en": "Jeong Byeong-uk",
+          "years": "1922–1982",
+          "role": "Yun's junior at 연희, saved the manuscript; later SNU professor",
+          "appearance": "Teen/early 20s student, school uniform; later student-soldier uniform when drafted. Exact features unverified—use 1941 photo with Yun.",
+          "personality": "Devoted friend; asked mother to keep poems 'until I return alive'."
+        },
+        {
+          "name_ko": "정병욱 어머니",
+          "role": "Hid manuscript under floor in 광양 망덕포구 house",
+          "appearance": "Not documented; plausibly middle-aged woman in hanbok (artist invention—flag as fictionalized).",
+          "personality": "Unknown; protective act is the documented fact."
+        },
+        {
+          "name_ko": "최현배",
+          "name_en": "Choe Hyeon-bae (외솔)",
+          "years": "1894–1970",
+          "role": "Grammarian, 연희 professor, 우리말본 author, jailed 1942–45",
+          "appearance": "Age ~48 in 1942. Photos show round wire glasses, short cropped graying hair, Western suit or hanbok (low confidence—from common portrait, not text source).",
+          "personality": "Stubborn, principled defender of Hangeul; scholarly, stern teacher."
+        },
+        {
+          "name_ko": "이윤재",
+          "name_en": "Yi Yun-jae",
+          "years": "1888–1943",
+          "role": "조선어학회 linguist, died in 함흥 prison",
+          "appearance": "Mid-50s; not documented in sources found.",
+          "personality": "Devout 대종교 nationalist; previously jailed for 3·1 and 수양동우회."
+        },
+        {
+          "name_ko": "정인보",
+          "name_en": "Jeong In-bo (위당)",
+          "years": "1893–1950",
+          "role": "Classical scholar of 연희, 조선학/'얼' thinker, lyricist of national holiday songs",
+          "appearance": "Mid-40s in era; traditional scholar look, hanbok, glasses (low confidence; no text description).",
+          "personality": "Sharp, refined, uncompromising writer; withdrew rather than collaborate."
+        },
+        {
+          "name_ko": "백남운",
+          "name_en": "Baek Nam-un",
+          "years": "1895–1979",
+          "role": "연희 economics professor, Marxist historian, arrested 1938",
+          "appearance": "1938 Seodaemun prison ID photo at age 44 exists (encykorea). Details not described.",
+          "personality": "Bold materialist scholar; later went north."
+        },
+        {
+          "name_ko": "원한경",
+          "name_en": "Horace Horton Underwood",
+          "years": "1890–1951",
+          "role": "3rd principal of 연희, interned and deported 1941–42",
+          "appearance": "~51 in 1941; Western missionary in suit. Details unverified.",
+          "personality": "Korea-born, devoted; returned after liberation despite losses."
+        },
+        {
+          "name_ko": "에델 언더우드",
+          "name_en": "Ethel Underwood",
+          "years": "1888–1949",
+          "role": "Wife of 원한경, taught at 연희, killed 1949",
+          "appearance": "~60 at death; details unverified.",
+          "personality": "Educator; founded shelter for girls."
+        },
+        {
+          "name_ko": "백낙준",
+          "name_en": "Paik Lak-geoon (용재)",
+          "years": "1895–1985",
+          "role": "Took over 연희 1945, 1st 연희대 총장 1946, 1st 연세대 총장 1957",
+          "appearance": "~50 in 1945; suit and tie, academic. Details unverified.",
+          "personality": "Administrator-builder; contested 친일 record."
+        },
+        {
+          "name_ko": "윤치호",
+          "name_en": "Yun Chi-ho",
+          "years": "1865–1945",
+          "role": "4th principal 1941–42 (collaborator)",
+          "appearance": "Elderly (~76), mustache, Western suit (low confidence).",
+          "personality": "Pragmatic accommodationist; unrepentant collaborator."
+        }
+      ],
+      "story_hooks": [
+        "1941, 핀슨관 attic: 윤동주 hand-copies 19 poems three times; 이양하 tells him 'too nationalistic, wait.' The one copy that survives is the one he gave away.",
+        "광양 망덕포구, 1944-ish: 정병욱 is drafted; tells his mother 'keep this until I come back alive.' She wraps it in silk, puts it in a jar under the 마루 — the only copy that survives.",
+        "1945-02-16 03:36, Fukuoka prison: 윤동주 dies at 27; cousin 송몽규 dies in the same prison 1945-03-07. Six months before liberation.",
+        "1942-08-17: the Underwood statue is torn down and a stone 興亞紀念塔 rises in its place; 연희 becomes 'enemy property' under a Japanese principal; 1944 even the name disappears (경성공업경영전문학교).",
+        "1942-10-01: 조선어학회 members arrested, hauled to 홍원; 최현배 gets 4 years in 함흥, 이윤재 dies in a cold cell 1943-12-08. 최현배 walks out only after liberation (1945-08-17).",
+        "1938: 백남운 and fellow economics professors plus students arrested from 연희 — his prison mugshot at 44 survives.",
+        "1941-12: 원한경, born in Seoul, interned the day Pearl Harbor hits; deported May 1942; returns after liberation — and 1949-03-17 his wife Ethel is shot in their own house during a faculty wives' gathering.",
+        "1957-01-05: 연희 + 세브란스 = 연세 — the name itself is the story of two schools that survived the dark age."
+      ],
+      "key": "darkage",
+      "verification": {
+        "corrections": [
+          {
+            "original_claim": "1. Yonsei principal list: 3rd 원한경 1934.09–1941.12; 4th 윤치호 1941.12–1942.08; 5th 유억겸 1945.08–1945.12; 6th 백낙준 1945.12–1946.08; 연희대 1st 총장 백낙준 1946.08–1957.01; profiles differ (윤치호 1941.04~1942.04; 백낙준 교장 1946.01~1946.10); none listed 1942.08–1945.08.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed as stated on official page. Add: 원한경 profile gives appointment 1934.10, not 09. EN Wikipedia list matches header dates (윤치호 Dec 1941–Aug 1942). Treat principal-list header dates as canonical; profile dates conflict internally.",
+            "source_url": "https://yonsei.ac.kr/sc/312/subview.do"
+          },
+          {
+            "original_claim": "2. 원한경 resigned 1941 under Japanese coercion (일제의 강요로 사임), then elected honorary principal.",
+            "verdict": "confirmed",
+            "corrected_claim": "Profile text: '일제의 강요로 연희전문학교 교장 사임 명예교장에 피선'. Month of resignation is ambiguous (profile entry may be dated early 1941, list says term ended 1941.12). Avoid giving an exact month.",
+            "source_url": "https://yonsei.ac.kr/sc/312/subview.do"
+          },
+          {
+            "original_claim": "3. 1942.08.17 Japan seized 연희전문 as enemy property, first Japanese principal; Underwood statue removed, stone 興亞紀念塔 built.",
+            "verdict": "confirmed",
+            "corrected_claim": "Verbatim on official chronology: '연희전문학교를 적산으로 삼아 일제가 강점, 연전 최초 일본인 교장 부임' and '일제가 언더우드 동상을 빼앗고 그 자리에 돌로 興亞紀念塔을 만들어 세웠다'.",
+            "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do"
+          },
+          {
+            "original_claim": "4. 1944.04 연희전문 renamed 경성공업경영전문학교.",
+            "verdict": "confirmed",
+            "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do"
+          },
+          {
+            "original_claim": "5. Severance renamed 아사히(旭)의학전문학교 (1942.1.31 per medicine page vs 1942.06 main chronology); restored 1945.8.15; upgraded to 세브란스의과대학 1947.7.5.",
+            "verdict": "corrected",
+            "corrected_claim": "Date conflict is real: the medical school page says 1942.1.31 (school and hospital), the main chronology says 1942.06. The 1947.7.5 entry reads '세브란스의학대학으로 승격', not 의과대학. The 1957 merger entry uses '세브란스의과대학'. Restoration on 1945.8.15 is confirmed.",
+            "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do"
+          },
+          {
+            "original_claim": "6. Dec 1941 US/UK trustees and instructors removed; govt direct control Aug 1942; reopened 1946-01-21; recognized as university 1946-08-15 (EN wiki).",
+            "verdict": "confirmed",
+            "corrected_claim": "Matches EN Wikipedia wording. No second source found for the exact dates 1946-01-21 and 1946-08-15. The official chronology gives only '1946.08' for university approval.",
+            "source_url": "https://en.wikipedia.org/wiki/Yonsei_University"
+          },
+          {
+            "original_claim": "7. 1946.08 연희대 학칙 인가, 초대 총장 백낙준; 4 학원 11 학과; 1955.03.23 final merger decision.",
+            "verdict": "confirmed",
+            "source_url": "https://www.yonsei.ac.kr/wj/1481/subview.do"
+          },
+          {
+            "original_claim": "8. 1957.1.5 연희대 + 세브란스의과대학 merged to form 연세대; name = 연희 + 세브란스.",
+            "verdict": "confirmed",
+            "corrected_claim": "Merger date 1957.1.5 confirmed. The official chronology puts 백낙준's inauguration as first 연세대 총장 on 1957.03.25.",
+            "source_url": "https://medicine.yonsei.ac.kr/medicine/about/introduction/history.do"
+          },
+          {
+            "original_claim": "9. 백낙준 1945-09 US Military Govt education committee and 연희전문 접수위원; principal 1946-01; first 총장 1946-08.",
+            "verdict": "confirmed",
+            "corrected_claim": "Encykorea: '1945년 9월 미군정청 학무국 조선인교육위원에 선임, 연희전문학교 접수위원'. Start dates vary by source: Yonsei list has him as 교장 from 1945.12, his profile and Encykorea say 1946.01. Profile also gives the 총장 start as 1946.10 against 1946.08 elsewhere.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0022020"
+          },
+          {
+            "original_claim": "10. 백낙준 (용재, 1895-03-09 정주 – 1985-01-13): Yale PhD 1927 Korean Protestant history; joined 연희 1927; arrested 1939 and resigned; in 친일인명사전; 1st 연세대 총장 1957; 문교부 장관 1950.05–1952.10.",
+            "verdict": "corrected",
+            "corrected_claim": "All points confirmed by ko.wikipedia (minister 1950-05-04 to 1952-10-29). Caveats: (1) The degree type conflicts within the article (PhD in the infobox, 신학박사 in the body); say 'Yale doctorate 1927'. (2) He is listed on the 민족문제연구소 친일인명사전 list (2008), so keep 'listed', with no further detail. (3) As first 연세대 총장 (1957-03-25), ko.wiki's navbox gives his term as 1957–1960 or so, not 1957–1959.",
+            "source_url": "https://ko.wikipedia.org/wiki/백낙준"
+          },
+          {
+            "original_claim": "11. Yonsei 교가 lyrics 백낙준, music 박태준, not 정인보; 정인보 wrote 3·1절, 광복절, 제헌절, 개천절 songs.",
+            "verdict": "confirmed",
+            "corrected_claim": "Official page: 'Lyrics by Nak Jun Baek, Music by Tae Jun Park'. ko.wikipedia confirms 정인보 wrote all four national-day song lyrics.",
+            "source_url": "https://www.yonsei.ac.kr/sc/315/subview.do"
+          },
+          {
+            "original_claim": "12. 정인보 (1893-05-06 – 1950-11?; 위당/담원): 연희 1922 한문·조선문학; left 1937; 1940 양주, 1945 익산; 오천년간 조선의 얼; abducted 1950-07-31.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed by ko.wikipedia: invited 1922-04; left spring 1937; 1940 autumn to 양주 창동, then 익산 황화면; 얼 series ran in 동아일보 for 19 months from Jan 1935; abducted 1950-07-31; died Nov 1950, exact date unknown.",
+            "source_url": "https://ko.wikipedia.org/wiki/정인보"
+          },
+          {
+            "original_claim": "13. 백남운 (1895 고창 – 1979): 연희 1925–1938; 조선사회경제사 1933 改造社 vol.61; arrested 1938 조선사정연구회사건 with 이순탁, 노동규, 10 students; 1938 Seodaemun ID photo at 44; DPRK education minister 1948-09.",
+            "verdict": "corrected",
+            "corrected_claim": "Biography confirmed (Encykorea, plus a second source for 改造社 경제학전집 vol. 61, published 1933-09). Note: some scholarship (홍종욱) gives his birth year as 1894. The '1938 Seodaemun prison ID photo at age 44' could not be confirmed: no 일제감시대상인물카드 for him was found online. Do not use it as a portrait until the 국사편찬위원회 record is found and its license checked.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0022026"
+          },
+          {
+            "original_claim": "14. 최현배 (1894-10-19 울산 – 1970-03-23): 우리말본 1937 (partial 1929); 한글갈 1940; taught 윤동주 1939 (100 in Korean); library clerk; 1942 조선어학회 사건 sentenced 4 years 함흥; 편수국장; back to 연희 1954 VP; retired 1959.",
+            "verdict": "corrected",
+            "corrected_claim": "Most points confirmed. Correction: he was ARRESTED in Oct 1942 but SENTENCED (4 years) at the 함흥 trial held Dec 1944–Jan 1945, not in 1942. He was 미군정 편수국장 1945–48 and served again under the ROK later.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0052129"
+          },
+          {
+            "original_claim": "15. 조선어학회 사건: 정태진 1942-09-05; 1942-10-01 11 arrested, 홍원 next day; 33 by 1943-04-01; 함흥 미결감; 이극로 6y, 최현배 4y; appeal dismissed 1945-08-13; 최현배 released 1945-08-17.",
+            "verdict": "confirmed",
+            "corrected_claim": "All confirmed by Encykorea. The four appellants were released on 1945-08-17. Trials ran over nine sessions, Dec 1944–Jan 1945.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0052129"
+          },
+          {
+            "original_claim": "16. 이윤재 died 함흥 prison 1943-12-08; 한징 1944-02-22; no source that 이윤재 taught at 연희.",
+            "verdict": "confirmed",
+            "corrected_claim": "1943-12-08 is supported by several sources. Encykorea text as fetched reads 1942, which is likely an error in the source or the extraction. 한징 1944-02-22 confirmed. Do not claim 이윤재 taught at 연희.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0052129"
+          },
+          {
+            "original_claim": "17. 윤동주: born 1917-12-30 명동촌; 연희 April 1938; grad 1941-12-27; Rikkyo 1942-03; Doshisha 1942-10; arrested 1943-07-14 (Kyoto, 시모가모 police); sentenced 1944-03-31, 2 years, Kyoto District Court; died Fukuoka 1945-02-16 03:36, age 27.",
+            "verdict": "confirmed",
+            "corrected_claim": "All dates confirmed by ko.wikipedia. The police station is 下鴨 (시모가모) per Seoul Shinmun and other press; ko.wiki's rendering differs ('가모가와'). Use 시모가모.",
+            "source_url": "https://ko.wikipedia.org/wiki/윤동주"
+          },
+          {
+            "original_claim": "18. 송몽규 also got 2 years, died Fukuoka prison 1945-03-07.",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed by multiple press sources. Note 송몽규 was arrested slightly earlier, on 1943-07-10.",
+            "source_url": "https://m.seoul.co.kr/news/2015/02/15/20150215800047"
+          },
+          {
+            "original_claim": "19. 1941: 19 poems in 3 hand copies; kept one, gave 이양하 and 정병욱 one each; 이양하 advised delay as 'too nationalistic'; Yun's and 이양하's copies lost.",
+            "verdict": "corrected",
+            "corrected_claim": "3 copies and 19 poems confirmed (Encykorea, Hankyung). 이양하's reason is given as concern over passing Japanese censorship (Encykorea) or strong national colour (Hankyung). Phrase it as 'feared censorship', not as a quote. Only 정병욱's copy survives; the fates of the other two are not individually documented.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0060561"
+          },
+          {
+            "original_claim": "20. 정병욱 drafted as 학병, left manuscript with mother in 광양 망덕포구; wrapped in 명주보자기, jar under 마루; house built 1925 (brewery) registered 2007 제341호 '윤동주 유고 보존 정병욱 가옥'.",
+            "verdict": "confirmed",
+            "source_url": "https://m.go.seoul.co.kr/news/2025/02/14/20250214500057"
+          },
+          {
+            "original_claim": "21. 정음사 1948 (Jan/Feb), 31 poems, preface 정지용; 정병욱 handed manuscript to 강처중; 1976 3rd ed 116 poems.",
+            "verdict": "corrected",
+            "corrected_claim": "31 poems, 정지용 preface, 강처중 afterword, and the 1976 edition of 116 poems are confirmed. Dating: Encykorea and press say January 1948 (commonly 1948-01-30). ko.wiki says a provisional edition in Feb 1948 and the formal edition in Mar 1948. The 31 poems combined 정병욱's 19-poem manuscript with poems 강처중 kept. 'Handed to 강처중' is unverified; say the two men's materials were combined.",
+            "source_url": "https://encykorea.aks.ac.kr/Article/E0060561"
+          },
+          {
+            "original_claim": "22. 서시 full text dated 1941.11.20 (manuscript '나안테'; untitled originally).",
+            "verdict": "confirmed",
+            "corrected_claim": "Text and date match the 국립국어원 page exactly (standard spelling '나한테'). The manuscript spelling '나안테' and the originally untitled status are not stated there; flag them as unverified commentary.",
+            "source_url": "https://www.korean.go.kr/nkview/nknews/200401/66_8.html"
+          },
+          {
+            "original_claim": "23. Korean term life+70 from 2013-07-01 (previously +50; 1957 Act +30, non-retroactive); 서시 is PD in Korea.",
+            "verdict": "confirmed",
+            "corrected_claim": "1957 Act: 30 years; 1987: 50 years; 2013-07-01: 70 years, not retroactive. Works by authors who died before 1963 have expired, so 윤동주 (d.1945) is public domain in Korea.",
+            "source_url": "https://www.mcst.go.kr/kor/s_policy/copyright/question/question11.jsp"
+          },
+          {
+            "original_claim": "24. Lived in 연희 dorm (핀슨관, heritage 770, 윤동주기념관 since 2020) with 송몽규, 강처중; April 1940 met 정병욱 in 3rd-floor attic; boarded at 누상동 9번지; 1941 photo with 정병욱 and graduation album photo at 기념관.",
+            "verdict": "corrected",
+            "corrected_claim": "Dorm, roommates, heritage no. 770, and the April 1940 attic visit are confirmed. Note it was 정병욱's attic room that Yun visited. 누상동 9번지 boarding (novelist 김송's house, May–Aug/Sep 1941, with 정병욱) is confirmed. The specific '1941 photo with 정병욱' and the graduation album holding are not confirmed by the cited article. A group photo of Yun with literary-department students exists on Google Arts & Culture.",
+            "source_url": "https://www.hankyung.com/article/202507186262i"
+          },
+          {
+            "original_claim": "25. 원한경 (1890-09-06 정동 – 1951-02-20 부산): interned after Pearl Harbor; deported May 1942; returned as USAMGI adviser; honorary president 1946/47; died heart attack Busan Feb 1951; buried 양화진.",
+            "verdict": "corrected",
+            "corrected_claim": "Years 1890–1951 are confirmed (VIAF, AKS). Internment, May 1942 deportation, return as USAMGIK adviser, heart attack in Busan in Feb 1951, and 양화진 burial come from one Daum column; AKS confirms deportation and return in 1945. The exact days 09-06 and 02-20 were NOT confirmed (unverifiable); use '1890–1951, died Feb 1951 in Busan'.",
+            "source_url": "https://v.daum.net/v/20260124004127519"
+          },
+          {
+            "original_claim": "26. Ethel Underwood (b.1888 Michigan) shot 1949-03-17 ~2pm by two masked men during ~20 faculty wives' gathering for 모윤숙 talk; died en route to Severance; nine 연희 students of 민주학련 (김석준); police said target was 모윤숙.",
+            "verdict": "confirmed",
+            "corrected_claim": "Details match the Daum column. 1949 US press confirms the March 1949 shooting, 'communist terrorists', and arrests and confessions, but gives her age as 60, which is consistent with 1888–89. The police claim that 모윤숙 was the target is reported, and the column's author disputes it. Present the motive as contested.",
+            "source_url": "https://v.daum.net/v/20260124004127519"
+          },
+          {
+            "original_claim": "27. 윤치호 first Korean head of Yonsei (BU: president 1930–1941, likely board chair); Yonsei 4th 교장 1941.12–1942.08; collaborator; later Japanese House of Peers.",
+            "verdict": "corrected",
+            "corrected_claim": "BU text says 'first Korean president of the present Yonsei University' 1930–1941, which likely means board chair; use Yonsei's 4th 교장 1941.12–1942.08. House of Peers membership is confirmed (EN wiki: 1945-04-03 to 1945-12-06; Seoul Shinmun says Feb 1945). The BU page itself does not mention the House of Peers. 'First Korean head' is BU's framing; Yonsei's own list makes him the first Korean 교장.",
+            "source_url": "https://en.wikipedia.org/wiki/Yun_Ch%27iho"
+          }
+        ]
+      }
+    },
+    {
+      "topic": "Public-domain / free portrait photos on Wikimedia Commons for Yonsei history game dialogue portraits",
+      "facts": [
+        {
+          "claim": "PORTRAIT|Horace Newton Allen (알렌)|https://upload.wikimedia.org/wikipedia/commons/d/d4/Horace_Newton_Allen.jpg|https://commons.wikimedia.org/wiki/File:Horace_Newton_Allen.jpg|Public domain (author unknown, 1885)|likely yes (not visually verified)|361x453 original, use as-is; dated 1885 = year of 광혜원 founding",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Horace_Newton_Allen.jpg",
+          "confidence": "high",
+          "date": "1885"
+        },
+        {
+          "claim": "PORTRAIT|Horace Grant Underwood (언더우드)|https://upload.wikimedia.org/wikipedia/commons/c/c0/Horace_Grant_Underwood.jpg|https://commons.wikimedia.org/wiki/File:Horace_Grant_Underwood.jpg|Public domain (author unknown, 1888)|likely yes|400x526 original. Alternates: File:Underwood1884.jpg (1037x1539, PD, from Lillias Underwood's 1918 biography, thumb https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Underwood1884.jpg/500px-Underwood1884.jpg) = young Underwood age 25 arriving Korea; File:Horace_Grant_Underwood_in_1916.jpg (800x555 landscape, PD, 1916 = last year, older bearded)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Horace_Grant_Underwood.jpg",
+          "confidence": "high",
+          "date": "1888"
+        },
+        {
+          "claim": "PORTRAIT|Horace Grant Underwood young (age 24/1884)|https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Underwood1884.jpg/500px-Underwood1884.jpg|https://commons.wikimedia.org/wiki/File:Underwood1884.jpg|Public domain (published 1918 in Lillias H. Underwood biography)|probably yes, book plate|original https://upload.wikimedia.org/wikipedia/commons/a/a4/Underwood1884.jpg ; also File:Underwood24.jpg (age 24) and File:Underwood15.jpg (age 15)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Underwood1884.jpg",
+          "confidence": "high",
+          "date": "1884/1918"
+        },
+        {
+          "claim": "PORTRAIT|Henry Gerhard Appenzeller (아펜젤러)|https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller%2C_1901.jpg/960px-A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller%2C_1901.jpg|https://commons.wikimedia.org/wiki/File:A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller,_1901.jpg|Public domain (photo 1901, published 1912 in W.E. Griffis 'A Modern Pioneer in Korea')|likely yes (book frontispiece)|1648x2583 original https://upload.wikimedia.org/wikipedia/commons/0/0b/A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller%2C_1901.jpg ; smaller alt File:Henry_Appenzeller.jpg 213x297 PD c.1880s (https://upload.wikimedia.org/wikipedia/commons/5/57/Henry_Appenzeller.jpg)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller,_1901.jpg",
+          "confidence": "high",
+          "date": "1901"
+        },
+        {
+          "claim": "PORTRAIT|Oliver R. Avison (에비슨)|https://upload.wikimedia.org/wikipedia/commons/a/a3/Oliver_R._Avison.jpg|https://commons.wikimedia.org/wiki/File:Oliver_R._Avison.jpg|Public domain (author unknown, c.1900)|likely yes|668x797 original. Also action scene: File:1904년 제중원 에비슨의 외과 시술.jpg (Avison operating at Jejungwon 1904) usable for cutscene background",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Oliver_R._Avison.jpg",
+          "confidence": "high",
+          "date": "c.1900"
+        },
+        {
+          "claim": "PORTRAIT|Louis H. Severance (세브란스)|https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Louis_Severance.jpg/960px-Louis_Severance.jpg|https://commons.wikimedia.org/wiki/File:Louis_Severance.jpg|Public domain (pub. 1915, credited E. Uhler Grumbine)|likely yes|1114x1495 original https://upload.wikimedia.org/wikipedia/commons/7/7b/Louis_Severance.jpg ; alt File:Louis H. Severance, President of College of Wooster Board of Trustees, 1913.png exists (not metadata-checked)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Louis_Severance.jpg",
+          "confidence": "high",
+          "date": "1915"
+        },
+        {
+          "claim": "PORTRAIT|Lillias Horton Underwood (릴리어스 호튼 언더우드)|https://upload.wikimedia.org/wikipedia/commons/f/f8/Lillias_Horton_Underwood.jpg|https://commons.wikimedia.org/wiki/File:Lillias_Horton_Underwood.jpg|CC0 tag on Commons (image from her own published book, c.1921 date given; effectively PD-old)|unknown, small 286x300 — likely head-and-shoulders crop|very small; upscale carefully. Alt: File:Horace G. Underwood with his wife.jpg (650x938, PD, 1911, couple photo — crop her)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Lillias_Horton_Underwood.jpg",
+          "confidence": "high",
+          "date": "c.1921"
+        },
+        {
+          "claim": "PORTRAIT|Frank W. Schofield (스코필드, 석호필)|https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/SchofieldRheeMeeting1958.png/500px-SchofieldRheeMeeting1958.png|https://commons.wikimedia.org/wiki/File:SchofieldRheeMeeting1958.png|Public domain (ROK Office of Public Information photo, 1958; Korean gov work)|no — group/meeting photo with Syngman Rhee, must crop; shows elderly Schofield, not 1919 era|WARNING: File:Frank_Schofield.jpg is US Navy Admiral Frank H. Schofield — WRONG PERSON, do not use. No 1919-era portrait of Frank W. Schofield found on Commons. Original https://upload.wikimedia.org/wikipedia/commons/c/c8/SchofieldRheeMeeting1958.png (2306x1806)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:SchofieldRheeMeeting1958.png",
+          "confidence": "high",
+          "date": "1958"
+        },
+        {
+          "claim": "PORTRAIT|Horace Horton Underwood (원한경)|https://upload.wikimedia.org/wikipedia/commons/4/4f/%EC%A1%B0%EC%84%A0_%EC%B5%9C%EC%B4%88%EC%9D%98_%EC%9C%A0%EC%95%84%EC%84%B8%EB%A1%80%EC%9E%90.png|https://commons.wikimedia.org/wiki/File:%EC%A1%B0%EC%84%A0_%EC%B5%9C%EC%B4%88%EC%9D%98_%EC%9C%A0%EC%95%84%EC%84%B8%EB%A1%80%EC%9E%90.png|Public domain (author unknown, 1890s)|no — 1890s group photo of children (서병호, 김규식, 김일, 원한경); 원한경 as a child only|No adult portrait of 원한경 (Yonhi president 1934-41) found on Commons; adult portrait must be drawn from reference elsewhere or invented-style. 297x391",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%EC%A1%B0%EC%84%A0_%EC%B5%9C%EC%B4%88%EC%9D%98_%EC%9C%A0%EC%95%84%EC%84%B8%EB%A1%80%EC%9E%90.png",
+          "confidence": "medium",
+          "date": "1890s"
+        },
+        {
+          "claim": "PORTRAIT|최현배 (Choe Hyeon-bae)|https://upload.wikimedia.org/wikipedia/commons/c/c6/%EC%B5%9C%ED%98%84%EB%B0%B0_%EC%84%A0%EC%83%9D.jpg|https://commons.wikimedia.org/wiki/File:%EC%B5%9C%ED%98%84%EB%B0%B0_%EC%84%A0%EC%83%9D.jpg|Public domain on Commons (author unknown, dated 1963-11-22)|unknown — 343x609 tall aspect suggests half/upper body|late-life photo (age ~69); for 1930s-40s scenes draw younger",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%EC%B5%9C%ED%98%84%EB%B0%B0_%EC%84%A0%EC%83%9D.jpg",
+          "confidence": "high",
+          "date": "1963"
+        },
+        {
+          "claim": "PORTRAIT|정인보 (Jeong In-bo)|https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Jeong_In-bo.png/500px-Jeong_In-bo.png|https://commons.wikimedia.org/wiki/File:Jeong_In-bo.png|CC BY-SA 4.0 (credited Jeong Yang-mo, 1930s) — requires attribution + share-alike|likely yes (portrait)|526x676, original https://upload.wikimedia.org/wikipedia/commons/0/0e/Jeong_In-bo.png. PD alt: File:정인보 1931.jpg (Dong-A Ilbo 1931-03-30, in his study, 473x473-ish, probably not frontal) https://upload.wikimedia.org/wikipedia/commons/2/2c/%EC%A0%95%EC%9D%B8%EB%B3%B4_1931.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Jeong_In-bo.png",
+          "confidence": "high",
+          "date": "1930s"
+        },
+        {
+          "claim": "PORTRAIT|백낙준 (L. George Paik)|https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/PaikNakJunHouseOfCouncillors_%28cropped%29.png/500px-PaikNakJunHouseOfCouncillors_%28cropped%29.png|https://commons.wikimedia.org/wiki/File:PaikNakJunHouseOfCouncillors_(cropped).png|Public domain (ROK Office of Public Information official photo, 1962)|yes, official portrait crop (likely)|1107x1477. Alt: File:BaekNakJun1950MOE.png (1950, PD, Ministry of Education, 1506x2306) https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/BaekNakJun1950MOE.png/500px-BaekNakJun1950MOE.png",
+          "source_url": "https://commons.wikimedia.org/wiki/File:PaikNakJunHouseOfCouncillors_(cropped).png",
+          "confidence": "high",
+          "date": "1962"
+        },
+        {
+          "claim": "PORTRAIT|백남운 (Paek Nam-un)|https://upload.wikimedia.org/wikipedia/commons/3/3c/1948.04.05_%EB%B0%B1%EB%82%A8%EC%9A%B4_%28cropped%29.jpg|https://commons.wikimedia.org/wiki/File:1948.04.05_%EB%B0%B1%EB%82%A8%EC%9A%B4_(cropped).jpg|Public domain on Commons (author unknown, 1948)|probably no — cropped from shot of him reading a speech at 1948 남북연석회의|264x344 small; low quality reference",
+          "source_url": "https://commons.wikimedia.org/wiki/File:1948.04.05_%EB%B0%B1%EB%82%A8%EC%9A%B4_(cropped).jpg",
+          "confidence": "high",
+          "date": "1948-04-05"
+        },
+        {
+          "claim": "PORTRAIT|윤동주 (Yun Dong-ju)|https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Yun_Dong-ju.jpg/500px-Yun_Dong-ju.jpg|https://commons.wikimedia.org/wiki/File:Yun_Dong-ju.jpg|Public domain (author unknown, 1941)|likely yes — 1941 연희전문 문과 graduation photo|1666x2184 original https://upload.wikimedia.org/wikipedia/commons/4/4f/Yun_Dong-ju.jpg ; alt File:Yoon_Dong-ju.jpg 450x450 PD 1942 summer at home",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Yun_Dong-ju.jpg",
+          "confidence": "high",
+          "date": "1941"
+        },
+        {
+          "claim": "PORTRAIT|박서양 (Park Seo-yang)|https://upload.wikimedia.org/wikipedia/commons/1/14/%EB%B0%95%EC%84%9C%EC%96%91.jpg|https://commons.wikimedia.org/wiki/File:%EB%B0%95%EC%84%9C%EC%96%91.jpg|Public domain (author unknown, 1908)|likely yes|250x373 small; alt File:Park_Seo-yang.jpg 221x272 PD 1908 https://upload.wikimedia.org/wikipedia/commons/3/37/Park_Seo-yang.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%95%EC%84%9C%EC%96%91.jpg",
+          "confidence": "high",
+          "date": "1908"
+        },
+        {
+          "claim": "PORTRAIT|김필순 (Kim Pil-sun)|https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/%E9%87%91%E5%BC%BC%E6%B7%B3.jpg/500px-%E9%87%91%E5%BC%BC%E6%B7%B3.jpg|https://commons.wikimedia.org/wiki/File:%E9%87%91%E5%BC%BC%E6%B7%B3.jpg|Public domain (author unknown, 1900s)|likely yes|1310x1768 original https://upload.wikimedia.org/wikipedia/commons/a/a1/%E9%87%91%E5%BC%BC%E6%B7%B3.jpg ; alt File:金弼淳1911年.jpg (845x1072, PD, 1911). Group: File:世福兰斯医科学校教授与第一届7名毕业生（后排左一是金弼淳）.jpg = 1908 first Severance graduates + faculty (great cutscene ref)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%E9%87%91%E5%BC%BC%E6%B7%B3.jpg",
+          "confidence": "high",
+          "date": "1900s"
+        },
+        {
+          "claim": "PORTRAIT|이윤재 (Yi Yun-jae)|https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/%ED%95%9C%EA%B8%80%ED%95%99%EC%9E%90_%EC%9D%B4%EC%9C%A4%EC%9E%AC_%EC%84%A0%EC%83%9D_%EC%9A%B0%EB%A5%B5_%EC%B2%AD%ED%92%8D%EC%9D%B8_%EA%B3%A0%EC%A6%9D.jpg/500px-%ED%95%9C%EA%B8%80%ED%95%99%EC%9E%90_%EC%9D%B4%EC%9C%A4%EC%9E%AC_%EC%84%A0%EC%83%9D_%EC%9A%B0%EB%A5%B5_%EC%B2%AD%ED%92%8D%EC%9D%B8_%EA%B3%A0%EC%A6%9D.jpg|https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B8%80%ED%95%99%EC%9E%90_%EC%9D%B4%EC%9C%A4%EC%9E%AC_%EC%84%A0%EC%83%9D_%EC%9A%B0%EB%A5%B5_%EC%B2%AD%ED%92%8D%EC%9D%B8_%EA%B3%A0%EC%A6%9D.jpg|CC0 (uploader 류금열, 2023)|no / unknown — newspaper (Dong-A Ilbo) article clipping about his 우륵 research, may not contain a face|NO real portrait photo of 이윤재 found on Commons; treat as missing",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B8%80%ED%95%99%EC%9E%90_%EC%9D%B4%EC%9C%A4%EC%9E%AC_%EC%84%A0%EC%83%9D_%EC%9A%B0%EB%A5%B5_%EC%B2%AD%ED%92%8D%EC%9D%B8_%EA%B3%A0%EC%A6%9D.jpg",
+          "confidence": "low",
+          "date": "2023 upload"
+        },
+        {
+          "claim": "PORTRAIT|민영익 (Min Yeong-ik)|https://upload.wikimedia.org/wikipedia/commons/0/09/Min_Young_Ik_head_shot.jpg|https://commons.wikimedia.org/wiki/File:Min_Young_Ik_head_shot.jpg|Public domain (George Clayton Foulk, c.1883)|yes per title 'head shot' (not visually verified)|366x511. Alts: File:Min_yeong_ik.jpg (284x400 PD); File:Min_Young_Ik_in_New_York_1883.jpg (616x950 PD, 1883 Bobingsa mission to US)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Min_Young_Ik_head_shot.jpg",
+          "confidence": "high",
+          "date": "c.1883"
+        },
+        {
+          "claim": "PORTRAIT|고종 (Gojong) 1884 photo|https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell%2C_1884.png/500px-Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell%2C_1884.png|https://commons.wikimedia.org/wiki/File:Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell,_1884.png|Public domain (Percival Lowell, 1884)|no — landscape 1600x960, seated figure; crop needed|1884 = closest era to 1885 광혜원 founding (Gojong approved Allen's hospital). Original https://upload.wikimedia.org/wikipedia/commons/4/4e/Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell%2C_1884.png",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell,_1884.png",
+          "confidence": "high",
+          "date": "1884"
+        },
+        {
+          "claim": "PORTRAIT|고종 (Gojong) 1904 photo|https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Gojong_of_the_Korean_Empire.jpg/500px-Gojong_of_the_Korean_Empire.jpg|https://commons.wikimedia.org/wiki/File:Gojong_of_the_Korean_Empire.jpg|Public domain (Bain News Service, 1904)|likely full/half-figure portrait in royal robe; crop for head-and-shoulders|3661x5222 high-res original https://upload.wikimedia.org/wikipedia/commons/7/7a/Gojong_of_the_Korean_Empire.jpg ; alt File:Gojong_of_the_Korean_Empire_02.jpg (1907, Western suit, PD)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Gojong_of_the_Korean_Empire.jpg",
+          "confidence": "high",
+          "date": "1904"
+        },
+        {
+          "claim": "Commons thumbnail note: API returned thumbnails on host thumb.wikimedia.org at standard bucket widths (500px, 960px); non-standard widths like 600 were rounded to 960. Use 500px or 960px buckets. Strip utm_* query params. Files under ~700px wide: use original upload.wikimedia.org URL directly.",
+          "source_url": "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Louis%20Severance.jpg&prop=imageinfo&iiprop=url&iiurlwidth=600",
+          "confidence": "high"
+        }
+      ],
+      "story_hooks": [
+        "1941: Yun Dong-ju's graduation photo from 연희전문 문과 survives (PD on Commons) — dialogue portrait can be literally his graduation-day face, used in a farewell cutscene before he leaves for Japan.",
+        "1884: Percival Lowell photographed King Gojong one year before Gojong let Allen open 광혜원 (1885) — use the 1884 photo for the king who approves the hospital.",
+        "1883: Min Yeong-ik photographed in New York on the Bobingsa mission (Commons PD) — same man later saved by Allen's surgery after the 1884 Gapsin coup, which led to 광혜원.",
+        "1904: photo of Avison operating at 제중원 exists on Commons — usable as reference for an operating-room cutscene.",
+        "1908: group photo of Severance Medical School faculty with first 7 graduates (김필순 back row left) on Commons — graduation cutscene reference including 박서양 and 김필순.",
+        "1958: Frank Schofield meets Syngman Rhee (Commons PD) — old Schofield returning to Korea, epilogue scene. Caution: Commons 'Frank Schofield.jpg' is a different person (US admiral).",
+        "1890s: earliest photo of 원한경 is as a child among the first Korean infant-baptism children — can show the Underwood son growing up in Seoul before becoming Yonhi president."
+      ],
+      "people": [
+        {
+          "name_ko": "알렌",
+          "name_en": "Horace Newton Allen",
+          "role": "광혜원 founder physician",
+          "years": "1858-1932"
+        },
+        {
+          "name_ko": "언더우드",
+          "name_en": "Horace Grant Underwood",
+          "role": "Yonhi founder missionary",
+          "years": "1859-1916"
+        },
+        {
+          "name_ko": "아펜젤러",
+          "name_en": "Henry Gerhard Appenzeller",
+          "role": "Methodist missionary",
+          "years": "1858-1902"
+        },
+        {
+          "name_ko": "에비슨",
+          "name_en": "Oliver R. Avison",
+          "role": "Severance/Yonhi head",
+          "years": "1860-1956"
+        },
+        {
+          "name_ko": "세브란스",
+          "name_en": "Louis H. Severance",
+          "role": "hospital donor",
+          "years": "1838-1913"
+        },
+        {
+          "name_ko": "원한경",
+          "name_en": "Horace Horton Underwood",
+          "role": "Yonhi president; no adult Commons photo found",
+          "years": "1890-1951"
+        },
+        {
+          "name_ko": "이윤재",
+          "name_en": "Yi Yun-jae",
+          "role": "Hangul scholar; no Commons portrait found",
+          "years": "1888-1943"
+        }
+      ],
+      "key": "portraits",
+      "verification": {
+        "corrections": [
+          {
+            "original_claim": "1. Horace Newton Allen portrait, File:Horace_Newton_Allen.jpg, PD, unknown author, 1885, 361x453",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 361x453 and is tagged Public domain. The author is unknown and the date is given as 1885. The 1885 date comes only from the uploader's source (woodlawntour.com) and has not been checked independently.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Horace_Newton_Allen.jpg"
+          },
+          {
+            "original_claim": "2. Horace Grant Underwood portrait, File:Horace_Grant_Underwood.jpg, PD, 1888, 400x526; alts Underwood1884.jpg (1037x1539, 'age 25 arriving Korea') and Horace_Grant_Underwood_in_1916.jpg (800x555)",
+            "verdict": "corrected",
+            "corrected_claim": "The main file, size, PD tag and 1888 date are all confirmed. Both alternates exist and are tagged PD. The 1916 photo is dated 1916-04-12 (Rutgers). Underwood1884.jpg is captioned 'in 1884', which is before he arrived in Korea on 5 April 1885. He was born 19 July 1859, so he was 24-25 in that photo, not 25 'arriving Korea'.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Underwood1884.jpg"
+          },
+          {
+            "original_claim": "3. Young Underwood, File:Underwood1884.jpg, PD, from Lillias Underwood 1918 biography; also Underwood24.jpg and Underwood15.jpg",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1037x1539 and is tagged PD. Its credit is 'Underwood of Korea' (Fleming H. Revell, 1918) via the Seoul Museum of History. Underwood24.jpg (1028x1597, 'at Twenty-four') and Underwood15.jpg (1117x1639, 'at Fifteen') also exist and are tagged PD. Thumbnail URLs on thumb.wikimedia.org are valid.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Underwood1884.jpg"
+          },
+          {
+            "original_claim": "4. Appenzeller, File:A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller,_1901.jpg, PD, photo 1901, pub 1912 Griffis, 1648x2583; alt Henry_Appenzeller.jpg 213x297 c.1880s",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1648x2583 and is tagged PD. It is captioned 'Henry Gerhart Appenzeller, 1901', and the publication is W.E. Griffis, 1912 (Wikisource page 8). The alternate exists at 213x297, is tagged PD, is dated '1880년대경' and is credited to the Appenzeller memorial hall.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:A_Modern_Pioneer_in_Korea_-_Henry_Gerhart_Appenzeller,_1901.jpg"
+          },
+          {
+            "original_claim": "5. Avison, File:Oliver_R._Avison.jpg PD c.1900 668x797; alt File:1904년 제중원 에비슨의 외과 시술.jpg = Avison operating at Jejungwon 1904",
+            "verdict": "corrected",
+            "corrected_claim": "The portrait is confirmed: 668x797, tagged PD, dated 1900, sourced from PMC5725344. The alternate exists but is tiny (320x307). Its Commons description places the operation at Severance Hospital in 1904, not Jejungwon, and says it shows 박서양 assisting Avison. That makes it weak as a cutscene background unless redrawn.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1904%EB%85%84_%EC%A0%9C%EC%A4%91%EC%9B%90_%EC%97%90%EB%B9%84%EC%8A%A8%EC%9D%98_%EC%99%B8%EA%B3%BC_%EC%8B%9C%EC%88%A0.jpg"
+          },
+          {
+            "original_claim": "6. Louis Severance, File:Louis_Severance.jpg PD pub 1915 E. Uhler Grumbine 1114x1495; alt 1913 PNG",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1114x1495 and is tagged PD. It is dated 1915, the artist is E. Uhler Grumbine, and it comes from the Oberlin portraits collection. The alternate PNG exists but is small (244x377). It is dated 1914 and was published in the 1915 Wooster Index yearbook, so the '1913' in its title is not its photo date.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Louis_Severance.jpg"
+          },
+          {
+            "original_claim": "7. Lillias Horton Underwood, File:Lillias_Horton_Underwood.jpg CC0 c.1921 286x300; alt Horace G. Underwood with his wife.jpg 650x938 PD 1911",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 286x300 and is tagged CC0. The author is given as Lillias Horton Underwood and the date as 1921-01-01. The CC0 tag is doubtful, but the image is PD by age either way, since she died in 1921. The alternate couple photo is confirmed at 650x938, tagged PD, dated 1911, with the Korea Herald as source.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Lillias_Horton_Underwood.jpg"
+          },
+          {
+            "original_claim": "8. Frank W. Schofield, File:SchofieldRheeMeeting1958.png PD ROK gov 1958 2306x1806; File:Frank_Schofield.jpg is wrong person; no 1919 portrait on Commons",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 2306x1806 and is tagged PD. It comes from the 공보처 홍보국 사진담당관 (National Archives CET0021614) and is captioned 'Frank Schofield meets ... Syngman Rhee, 1958'. File:Frank_Schofield.jpg is confirmed as the wrong person (US Navy Admiral Schofield). A Commons search found only his grave photos (2025) and no 1919-era portrait.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:SchofieldRheeMeeting1958.png"
+          },
+          {
+            "original_claim": "9. Horace Horton Underwood (원한경), File:조선_최초의_유아세례자.png PD 1890s 297x391 children group; no adult portrait",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 297x391, is tagged PD and is dated 1890s. Per its description, the top row from left is 서병호 and 김규식, and the seated children are 김일 and 원한경. The source is 한국설교대전집 12 (1978). A Commons search found no adult portrait. Note that his Yonhi presidency dates (1934-41) were not checked here.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%EC%A1%B0%EC%84%A0_%EC%B5%9C%EC%B4%88%EC%9D%98_%EC%9C%A0%EC%95%84%EC%84%B8%EB%A1%80%EC%9E%90.png"
+          },
+          {
+            "original_claim": "10. 최현배, File:최현배_선생.jpg PD 1963-11-22 343x609",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 343x609, is tagged PD and is dated 1963-11-22. The source is a 1963 newspaper article (Naver newslibrary), and the file has no description. Its PD status rests on Korea's pre-1987 short term for photographs. Age about 69 checks out (born 1894).",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%EC%B5%9C%ED%98%84%EB%B0%B0_%EC%84%A0%EC%83%9D.jpg"
+          },
+          {
+            "original_claim": "11. 정인보, File:Jeong_In-bo.png CC BY-SA 4.0 credited Jeong Yang-mo 1930s 526x676; PD alt 정인보_1931.jpg 473x473-ish",
+            "verdict": "corrected",
+            "corrected_claim": "The main file is confirmed: 526x676, CC BY-SA 4.0, credited to his son Jeong Yang-mo as the 'official portrait', dated 1930s. Attribution and share-alike are required. The PD alternate is 473x556, not about 473x473. It is a Dong-A Ilbo photo dated 1931-03-30 showing him in his study, tagged PD.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%EC%A0%95%EC%9D%B8%EB%B3%B4_1931.jpg"
+          },
+          {
+            "original_claim": "12. 백낙준, File:PaikNakJunHouseOfCouncillors_(cropped).png PD 1962 1107x1477; alt BaekNakJun1950MOE.png 1506x2306",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1107x1477 and is tagged PD. It is dated 1962-09-24 and comes from the Bureau of Public Information via the National Archives (CET0032869), showing him as President of the House of Councillors. The 1950 alternate is confirmed at 1506x2306, tagged PD, from the Ministry of Education via the National Archives.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:PaikNakJunHouseOfCouncillors_(cropped).png"
+          },
+          {
+            "original_claim": "13. 백남운, File:1948.04.05_백남운_(cropped).jpg PD 1948-04-05 264x344, reading speech at 남북연석회의",
+            "verdict": "corrected",
+            "corrected_claim": "The file, size (264x344) and PD tag are confirmed. However, the date does not fit the caption. The 남북 제정당사회단체 연석회의 in Pyongyang ran 19-23 April 1948, so a speech there cannot be dated 5 April 1948. Treat the photo as April 1948 with the exact date unreliable. It is low resolution.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1948.04.05_%EB%B0%B1%EB%82%A8%EC%9A%B4_(cropped).jpg"
+          },
+          {
+            "original_claim": "14. 윤동주, File:Yun_Dong-ju.jpg PD 1941 연희전문 graduation 1666x2184; alt Yoon_Dong-ju.jpg 450x450 1942 summer",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1666x2184 and is tagged PD. It is described as his 1941 연희전문 문과 graduation photo (source: news.joins.com). The alternate is confirmed at 450x450, tagged PD, showing him home in summer 1942 during his first year of study in Japan.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Yun_Dong-ju.jpg"
+          },
+          {
+            "original_claim": "15. 박서양, File:박서양.jpg PD 1908 250x373; alt Park_Seo-yang.jpg 221x272 PD 1908",
+            "verdict": "confirmed",
+            "corrected_claim": "Both files exist with the stated sizes, are tagged PD and are dated 1908. The sources are OhmyNews and Pressian. Both are small.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%EB%B0%95%EC%84%9C%EC%96%91.jpg"
+          },
+          {
+            "original_claim": "16. 김필순, File:金弼淳.jpg PD 1900s 1310x1768; alt 金弼淳1911年.jpg 845x1072 PD 1911; group photo of 1908 first Severance graduates",
+            "verdict": "confirmed",
+            "corrected_claim": "The file is confirmed at 1310x1768, tagged PD, dated 1900s. Its source is a 2009 Shanghai book about his son, the film star 金焰. The 1911 alternate is confirmed at 845x1072, tagged PD. The group photo File:世福兰斯医科学校教授与第一届7名毕业生（后排左一是金弼淳）.jpg exists and shows him back row, far left. A second-class photo also exists (File:世福兰斯医科学校教授与第二届毕业生（前排右一是金弼淳）.jpg).",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%E9%87%91%E5%BC%BC%E6%B7%B3.jpg"
+          },
+          {
+            "original_claim": "17. 이윤재, File:한글학자_이윤재_선생_우륵_청풍인_고증.jpg CC0 류금열 2023; not a portrait",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 706x638, is tagged CC0, is marked 'Own work' by 류금열 and is dated 2023-12-08. It shows an article clipping about the 우륵 청풍인 고증, not a portrait. A Commons search found no portrait photo of 이윤재, so treat it as missing.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B8%80%ED%95%99%EC%9E%90_%EC%9D%B4%EC%9C%A4%EC%9E%AC_%EC%84%A0%EC%83%9D_%EC%9A%B0%EB%A5%B5_%EC%B2%AD%ED%92%8D%EC%9D%B8_%EA%B3%A0%EC%A6%9D.jpg"
+          },
+          {
+            "original_claim": "18. 민영익, File:Min_Young_Ik_head_shot.jpg PD George Clayton Foulk c.1883 366x511; alts Min_yeong_ik.jpg 284x400, Min_Young_Ik_in_New_York_1883.jpg 616x950",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 366x511 and is tagged PD. The artist is Foulk, George Clayton (1856-1893), dated circa 1883, and it was extracted from a group-photo PDF. Its description has a typo ('1833'). Both alternates exist and are tagged PD with the stated sizes. The New York 1883 photo is from the 1883 mission to the US.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Min_Young_Ik_head_shot.jpg"
+          },
+          {
+            "original_claim": "19. 고종 1884, File:Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell,_1884.png PD 1600x960",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 1600x960 and is tagged PD. The artist is Percival Lowell, dated 1884, credited to the Museum of Fine Arts Boston, and captioned 'His Majesty the King of Korea'. It is landscape, so a crop is needed.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Emperor_Gojong_of_the_Korean_Empire_by_Percival_Lowell,_1884.png"
+          },
+          {
+            "original_claim": "20. 고종 1904, File:Gojong_of_the_Korean_Empire.jpg PD Bain 1904 3661x5222; alt _02.jpg 1907 Western suit",
+            "verdict": "confirmed",
+            "corrected_claim": "The file exists at 3661x5222 and is tagged PD. The publisher is Bain News Service, dated 1904, from the Library of Congress (ggbain.03897). The alternate exists at 1260x1851, tagged PD, dated 1907-10-12, showing him seated in a Western suit.",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Gojong_of_the_Korean_Empire.jpg"
+          },
+          {
+            "original_claim": "21. Thumbnails served from thumb.wikimedia.org at bucket widths (500/960); 600 rounds to 960; strip utm_*; small files use original",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed with an API call using iiurlwidth=600. The returned thumburls were thumb.wikimedia.org/.../960px-... with utm_* parameters attached. For files narrower than the requested width (e.g. the 320px Avison operating photo and the 650px Underwood couple photo), the API returned the original upload.wikimedia.org URL. Whether 500px is a standard bucket was not tested directly.",
+            "source_url": "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Louis%20Severance.jpg&prop=imageinfo&iiprop=url&iiurlwidth=600"
+          }
+        ]
+      }
+    },
+    {
+      "topic": "Public-domain Korean folk melodies for chiptune (본조/경기 아리랑, 새야새야 파랑새야, 도라지타령) + copyright status of Yonsei school songs",
+      "facts": [
+        {
+          "claim": "MELODY|본조아리랑 (Bonjo/Gyeonggi Arirang) REFRAIN '아리랑 아리랑 아라리요 / 아리랑 고개로 넘어간다' (bars 1-8), EXACT version|G major (transposed +2 semitones from Wikipedia's F major score; pentatonic D E G A B, tonal center G)|9/8 played as 3 beats per bar (beat = dotted quarter), so 3/4 with triplet subdivision; durations in beats as fractions|D4:5/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:1 A4:1/3 B4:1/3 A4:1/3 G4:2/3 E4:1/3 | D4:5/3 E4:1/3 D4:1/3 E4:1/3 R:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:2/3 A4:1/3 G4:2/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:1 | G4:2 R:1  (syllables: bar1 아-리-랑, bar2 아-리-랑, bar3-4 아-라-리-요, bar5 아-리-랑, bar6 고-개-로, bar7 넘-어-간, bar8 다). Derived from the LilyPond <score> in en.wikipedia Arirang wikitext: \\relative f' {\\key f \\major \\time 9/8 c4.~c4 d8 c4(d8) | f4.~f4 g8 f4(g8) | a4. g8(a g) f4(d8) | c4.~(c4 d8 c d) r8 | f4.~f4 g8 f4(g8) | a4(g8) f4(d8) c4(d8) | f4.~f4 g8 f4. | f4.~f4. r4. ...}. Pitch contour of opening (D E D E | G A G A | B A B ... G E D) cross-checked against flutetunes.com G-major 3/4 MIDI (played one octave higher, D5-D6). Rhythm from Wikipedia only.",
+          "source_url": "https://en.wikipedia.org/w/index.php?title=Arirang&action=raw",
+          "confidence": "medium"
+        },
+        {
+          "claim": "MELODY|본조아리랑 VERSE '나를 버리고 가시는 님은 / 십리도 못가서 발병난다' (bars 9-16), EXACT version|G major|9/8 as 3 beats/bar (triplet-feel 3/4), durations in beats|D5:2 D5:1 | D5:1 B4:1 A4:1 | B4:1 A4:2/3 B4:1/3 G4:2/3 E4:1/3 | D4:5/3 E4:1/3 D4:1/3 E4:1/3 R:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:2/3 A4:1/3 G4:2/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:1 | G4:2 R:1  (syllables: bar9 나-를, bar10 버-리-고, bar11 가-시-는-님, bar12 은, bar13 십-리-도, bar14 못-가-서, bar15 발-병-난, bar16 다; bars 13-16 identical to refrain bars 5-8). Source LilyPond (F major): c'4.~c c | c4. a4. g4. | a4. g4 a8 f4(d8) | c4.~(c4 d8 c d) r8 | then repeat of bars 5-8. Syllable alignment is my inference from note counts, not copied from source.",
+          "source_url": "https://en.wikipedia.org/w/index.php?title=Arirang&action=raw",
+          "confidence": "medium"
+        },
+        {
+          "claim": "MELODY|본조아리랑 FULL 16 bars, STRAIGHT 3/4 quantized (my own simplification of the 9/8 score for easy chiptune sequencing; every bar sums to 3)|G major|3/4|D4:1.5 E4:0.5 D4:0.5 E4:0.5 G4:1.5 A4:0.5 G4:0.5 A4:0.5 B4:1 A4:0.5 B4:0.25 A4:0.25 G4:0.5 E4:0.5 D4:1.5 E4:0.5 D4:0.25 E4:0.25 R:0.5 G4:1.5 A4:0.5 G4:0.5 A4:0.5 B4:0.5 A4:0.5 G4:0.5 E4:0.5 D4:0.5 E4:0.5 G4:1.5 A4:0.5 G4:1 G4:2 R:1 D5:2 D5:1 D5:1 B4:1 A4:1 B4:1 A4:0.5 B4:0.5 G4:0.5 E4:0.5 D4:1.5 E4:0.5 D4:0.25 E4:0.25 R:0.5 G4:1.5 A4:0.5 G4:0.5 A4:0.5 B4:0.5 A4:0.5 G4:0.5 E4:0.5 D4:0.5 E4:0.5 G4:1.5 A4:0.5 G4:1 G4:2 R:1. Suggested tempo ~70-80 bpm (flutetunes lists 80 bpm). Octave-up (+12) also fine for square-wave lead.",
+          "source_url": "https://www.flutetunes.com/tunes.php?id=305",
+          "confidence": "low"
+        },
+        {
+          "claim": "Flutetunes.com publishes Arirang (traditional Korean) in G major, 3/4, tempo 80 bpm, range D5-D6, with free PDF and MIDI. Its MIDI opening pitches read D5 E5 D5 E5 G5 A5 G5 A5 B5 ... G5 E5 D5, matching the Wikipedia score contour transposed to G.",
+          "source_url": "https://www.flutetunes.com/tunes.php?id=305",
+          "confidence": "medium"
+        },
+        {
+          "claim": "A recorder teaching page lists Arirang as pentatonic D E G A B with note lines including 'D E D E G D...' and ending 'B A G E D E G' (no rhythm given) — consistent pitch set and G tonal ending.",
+          "source_url": "https://sites.google.com/sfusd.edu/recordermrperry/arirang",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Sejong Cultural Society: central-region (Gyeonggi) Arirang uses gyeongtori; central pitch (cheong) G; pitch collection D E G A B; jangdan is semachi (three compound beats, moderate tempo). Supports 9/8 / triplet-feel 3/4 reading.",
+          "source_url": "https://sejongculturalsociety.org/composition/current/music/arirang.php",
+          "confidence": "high"
+        },
+        {
+          "claim": "Korean Wikipedia (경기아리랑): song created by film director/actor 나운규 and the 단성사 music band; became famous as theme music of the 1926 feature film 〈아리랑〉. ko.wikipedia 아리랑 article lists 경기아리랑 as also called 본조아리랑.",
+          "source_url": "https://ko.wikipedia.org/w/index.php?title=경기아리랑&action=raw",
+          "confidence": "medium"
+        },
+        {
+          "claim": "English Wikipedia: Na Woon-gyu's 1926 film Arirang is now a lost film; lyrics first appeared in the film and the 'Bonjo' (standard) Seoul version was first popularized as its theme song; regarded as the first Korean nationalist film.",
+          "source_url": "https://en.wikipedia.org/wiki/Arirang",
+          "confidence": "high"
+        },
+        {
+          "claim": "나운규 (1902-1937) wrote, directed and starred in 〈아리랑〉, premiered 1926-10-01 at 단성사, Seoul.",
+          "source_url": "https://ppss.kr/archives/227710",
+          "confidence": "high"
+        },
+        {
+          "claim": "Copyright: 본조아리랑 melody is safe to use. Folk songs have no identifiable author (ko.wikipedia: 민요 작사·작곡자 알 수 없음, 집단 창작). Even if attributed to 나운규 (d.1937), protection expired long ago (life+50 under old law, ended 1987; extension to life+70 in 2013 does not revive expired works). Note: a modern ARRANGEMENT/recording is copyrighted — sequence the melody yourself.",
+          "source_url": "https://gongu.copyright.or.kr/gongu/bbs/B0000013/list.do?menuNo=200041",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Korean copyright term: life of author + 70 years, effective 2013-07-01 (previously life+50); counted from Jan 1 of year after death.",
+          "source_url": "https://www.lawtalk.co.kr/posts/13637",
+          "confidence": "high"
+        },
+        {
+          "claim": "CORRECTION: current 연세대학교 교가 ('연세의 노래') is 작사 백낙준, 작곡 박태준 — NOT 정인보/현제명. Official Yonsei songs page also lists 연세 찬가 (작사 오태석, 작곡 나운영) and 응원가.",
+          "source_url": "https://www.yonsei.ac.kr/sc/239/subview.do",
+          "confidence": "high"
+        },
+        {
+          "claim": "연세대 교가 is NOT public domain: composer 박태준 (1900-1986) → music protected until 2056-12-31; lyricist 백낙준 (1895-1985) → lyrics protected until ~2055-12-31. Same for 연세찬가 (나운영 d.1993). Using it in the game needs permission (Yonsei / KOMCA). Dates of death: 박태준 from encykorea; 백낙준 from Wikipedia.",
+          "source_url": "https://encykorea.aks.ac.kr/Article/E0038297",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Older 延禧大學校歌 (연희대학교가) lyrics by 정인보 are on Korean Wikisource tagged PD-old-50 (public domain in Korea; author died 1950). Composer not listed; 현제명 attribution NOT verified — only known that 현제명 led a 연희전문 chorus. Lyrics usable; melody status unknown (if 현제명, d.1960, his term expired end-2010 before the 2013 extension, so it would be PD in Korea — but unverified).",
+          "source_url": "https://ko.wikisource.org/wiki/%EC%97%B0%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%EA%B0%80",
+          "confidence": "medium"
+        },
+        {
+          "claim": "새야 새야 파랑새야: traditional lullaby, uses only three pitches D, G, A; begins on G, ends on D; sung unornamented; upper-register phrase transposed up a perfect fifth (A to D'). Linked to 전봉준 (Donghak uprising), sung to mourn his 1895 execution; said to be sung by widows of his army to their babies. Public domain (traditional). No reliable note-by-note text sequence found — transcription only as PDF image.",
+          "source_url": "https://sejongculturalsociety.org/composition/current/music/parangsae.php",
+          "confidence": "high"
+        },
+        {
+          "claim": "도라지타령: Korean folk song originating in Eunyul, Hwanghae; current version classed as Gyeonggi folk song; semachi rhythm (fast 6/4 or 9/8), pentatonic. Traditional/public domain. No reliable note sequence found in text sources.",
+          "source_url": "https://en.wikipedia.org/w/index.php?title=Doraji_taryeong&action=raw",
+          "confidence": "medium"
+        },
+        {
+          "claim": "Arirang inscribed on UNESCO Intangible Cultural Heritage list (South Korea 2012, North Korea 2014); ~3,600 variations in ~60 versions; used as resistance anthem under Japanese rule.",
+          "source_url": "https://ich.unesco.org/en/RL/arirang-lyrical-folk-song-in-the-republic-of-korea-00445?RL=00445",
+          "confidence": "high"
+        }
+      ],
+      "people": [
+        {
+          "name_ko": "나운규",
+          "name_en": "Na Woon-gyu",
+          "role": "Director/writer/lead actor of 1926 film 〈아리랑〉; credited with popularizing 본조아리랑",
+          "years": "1902-1937",
+          "appearance": "(not from sourced text — verify with photos) Young man in mid-20s in 1926, short dark cropped hair, lean face, intense eyes; Western suit or white hanbok for film role of mentally ill student 영진.",
+          "personality": "Passionate nationalist filmmaker; film read as anti-colonial protest."
+        },
+        {
+          "name_ko": "정인보",
+          "name_en": "Jeong In-bo",
+          "role": "Scholar/professor at 연희전문; lyricist of 延禧大學校歌 (PD)",
+          "years": "1893-1950",
+          "appearance": "(verify) Classical scholar look: round wire glasses, short hair, hanbok with durumagi, middle-aged in 1930s-40s.",
+          "personality": "Confucian-trained historian, 조선학 movement, patriotic."
+        },
+        {
+          "name_ko": "백낙준",
+          "name_en": "Baek Nak-jun (L. George Paik)",
+          "role": "Lyricist of current 연세 교가; 연희전문 6th principal (Dec 1945-Aug 1946)",
+          "years": "1895-1985",
+          "appearance": "(verify) Western suit, tie, short neat hair, glasses in later years.",
+          "personality": "Educator/administrator."
+        },
+        {
+          "name_ko": "박태준",
+          "name_en": "Park Tae-jun",
+          "role": "Composer of current 연세 교가 (still copyrighted); also 「오빠생각」「동무생각」",
+          "years": "1900-1986",
+          "appearance": "(verify) Suit, glasses, choral conductor.",
+          "personality": "Daegu-born first-generation Western-style composer; ~150 vocal works incl. school songs."
+        },
+        {
+          "name_ko": "전봉준",
+          "name_en": "Jeon Bong-jun",
+          "role": "Donghak uprising leader; subject of 새야 새야 파랑새야",
+          "years": "1855-1895",
+          "appearance": "(verify) Famous photo: small man carried in palanquin after capture, topknot, white hanbok, fierce stare.",
+          "personality": "Called 녹두장군 (mung-bean general)."
+        }
+      ],
+      "story_hooks": [
+        "1926-10-01, 단성사 Seoul: 나운규's 〈아리랑〉 premieres; audience hears the theme that becomes 본조아리랑 — the film is now lost, so the song is what survives. Use as cutscene: theater lights dim, chiptune Arirang starts.",
+        "Folk song as resistance: under Japanese rule Arirang served as a resistance anthem — game can use refrain as 'hope' leitmotif, verse (high D5 '나를 버리고') as sorrow motif.",
+        "1895: after 전봉준's execution, widows sang 새야 새야 파랑새야 to their babies — 3-note (D G A) lullaby, perfect for a sad/minimal chiptune cue.",
+        "정인보, 연희전문 scholar, wrote the 延禧大學校歌 lyrics (now public domain); 1950 he was taken north during the Korean War — bittersweet campus-history beat.",
+        "Gotcha for the team: the current 연세 교가 (백낙준/박태준) is copyrighted until ~2056 — use Arirang/folk melodies instead, or get permission before including the 교가."
+      ],
+      "key": "music",
+      "verification": {
+        "corrections": [
+          {
+            "original_claim": "1. MELODY 본조아리랑 REFRAIN bars 1-8, G major (+2 from F), 9/8 as 3 dotted-quarter beats: D4:5/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:1 A4:1/3 B4:1/3 A4:1/3 G4:2/3 E4:1/3 | D4:5/3 E4:1/3 D4:1/3 E4:1/3 R:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:2/3 A4:1/3 G4:2/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:1 | G4:2 R:1",
+            "verdict": "confirmed",
+            "corrected_claim": "Re-derived bar by bar from en.wikipedia LilyPond (\\relative f', \\key f \\major, \\time 9/8). Eighth=1/3 beat, transpose c->d, d->e, f->g, g->a, a->b; c4. resolves to C4 -> D4. All 8 bars match exactly. Caveat: the flutetunes MIDI pitch cross-check could not be verified, since WebFetch cannot read MIDI and the page lists no notes. Syllable alignment is the researcher's inference.",
+            "source_url": "https://en.wikipedia.org/w/index.php?title=Arirang&action=raw"
+          },
+          {
+            "original_claim": "2. MELODY 본조아리랑 VERSE bars 9-16: D5:2 D5:1 | D5:1 B4:1 A4:1 | B4:1 A4:2/3 B4:1/3 G4:2/3 E4:1/3 | D4:5/3 E4:1/3 D4:1/3 E4:1/3 R:1/3 | then bars 5-8 repeat",
+            "verdict": "confirmed",
+            "corrected_claim": "The source bars match: 9 c'4.~c c, 10 c4. a4. g4., 11 a4. g4 a8 f4(d8), 12 c4.~(c4 d8 c d) r8, and 13-16 identical to 5-8. c' after f' resolves to C5 -> D5. Durations convert correctly. The syllable alignment is unverified inference.",
+            "source_url": "https://en.wikipedia.org/w/index.php?title=Arirang&action=raw"
+          },
+          {
+            "original_claim": "3. MELODY 본조아리랑 full 16 bars straight 3/4 quantized simplification, tempo ~70-80 bpm",
+            "verdict": "confirmed",
+            "corrected_claim": "This is the researcher's own simplification, not a sourced transcription. Pitches match the 9/8 source. Every bar sums to 3 beats (checked all 16). Flutetunes does list 80 bpm, 3/4, G major. Treat as an arrangement, not as an 'EXACT' version.",
+            "source_url": "https://www.flutetunes.com/tunes.php?id=305"
+          },
+          {
+            "original_claim": "4. Flutetunes: Arirang G major, 3/4, 80 bpm, range D5-D6, free PDF+MIDI; MIDI opening pitches D5 E5 D5 E5 G5 A5 G5 A5 B5 ... G5 E5 D5",
+            "verdict": "unverifiable",
+            "corrected_claim": "Key G major, 3/4, 80 bpm and range D5-D6 are confirmed on the page. The site is branded free sheet music, but no license terms are stated on the listing. The note-by-note MIDI pitches could not be checked because the page shows no notes and the MIDI is binary.",
+            "source_url": "https://www.flutetunes.com/tunes.php?id=305"
+          },
+          {
+            "original_claim": "5. SFUSD recorder page lists Arirang pentatonic D E G A B, lines incl. 'D E D E G D...' ending 'B A G E D E G', no rhythm",
+            "verdict": "corrected",
+            "corrected_claim": "The page lines are: 'D E D E G D C D C D', 'G A G A B D B D B D', 'A B G E D D A D A D', 'E D E G A G A D G D G D', 'B A G E D E G'. There is no rhythm. The lines include C and interleave repeated D's, which look like fingering or drone markers, so the page is not a clean D E G A B melody line. The ending 'B A G E D E G' and the G tonal ending are confirmed. This is weak corroboration only.",
+            "source_url": "https://sites.google.com/sfusd.edu/recordermrperry/arirang"
+          },
+          {
+            "original_claim": "6. Sejong Cultural Society: Gyeonggi Arirang gyeongtori; central pitch G; pitch collection D E G A B; jangdan semachi (three compound beats, moderate tempo)",
+            "verdict": "confirmed",
+            "corrected_claim": "The page confirms gyeongtori, central pitch (cheong) G with D E below and A B above, and semachi as 'three compound beats in a moderate tempo'.",
+            "source_url": "https://sejongculturalsociety.org/composition/current/music/arirang.php"
+          },
+          {
+            "original_claim": "7. ko.wikipedia 경기아리랑: created by 나운규 and 단성사 music band; famous as theme of 1926 film 아리랑; ko.wiki 아리랑 lists 경기아리랑 as 본조아리랑",
+            "verdict": "confirmed",
+            "corrected_claim": "Both points are confirmed. The 경기아리랑 article credits '영화감독 겸 영화배우인 나운규와 단성사 음악대'. The 아리랑 article lists '경기아리랑(본조아리랑)' but describes it as a 1930s 신민요, which is in slight tension with 1926; keep the 1926 film link.",
+            "source_url": "https://ko.wikipedia.org/wiki/아리랑"
+          },
+          {
+            "original_claim": "8. en.wikipedia: 1926 film Arirang is lost; Bonjo version first popularized as its theme; regarded as first Korean nationalist film",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed on en.wikipedia: 'now considered a lost film' and 'considered the first Korean nationalist film'. The Bonjo version was 'first made popular when it was used as the theme song of the 1926 film Arirang'.",
+            "source_url": "https://en.wikipedia.org/wiki/Arirang"
+          },
+          {
+            "original_claim": "9. 나운규 (1902-1937) wrote, directed, starred in 아리랑, premiered 1926-10-01 at 단성사, Seoul",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed by multiple Korean sources: ppss.kr, the en.wikipedia 1926 film article, and the 국가기록원 단성사 page. 1926-10-01 is the date commonly given.",
+            "source_url": "https://en.wikipedia.org/wiki/Arirang_(1926_film)"
+          },
+          {
+            "original_claim": "10. 본조아리랑 melody safe; folk song no author; even if 나운규 (d.1937), protection expired (life+50 under old law, ended 1987); 2013 life+70 does not revive; modern arrangement/recording copyrighted",
+            "verdict": "corrected",
+            "corrected_claim": "The conclusion is correct: the melody is free to use, so sequence it yourself rather than reusing a recording. The legal detail is wrong. Korea's first copyright act (1957, 법률 제432호) gave life+30, not life+50. So a 1937 death expired at end-1967. The 1987 revision (life+50, effective 1987-07-01) and the 2013 revision (life+70) did not revive expired works.",
+            "source_url": "https://www.mcst.go.kr/kor/s_policy/copyright/knowledge/know01.jsp"
+          },
+          {
+            "original_claim": "11. Korean copyright term life+70, effective 2013-07-01 (previously life+50); counted from Jan 1 of year after death",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed: life+70 from the 2011 amendment took effect 2013-07-01. Before that it was life+50 (from 1987-07-01) and life+30 before that. The term is counted from Jan 1 of the year after death.",
+            "source_url": "https://www.lawtalk.co.kr/posts/13637"
+          },
+          {
+            "original_claim": "12. Current 연세대 교가 '연세의 노래' 작사 백낙준, 작곡 박태준 (not 정인보/현제명); also 연세 찬가 (오태석/나운영) and 응원가",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed on the official Yonsei page: 교가 작사 백낙준 / 작곡 박태준, and 연세 찬가 작사 오태석 / 작곡 나운영. The 응원가 is listed without credits.",
+            "source_url": "https://www.yonsei.ac.kr/sc/239/subview.do"
+          },
+          {
+            "original_claim": "13. 연세대 교가 not PD: 박태준 (1900-1986) music protected until 2056-12-31; 백낙준 (1895-1985) lyrics until ~2055-12-31; 연세찬가 (나운영 d.1993) same; needs permission",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed: 박태준 1900-1986 (encykorea, 오빠생각 entry) gives protection to 2056-12-31. 백낙준 died 1985-01-13 (en.wikipedia) → 2055-12-31. 나운영 1922-1993 → 2063-12-31. The cited encykorea page is about 오빠생각 and does not itself mention the Yonsei song, but the official Yonsei page does. Do not use the 교가 or 찬가 without a license.",
+            "source_url": "https://en.wikipedia.org/wiki/Baek_Nak-jun"
+          },
+          {
+            "original_claim": "14. 延禧大學校歌 lyrics by 정인보 on ko.wikisource tagged PD-old-50; composer not listed; 현제명 unverified; if 현제명 (d.1960) term expired end-2010",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed: Wikisource credits 정인보, uses the PD-old-50 tag, and lists no composer. A 현제명 composer credit was not found in any source. The reasoning holds if he was the composer: d.1960 → life+30 to end-1990 → extended in 1987 to life+50 → expired end-2010, before the 2013 change. The melody status remains unknown, so do not use it.",
+            "source_url": "https://ko.wikisource.org/wiki/%EC%97%B0%ED%9D%AC%EB%8C%80%ED%95%99%EA%B5%90%EA%B0%80"
+          },
+          {
+            "original_claim": "15. 새야 새야 파랑새야: three pitches D G A; starts G ends D; unornamented; upper phrase up perfect fifth (A to D'); linked to 전봉준, mourn 1895 execution; widows sang to babies; PD; no text note sequence",
+            "verdict": "confirmed",
+            "corrected_claim": "All points are confirmed by Sejong Cultural Society: D G A; begins G, ends D; transposed up a perfect fifth A to D'; usually no sigimsae; 전봉준 hanged 1895; widows of his army sang it as a lullaby.",
+            "source_url": "https://sejongculturalsociety.org/composition/current/music/parangsae.php"
+          },
+          {
+            "original_claim": "16. 도라지타령: originated Eunyul, Hwanghae; current version Gyeonggi folk song; semachi (fast 6/4 or 9/8), pentatonic; PD; no note sequence",
+            "verdict": "confirmed",
+            "corrected_claim": "Confirmed. Wikipedia also gives the scale as G A C D E (jung, im, mu, hwang, tae), which differs from Arirang's D E G A B, and says it sometimes switches to jungmori (12/4).",
+            "source_url": "https://en.wikipedia.org/w/index.php?title=Doraji_taryeong&action=raw"
+          },
+          {
+            "original_claim": "17. Arirang UNESCO ICH (South Korea 2012, North Korea 2014); ~3,600 variations in ~60 versions; resistance anthem under Japanese rule",
+            "verdict": "corrected",
+            "corrected_claim": "The years and the ~3,600 variations / ~60 versions are confirmed: the UNESCO page covers the 2012 ROK inscription, and the 2014 DPRK inscription is per en.wikipedia. The cited UNESCO page does not mention resistance under Japanese rule. Source that point to en.wikipedia or the 1926 film history instead.",
+            "source_url": "https://ich.unesco.org/en/RL/arirang-lyrical-folk-song-in-the-republic-of-korea-00445?RL=00445"
+          }
+        ]
+      }
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Research"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "research:founding",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "ad22a5e411d1b667c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794024916156,
+      "queuedAt": 1794024916118,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Yonsei University founding era 1882–1900: Allen, 광혜원/제…",
+      "promptPreview": "You are researching the history of Yonsei University (연세대학교, Seoul) for an educational pixel-art history game made by a Yonsei student group. Use WebSearch (and any page-reading tool you have) to find reliable sources: Yonsei official history pages (yonsei.ac.kr, 연세대학교 박물관, 연세대 역사 아카이브), 한국민족문화대백과사전 (encykorea.aks.ac.kr), Wikipedia (ko/en), news, academic articles. Prefer Korean sources for Korean…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025256475,
+      "tokens": 109734,
+      "toolCalls": 36,
+      "durationMs": 340316,
+      "resultPreview": "{\"topic\":\"Yonsei University founding era 1882–1900: Allen, 광혜원/제중원, Underwood, Heron, Lillias Horton Underwood, Avison\",\"facts\":[{\"claim\":\"Horace Newton Allen was born 23 April 1858 in Delaware, Ohio. He got a BS from Ohio Wesleyan in 1881 and graduated from Miami Medical School, Cincinnati, in 1883. He was appointed a Northern Presbyterian medical missionary and arrived in Shanghai on 11 Oct 1883…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "research:pillars",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a987d69f87daf4443",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794024916157,
+      "queuedAt": 1794024916118,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "1899–1925 두 기둥: 세브란스(의학) + 연희(조선기독교대학)",
+      "promptPreview": "You are researching the history of Yonsei University (연세대학교, Seoul) for an educational pixel-art history game made by a Yonsei student group. Use WebSearch (and any page-reading tool you have) to find reliable sources: Yonsei official history pages (yonsei.ac.kr, 연세대학교 박물관, 연세대 역사 아카이브), 한국민족문화대백과사전 (encykorea.aks.ac.kr), Wikipedia (ko/en), news, academic articles. Prefer Korean sources for Korean…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025246131,
+      "tokens": 116082,
+      "toolCalls": 40,
+      "durationMs": 328853,
+      "resultPreview": "{\"topic\":\"1899–1925 두 기둥: 세브란스(의학) + 연희(조선기독교대학)\",\"facts\":[{\"claim\":\"에비슨(O.R. Avison)이 1900년 뉴욕 카네기홀 Ecumenical Missionary Conference에서 'Comity in Medical Missions' 발표. 날짜 4월 27일 vs 4월 30일로 자료 상이.\",\"source_url\":\"https://en.wikipedia.org/wiki/Oliver_R._Avison\",\"date\":\"1900-04\",\"confidence\":\"high\"},{\"claim\":\"클리블랜드의 L.H. Severance가 발표를 듣고 에비슨과 상의. 에비슨은 'I have in my pocket right now a plan for such a…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "research:darkage",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a069996935d0b5a35",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794024916157,
+      "queuedAt": 1794024916118,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Yonsei 1925–1957: dark age, preservation, liberation, birth…",
+      "promptPreview": "You are researching the history of Yonsei University (연세대학교, Seoul) for an educational pixel-art history game made by a Yonsei student group. Use WebSearch (and any page-reading tool you have) to find reliable sources: Yonsei official history pages (yonsei.ac.kr, 연세대학교 박물관, 연세대 역사 아카이브), 한국민족문화대백과사전 (encykorea.aks.ac.kr), Wikipedia (ko/en), news, academic articles. Prefer Korean sources for Korean…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025236574,
+      "tokens": 113276,
+      "toolCalls": 42,
+      "durationMs": 319295,
+      "resultPreview": "{\"topic\":\"Yonsei 1925–1957: dark age, preservation, liberation, birth of 연세 (최현배, 이윤재, 정인보, 백남운, 백낙준, 원한경, 윤치호, 윤동주, 1942 seizure, 1944 rename, 1946 연희대, 1957 merger)\",\"facts\":[{\"claim\":\"Yonsei official principal list: 3rd 교장 원한경 (H.H. Underwood) 1934.09–1941.12; 4th 교장 윤치호 1941.12–1942.08; 5th 유억겸 1945.08–1945.12; 6th 백낙준 1945.12–1946.08; 연희대학교 1st 총장 백낙준 1946.08–1957.01. Same site's individual p…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "research:portraits",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a2323373a6f3dc2bb",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794024916157,
+      "queuedAt": 1794024916118,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Public-domain / free portrait photos on Wikimedia Commons f…",
+      "promptPreview": "You are researching the history of Yonsei University (연세대학교, Seoul) for an educational pixel-art history game made by a Yonsei student group. Use WebSearch (and any page-reading tool you have) to find reliable sources: Yonsei official history pages (yonsei.ac.kr, 연세대학교 박물관, 연세대 역사 아카이브), 한국민족문화대백과사전 (encykorea.aks.ac.kr), Wikipedia (ko/en), news, academic articles. Prefer Korean sources for Korean…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025251568,
+      "tokens": 109967,
+      "toolCalls": 42,
+      "durationMs": 334288,
+      "resultPreview": "{\"topic\":\"Public-domain / free portrait photos on Wikimedia Commons for Yonsei history game dialogue portraits\",\"facts\":[{\"claim\":\"PORTRAIT|Horace Newton Allen (알렌)|https://upload.wikimedia.org/wikipedia/commons/d/d4/Horace_Newton_Allen.jpg|https://commons.wikimedia.org/wiki/File:Horace_Newton_Allen.jpg|Public domain (author unknown, 1885)|likely yes (not visually verified)|361x453 original, use a…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "research:music",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a07ca53a4bb05afe6",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794024916157,
+      "queuedAt": 1794024916119,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Public-domain Korean folk melodies for chiptune (본조/경기 …",
+      "promptPreview": "You are researching the history of Yonsei University (연세대학교, Seoul) for an educational pixel-art history game made by a Yonsei student group. Use WebSearch (and any page-reading tool you have) to find reliable sources: Yonsei official history pages (yonsei.ac.kr, 연세대학교 박물관, 연세대 역사 아카이브), 한국민족문화대백과사전 (encykorea.aks.ac.kr), Wikipedia (ko/en), news, academic articles. Prefer Korean sources for Korean…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025241371,
+      "tokens": 100815,
+      "toolCalls": 39,
+      "durationMs": 324092,
+      "resultPreview": "{\"topic\":\"Public-domain Korean folk melodies for chiptune (본조/경기 아리랑, 새야새야 파랑새야, 도라지타령) + copyright status of Yonsei school songs\",\"facts\":[{\"claim\":\"MELODY|본조아리랑 (Bonjo/Gyeonggi Arirang) REFRAIN '아리랑 아리랑 아라리요 / 아리랑 고개로 넘어간다' (bars 1-8), EXACT version|G major (transposed +2 semitones from Wikipedia's F major score; pentatonic D E G A B, tonal center G)|9/8 played as 3 beats per bar (beat = dotted …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify:darkage",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a6cdce8ba915e4440",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794025239411,
+      "queuedAt": 1794025239392,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are an adversarial fact-checker for an educational game about Yonsei University history. A researcher produced the claims below on the topic \"darkage\". Independently re-check EVERY claim with WebSearch (and any page-reading tool you have) using sources other than the one cited where possible. Default to skepticism: if a date, number, name, quote or URL cannot be confirmed, mark it unverifiable…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025473803,
+      "tokens": 113556,
+      "toolCalls": 39,
+      "durationMs": 234392,
+      "resultPreview": "{\"corrections\":[{\"original_claim\":\"1. Yonsei principal list: 3rd 원한경 1934.09–1941.12; 4th 윤치호 1941.12–1942.08; 5th 유억겸 1945.08–1945.12; 6th 백낙준 1945.12–1946.08; 연희대 1st 총장 백낙준 1946.08–1957.01; profiles differ (윤치호 1941.04~1942.04; 백낙준 교장 1946.01~1946.10); none listed 1942.08–1945.08.\",\"verdict\":\"confirmed\",\"corrected_claim\":\"Confirmed as stated on official page. Add: 원한경 profile gives appointment …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify:music",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a3373692e6bc5df7c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794025243794,
+      "queuedAt": 1794025243791,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are an adversarial fact-checker for an educational game about Yonsei University history. A researcher produced the claims below on the topic \"music\". Independently re-check EVERY claim with WebSearch (and any page-reading tool you have) using sources other than the one cited where possible. Default to skepticism: if a date, number, name, quote or URL cannot be confirmed, mark it unverifiable o…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025379855,
+      "tokens": 88051,
+      "toolCalls": 22,
+      "durationMs": 136060,
+      "resultPreview": "{\"corrections\":[{\"original_claim\":\"1. MELODY 본조아리랑 REFRAIN bars 1-8, G major (+2 from F), 9/8 as 3 dotted-quarter beats: D4:5/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:1 A4:1/3 B4:1/3 A4:1/3 G4:2/3 E4:1/3 | D4:5/3 E4:1/3 D4:1/3 E4:1/3 R:1/3 | G4:5/3 A4:1/3 G4:2/3 A4:1/3 | B4:2/3 A4:1/3 G4:2/3 E4:1/3 D4:2/3 E4:1/3 | G4:5/3 A4:1/3 G4:1 | G4:2 R:1\",\"verdict\":\"confirmed\",\"corrected_cla…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "verify:pillars",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "addee123a2b1ad703",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794025248474,
+      "queuedAt": 1794025248469,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are an adversarial fact-checker for an educational game about Yonsei University history. A researcher produced the claims below on the topic \"pillars\". Independently re-check EVERY claim with WebSearch (and any page-reading tool you have) using sources other than the one cited where possible. Default to skepticism: if a date, number, name, quote or URL cannot be confirmed, mark it unverifiable…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025521788,
+      "tokens": 130489,
+      "toolCalls": 51,
+      "durationMs": 273314,
+      "resultPreview": "{\"corrections\":[{\"original_claim\":\"1. 에비슨 1900 뉴욕 카네기홀 Ecumenical Missionary Conference에서 'Comity in Medical Missions' 발표, 날짜 4/27 vs 4/30\",\"verdict\":\"confirmed\",\"corrected_claim\":\"Conference ran Apr 21–May 1, 1900 (Carnegie Hall + nearby churches). Proceedings title = 'Comity in Medical Mission Work'. Apr 27 given by Korean medical-history sources (YMJ/PMC); Apr 30 not found anywhere. Use 'late A…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "verify:portraits",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ac22b10e0725b1444",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794025253702,
+      "queuedAt": 1794025253699,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are an adversarial fact-checker for an educational game about Yonsei University history. A researcher produced the claims below on the topic \"portraits\". Independently re-check EVERY claim with WebSearch (and any page-reading tool you have) using sources other than the one cited where possible. Default to skepticism: if a date, number, name, quote or URL cannot be confirmed, mark it unverifiab…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025443968,
+      "tokens": 90778,
+      "toolCalls": 8,
+      "durationMs": 190266,
+      "resultPreview": "{\"corrections\":[{\"original_claim\":\"1. Horace Newton Allen portrait, File:Horace_Newton_Allen.jpg, PD, unknown author, 1885, 361x453\",\"verdict\":\"confirmed\",\"corrected_claim\":\"The file exists at 361x453 and is tagged Public domain. The author is unknown and the date is given as 1885. The 1885 date comes only from the uploader's source (woodlawntour.com) and has not been checked independently.\",\"sour…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "verify:founding",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a8841109d0a7ae75c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794025258518,
+      "queuedAt": 1794025258515,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "You are an adversarial fact-checker for an educational game about Yonsei University history. A researcher produced the claims below on the topic \"founding\". Independently re-check EVERY claim with WebSearch (and any page-reading tool you have) using sources other than the one cited where possible. Default to skepticism: if a date, number, name, quote or URL cannot be confirmed, mark it unverifiabl…",
+      "promptFramed": true,
+      "lastProgressAt": 1794025475430,
+      "tokens": 100715,
+      "toolCalls": 32,
+      "durationMs": 216912,
+      "resultPreview": "{\"corrections\":[{\"original_claim\":\"1. Allen born 23 Apr 1858 Delaware OH; BS Ohio Wesleyan 1881; Miami Medical School 1883; arrived Shanghai 11 Oct 1883.\",\"verdict\":\"confirmed\",\"source_url\":\"https://en.wikipedia.org/wiki/Horace_Newton_Allen\"},{\"original_claim\":\"2. Allen went to Korea 20 Sept 1884 (lead says 15 Sept); U.S. Legation physician hid his missionary role; brought wife Fannie and son Harr…"
+    }
+  ],
+  "totalTokens": 1073463,
+  "totalToolCalls": 351
+}

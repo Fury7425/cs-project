@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>portrait sheet</title>
+<style>
+  body { background: #222; color: #ccc; font: 12px monospace; margin: 8px; }
+  .row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+  .row b { width: 110px; }
+  canvas { width: 192px; height: 192px; image-rendering: pixelated; border: 2px solid #000; }
+</style>
+<div id="out"></div>
+<script>document.write('<script src="../js/portraits.js?v=' + Date.now() + '"><\/script>');</script>
+<script>
+  const moods = ['neutral', 'smile', 'sad', 'angry', 'surprised'];
+  const ids = (new URLSearchParams(location.search).get('ids') || Portraits.ids.join(',')).split(',');
+  for (const id of ids) {
+    const row = document.createElement('div'); row.className = 'row';
+    row.innerHTML = `<b>${id}</b>`;
+    for (const m of (id === 'keeper' ? ['neutral', 'reveal'] : moods)) {
+      const c = Portraits.get(id, m); if (c) { const d = document.createElement('canvas'); d.width = d.height = 64; d.getContext('2d').drawImage(c, 0, 0); row.appendChild(d); }
+    }
+    out.appendChild(row);
+  }
+</script>

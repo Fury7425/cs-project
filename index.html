@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>연세 역사 탐험 — 기록관</title>
+<!-- pixel Korean font from CDN, falls back to monospace offline -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css">
+<style>
+  :root { --w: min(768px, 100vw, calc((100vh - 110px) * 256 / 224)); }
+  body { margin: 0; background: #111; color: #fff; font-family: 'Galmuri11', monospace;
+         display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+  /* fixed height: a long goal wraps inside the bar instead of pushing the game down */
+  #hud { width: var(--w); height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 10px; font-size: 13px; line-height: 1.3; }
+  #hl { flex: 0 1 auto; max-width: 42%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #9ab4e8; }
+  #hr { flex: 1; min-width: 0; text-align: right; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  #wrap { position: relative; width: var(--w); aspect-ratio: 256 / 224; overflow: hidden; }
+  canvas { width: 100%; height: 100%; image-rendering: pixelated; display: block; background: #000; }
+
+  /* ---- visual-novel dialogue layer ---- */
+  #vn { display: none; position: absolute; inset: 0; z-index: 5; cursor: pointer; user-select: none; -webkit-user-select: none; }
+  #vnDim { position: absolute; inset: 0; background: rgba(4, 6, 16, .58); }
+  #vn.full #vnDim { background: linear-gradient(transparent 50%, rgba(0, 0, 0, .65)); }
+  .por { position: absolute; bottom: 30%; height: 38%; aspect-ratio: 1; opacity: 0; pointer-events: none; border: 3px solid #f4f0e8; box-shadow: 0 0 0 3px #000, 4px 4px 0 3px rgba(0,0,0,.45); background: #000;
+         transition: opacity .25s, filter .25s; }
+  .por canvas { background: transparent; width: 100%; height: 100%; image-rendering: pixelated; }
+  .por.on { opacity: 1; }
+  .por.dim { filter: brightness(.38) saturate(.6); }
+  #vnL { left: 4%; } #vnR { right: 4%; }
+  #vnL.in { animation: slideL .35s ease-out; } #vnR.in { animation: slideR .35s ease-out; }
+  #vn.narr .por { opacity: 0; }
+  #vnBox { position: absolute; left: 2%; right: 2%; bottom: 2.5%; min-height: 24%; box-sizing: border-box;
+           background: rgba(6, 8, 24, .93); border: 3px solid #dfe6ff; box-shadow: 0 0 0 2px #000, inset 0 0 0 2px #000;
+           padding: 2.4% 3% 1.8%; font-size: clamp(12px, 2.4vw, 19px); line-height: 1.65; }
+  #vnName { display: none; position: absolute; left: 12px; top: 0; transform: translateY(-62%); padding: 1px 12px;
+            border: 2px solid #000; color: #fff; text-shadow: 1px 1px 0 #000; background: #888; font-weight: normal; }
+  #vnName small { opacity: .85; margin-left: 6px; font-size: .75em; }
+  #vnText { white-space: pre-wrap; min-height: 3.3em; }
+  #vnChoices div { cursor: pointer; padding: 1px 0; }
+  #vnChoices div.on { color: #4af; }
+  #vnNext { position: absolute; right: 14px; bottom: 6px; font-style: normal; visibility: hidden; animation: blink 1s steps(2) infinite; }
+  #vn.narr #vnBox { bottom: 36%; text-align: center; background: rgba(0, 0, 0, .72); border-color: #555; }
+  #vn.narr #vnName { display: none !important; }
+
+  /* ---- dialogue backlog (L) ---- */
+  #vnLog { display: none; position: absolute; inset: 0; z-index: 8; background: rgba(4, 6, 16, .94); overflow-y: auto; box-sizing: border-box;
+           padding: 4% 5%; font-size: clamp(11px, 2vw, 15px); line-height: 1.6; white-space: pre-wrap; }
+  #vnLog b { color: #9ab4e8; font-weight: normal; }
+  #vnLog p { margin: 0 0 .7em; }
+  #vnLog .dim { text-align: center; }
+
+  /* ---- title / end overlay ---- */
+  #ov { position: absolute; inset: 0; z-index: 10; background: #000; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; text-align: center; gap: 12px; padding: 16px; box-sizing: border-box; overflow: hidden; }
+  #ov h1 { font-size: clamp(22px, 5vw, 40px); margin: 0; color: #4a8cff; }
+  #ov h2 { font-size: clamp(16px, 3.5vw, 26px); margin: 0; }
+  #ov p { margin: 0; line-height: 1.6; }
+  /* title: the painted Gwanghyewon gate (drawn on the game canvas) shows through */
+  #ov.title { background: linear-gradient(rgba(0,0,0,.05) 30%, rgba(0,0,0,.8)); justify-content: flex-end; padding-bottom: 7%; gap: 8px; }
+  #ov.title h1 { font-size: clamp(26px, 6.4vw, 50px); color: #fff4d8; letter-spacing: .06em;
+                 text-shadow: 0 3px 0 #1a3f95, 0 0 18px rgba(255,200,120,.55), 2px 2px 0 #000; }
+  #ov .kicker { color: #f0c070; letter-spacing: .4em; font-size: clamp(10px, 1.8vw, 13px); text-shadow: 1px 1px 0 #000; }
+  #ov .sub { color: #e8d8b0; letter-spacing: .3em; margin-bottom: 10px; text-shadow: 1px 1px 0 #000; }
+  #ov.title .dim { color: #c8c0b0; text-shadow: 1px 1px 0 #000; }
+  #ov button { font: inherit; background: #1a3f95; color: #fff; border: 2px solid #4a8cff; padding: 6px 14px; cursor: pointer; }
+  #ov .credits { max-height: 38%; overflow-y: auto; font-size: clamp(10px, 1.8vw, 13px); color: #aab; line-height: 1.7; width: 92%; }
+  .dim { color: #888; }
+  .gold { color: #fc0; }
+  .blink { animation: blink 1s steps(2) infinite; }
+  #help { font-size: 12px; color: #888; margin: 6px 0; text-align: center; }
+  #pad { display: none; width: var(--w); justify-content: space-between; align-items: center; padding: 8px 12px;
+         box-sizing: border-box; user-select: none; -webkit-user-select: none; touch-action: none; }
+  #dpad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); }
+  #pad button { font: inherit; font-size: 20px; background: #2a2a2a; color: #fff; border: 2px solid #666; border-radius: 8px; touch-action: none; }
+  #ab { display: flex; gap: 8px; align-items: center; }
+  #ab button { width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0; padding: 0; }
+  #ab small { font-size: 11px; }
+
+  /* ---- cutscenes (driven by Cutscenes module) ---- */
+  #cut { display: none; position: absolute; inset: 0; z-index: 20; background: #000; }
+  #cs { width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+  #cap, #ctag, #cskip { position: absolute; height: 11.9%; display: flex; align-items: center; }
+  #cap { left: 0; right: 0; bottom: 0; justify-content: center; text-align: center; white-space: pre-line;
+         font-size: clamp(11px, 2.1vw, 16px); line-height: 1.5; padding: 0 12px; }
+  #ctag { left: 12px; top: 0; color: #9a9ab4; font-size: clamp(10px, 1.8vw, 13px); letter-spacing: .15em; }
+  #cskip { right: 12px; top: 0; color: #555; font-size: 11px; }
+  @media (pointer: coarse) { #pad { display: flex; } #help { display: none; } }
+  @keyframes blink { 50% { opacity: 0; } }
+  /* transform only: animating opacity here made an empty black frame flash for speakers with no portrait */
+  @keyframes slideL { from { transform: translateX(-45%); } to { transform: none; } }
+  @keyframes slideR { from { transform: translateX(45%); } to { transform: none; } }
+</style>
+</head>
+<body>
+<div id="hud"><span id="hl">연세 역사 탐험</span><span id="hr"></span></div>
+<div id="wrap">
+  <canvas id="c" width="256" height="224"></canvas>
+  <div id="vn">
+    <div id="vnDim"></div>
+    <div class="por" id="vnL"><canvas width="64" height="64"></canvas></div>
+    <div class="por" id="vnR"><canvas width="64" height="64"></canvas></div>
+    <div id="vnBox">
+      <b id="vnName"></b>
+      <div id="vnText"></div>
+      <div id="vnChoices"></div>
+      <i id="vnNext">▼</i>
+    </div>
+  </div>
+  <div id="vnLog"></div>
+  <div id="ov"></div>
+  <div id="cut"><canvas id="cs" width="384" height="336"></canvas><div id="ctag"></div><div id="cskip">Z 다음 · Esc 건너뛰기</div><div id="cap"></div></div>
+</div>
+<div id="pad">
+  <div id="dpad">
+    <button data-d="up" style="grid-area:1/2">▲</button><button data-d="left" style="grid-area:2/1">◀</button>
+    <button data-d="right" style="grid-area:2/3">▶</button><button data-d="down" style="grid-area:3/2">▼</button>
+  </div>
+  <div id="ab"><button id="bl" style="width:44px;height:44px;align-self:center;font-size:13px">기록</button><button id="bb">B<br><small>달리기</small></button><button id="ba">A</button></div>
+</div>
+<p id="help">방향키/WASD 이동 · Z/스페이스 말하기·넘기기 · Shift/X 달리기 · L 지난 대화 · M 소리 끄기/켜기</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<script src="js/art.js?v=5"></script>
+<script src="js/audio.js?v=6"></script>
+<script src="js/sprites.js?v=8"></script>
+<script src="js/portraits.js?v=6"></script>
+<script src="js/cutscenes.js?v=7"></script>
+<script src="js/cutscenes2.js?v=5"></script>
+<script src="data/story.js?v=10"></script>
+<script src="data/story2.js?v=12"></script>
+<script src="js/game.js?v=23"></script>
+</body>
+</html>
