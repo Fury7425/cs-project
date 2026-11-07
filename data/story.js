@@ -1,6 +1,13 @@
 /* data/story.js -> window.STORY : characters, flow, intro/epilogue VN scripts, act 1.
    Pure data. Line ids: intro_<who>_<nn>, a1_<who>_<nn>, ep_<who>_<nn> (stable, for Voice.play). */
 window.STORY = {
+  // words coloured in dialogue (game.js `mark`): place = gold, item = mint. Longest match wins.
+  keywords: {
+    place: ['제중원', '광혜원', '재동', '정동', '남대문', '세브란스병원', '카네기홀', '종로 YMCA', 'YMCA', '신촌', '연희궁', '창천리',
+      '스팀슨관', '언더우드관', '아펜젤러관', '조선기독교대학', '연희전문', '핀슨관', '다락방', '포플러 길', '소사실', '간도', '고아학당', '경신학교', '남대문역'],
+    item: ['게시문', '벽돌', '목재', '건축 자재', '머릿돌', '설계도', '졸업장', '의사 면허', '원고', '화충',
+      '우리말본', '여유당전서', '조선사회경제사'],
+  },
   characters: {
     me:               { name: '연우',   title: '국문과 신입생',   portrait: 'me',               sprite: 'me',               color: '#4f8cff' },
     narrator:         { name: '',       title: '',                portrait: 'narrator',         sprite: 'sign',             color: '#cfcfcf' },

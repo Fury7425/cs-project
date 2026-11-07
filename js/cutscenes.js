@@ -564,9 +564,12 @@
     $('cap').textContent = ''; $('cut').style.display = 'none';
     if (f) f();
   };
+  // caption typed up to n chars; key places/items coloured by game.js's markKW when it is loaded
+  // one wrapping <span>: #cap is a flex box, so bare text + spans would each become a separate flex column
+  const capTo = n => { if (window.markKW) $('cap').innerHTML = `<span>${window.markKW(cs.cap, n)}</span>`; else $('cap').textContent = cs.cap.slice(0, n); };
   const advance = () => { // reveal full caption first, then move to the next shot
     if (!cs || cs.lf) return;
-    if (cs.n < cs.cap.length) { cs.n = cs.cap.length; $('cap').textContent = cs.cap; } else cs.lf = 1;
+    if (cs.n < cs.cap.length) { cs.n = cs.cap.length; capTo(cs.n); } else cs.lf = 1;
   };
   const wire = () => {
     if (wired) return; wired = true;
@@ -611,7 +614,7 @@
       cs.f++;
       if (cs.lf) { if (++cs.lf > 24) { if (++cs.i >= cs.sc.shots.length) end(); else startShot(); } return; }
       if (cs.f > 16 && cs.n < cs.cap.length) {
-        cs.n++; $('cap').textContent = cs.cap.slice(0, cs.n);
+        cs.n++; capTo(cs.n);
         if (cs.n % 5 === 0 && window.Sfx) { try { Sfx.play('blip'); } catch (e) { /* optional */ } }
       }
     },

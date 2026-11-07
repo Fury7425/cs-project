@@ -30,7 +30,7 @@ const flagOK = f => f[0] === '!' ? !flags[f.slice(1)] : !!flags[f];
 
 const step = () => act && act.steps[si];
 const unlocked = () => act && si >= act.steps.length;
-const itemLook = e => typeof e.item === 'string' ? e.item : (e.tag || e.sprite);
+const itemLook = e => typeof e.item === 'string' ? e.item : (e.sprite || e.tag); // sprite first: quest tags like 'mat' have no art
 // `from`/`until` = step indexes, so people only stand on the map in the years they belong to
 // `away`: a persuaded patient walks off to the hospital and is back (healed) once the whole step is done
 const present = e => (e.from == null || si >= e.from) && (e.until == null || si < e.until) && !(e.away && e.done && step()?.tag === e.tag);
@@ -47,7 +47,7 @@ function hud() {
   if (!act) { $('hr').textContent = ''; return; }
   const s = step(), n = act.steps.length;
   const goal = s ? `목표 [${si + 1}/${n}] ${s.goal}${s.need ? ` (${prog}/${s.need})` : ''}` : `목표: ${act.hint}로 나가기`;
-  $('hr').textContent = (act.hearts ? `화충 ${'♥'.repeat(hearts)}${'♡'.repeat(3 - hearts)} · ` : '') + goal;
+  $('hr').innerHTML = mark((act.hearts ? `화충 ${'♥'.repeat(hearts)}${'♡'.repeat(3 - hearts)} · ` : '') + goal);
 }
 function toast(m) {
   $('hr').style.color = '#fc0'; $('hr').textContent = m;
@@ -298,7 +298,7 @@ function toggleLog() {
   el.style.display = on ? 'block' : 'none';
   if (!on) return;
   el.innerHTML = '<p class="dim">지난 대화 · L / Z 로 닫기</p>' +
-    backlog.map(([n, t]) => `<p>${n ? `<b>${esc(n)}</b>  ` : ''}${esc(t)}</p>`).join('');
+    backlog.map(([n, t]) => `<p>${n ? `<b>${esc(n)}</b>  ` : ''}${mark(t)}</p>`).join('');
   el.scrollTop = el.scrollHeight;
 }
 $('vnLog').onclick = e => { e.stopPropagation(); toggleLog(); };
@@ -357,8 +357,24 @@ function showLine(ln, adv) {
   if (ln.sfx) sfx(ln.sfx);
   if (ln.id) { call(window.Voice, 'stop'); try { Promise.resolve(call(window.Voice, 'play', ln.id)).catch(() => {}); } catch {} }
 }
+// key places/items get their own colour; t = full line, n = chars typed so far
+const KW = (() => {
+  const m = new Map(); for (const [c, ws] of Object.entries(ST.keywords || {})) for (const w of ws) m.set(w, c);
+  const ws = [...m.keys()].sort((a, b) => b.length - a.length).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  return { m, re: ws.length ? new RegExp(ws.join('|'), 'g') : null };
+})();
+function mark(t, n = t.length) {
+  let out = '', i = 0;
+  if (KW.re) for (const x of t.matchAll(KW.re)) {
+    if (x.index >= n) break;
+    const e = Math.min(n, x.index + x[0].length);
+    out += esc(t.slice(i, x.index)) + `<span class="kw-${KW.m.get(x[0])}">${esc(t.slice(x.index, e))}</span>`; i = e;
+  }
+  return out + esc(t.slice(i, n));
+}
+window.markKW = mark; // cutscene captions use the same highlighting
 function vnFinish() {
-  vn.n = vn.text.length; $('vnText').textContent = vn.text;
+  vn.n = vn.text.length; $('vnText').innerHTML = mark(vn.text);
   let opts = (vn.ln.choice || []).filter(o => !o.if || flagOK(o.if));
   if (opts.some(o => o.fail)) opts = opts.map(o => [Math.random(), o]).sort((a, b) => a[0] - b[0]).map(x => x[1]); // persuasion: no fixed "right slot"
   if (opts.length) { vn.st = 'choice'; vn.opts = opts; vn.sel = 0; vn.cl = 36; renderChoices(); sfx('select'); return; } // cl: Z-mashing through text can't auto-pick
@@ -366,7 +382,7 @@ function vnFinish() {
   if (!vn.lock) $('vnNext').style.visibility = 'visible';
 }
 function renderChoices() {
-  $('vnChoices').innerHTML = vn.opts.map((o, k) => `<div data-k="${k}" class="${k === vn.sel ? 'on' : ''}">${k === vn.sel ? '▶' : '　'} ${esc(o.text)}</div>`).join('');
+  $('vnChoices').innerHTML = vn.opts.map((o, k) => `<div data-k="${k}" class="${k === vn.sel ? 'on' : ''}">${k === vn.sel ? '▶' : '　'} ${mark(o.text)}</div>`).join('');
 }
 function pick(k) {
   const o = vn.opts[k]; if (!o) return;
@@ -390,7 +406,7 @@ function vnUpdate() {
   vn.n = Math.min(len, vn.n + 1.5); // ~90 chars/s; Z still finishes the line instantly
   const now = Math.floor(vn.n);
   if (now !== before) {
-    $('vnText').textContent = vn.text.slice(0, now);
+    $('vnText').innerHTML = mark(vn.text, now);
     vn.bl += now - before;
     if (vn.bl >= 4 + (now & 1)) { vn.bl = 0; if (/\S/.test(vn.text[now - 1] || '')) sfx('blip', vn.pitch); }
   }
@@ -659,6 +675,13 @@ function person(sx, sy, look, dir, fr) {
   fbPerson(sx, sy, look, dir, fr);
 }
 function item(sx, sy, look) {
+  // pulsing gold halo + bobbing arrow so pickups read clearly on busy ground tiles
+  const p = (frame >> 2) % 8;
+  g.fillStyle = `rgba(255,220,80,${0.3 + 0.06 * (p < 4 ? p : 8 - p)})`;
+  g.beginPath(); g.ellipse(sx + 8, sy + 10, 9, 6, 0, 0, Math.PI * 2); g.fill();
+  const ay = sy - 7 + ((frame >> 3) % 2);
+  for (let i = 0; i < 5; i++) { g.fillStyle = '#2a1812'; g.fillRect(sx + 4 + i, ay + i, 9 - 2 * i, 1); }
+  for (let i = 0; i < 4; i++) { g.fillStyle = '#ffe060'; g.fillRect(sx + 5 + i, ay + i, 7 - 2 * i, 1); }
   sy += (frame >> 4) % 2;
   let drawn = false;
   try { if (window.Sprites && Sprites.drawItem) { Sprites.drawItem(g, sx, sy, look, frame); drawn = true; } } catch {}
