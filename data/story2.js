@@ -268,7 +268,7 @@
       ['doubt', [[12, 9], [22, 9]]],
       ['doubt', [[18, 10], [18, 15]]],
     ],
-    doubtLook: ['commoner_m', 'commoner_f'], // gossiping townsfolk instead of rifts
+    doubtLook: ['commoner_m', 'commoner_f'], // gossiping townsfolk instead of purple blobs
     doubtLines: ['“백정 아들 다니는 학교라지?” 수군거림에 발이 묶였다…', '제자리로 돌아간다.'],
   };
 
