@@ -23,7 +23,7 @@ const store = { get: k => { try { return localStorage.getItem(k); } catch { retu
 let mode = 'ov', ovNext = null, ovAlt = null, frame = 0, actT = 0, toastT, started = false;
 let fi = 0, resumeSi = 0, flags = {}, act = null, actId = '', scene = null; // flow index, story flags, active act, full-screen vn scene
 let map = null, exitPos = null, ents = [], mobs = [], fx = [], lanes = new Set(), p;
-let si = 0, prog = 0, hearts = 3, grace = 0, failed = false, running = false, shake = 0, fade = 0, fadeDir = 0, fadeCb = null, lastBump = 0;
+let si = 0, prog = 0, hearts = 3, grace = 0, failed = false, running = false, stamina = 100, tired = false, shake = 0, fade = 0, fadeDir = 0, fadeCb = null, lastBump = 0;
 const stats = { t0: Date.now(), caught: 0, wrong: 0, rec: new Set() };
 const held = [];
 const flagOK = f => f[0] === '!' ? !flags[f.slice(1)] : !!flags[f];
@@ -130,7 +130,7 @@ function credits() {
 function loadAct(id, again) {
   const a = (ST.acts || {})[id];
   if (!a) return nextFlow();
-  act = a; actId = id; scene = null; si = 0; prog = 0; hearts = 3; fx = [];
+  act = a; actId = id; scene = null; si = 0; prog = 0; hearts = 3; stamina = 100; tired = false; fx = [];
   map = a.map.map(r => [...r]);
   exitPos = map.flatMap((r, y) => r.map((t, x) => t === 'E' ? [x, y] : null)).find(Boolean);
   ents = (a.ents || []).map(e => ({ ...e, dir: 'down', done: 0, k0: `${e.x},${e.y}` }));
@@ -623,9 +623,15 @@ function update() {
     if (touch || seen) return caught(m.kind);
   }
 
-  // grid movement: 2px/frame walking, 4px/frame running
-  if (p.px !== p.x * 16 || p.py !== p.y * 16) {
-    const sp = running ? 4 : 2, ddx = p.x * 16 - p.px, ddy = p.y * 16 - p.py;
+  // stamina: sprinting drains it (~1.4s from full), not sprinting refills it (~4s);
+  // once empty the player is winded: slow walk and no sprint until it is full again
+  const moving = p.px !== p.x * 16 || p.py !== p.y * 16, sprint = running && !tired && moving;
+  stamina = sprint ? Math.max(0, stamina - 1.2) : Math.min(100, stamina + .4);
+  if (!stamina) tired = true; else if (tired && stamina >= 100) tired = false;
+
+  // grid movement px/frame: winded 1, walking 2, sprinting 2.5 (alternates 2/3 so positions stay whole pixels)
+  if (moving) {
+    const sp = tired ? 1 : sprint ? 2 + (frame & 1) : 2, ddx = p.x * 16 - p.px, ddy = p.y * 16 - p.py;
     p.px += Math.sign(ddx) * Math.min(sp, Math.abs(ddx));
     p.py += Math.sign(ddy) * Math.min(sp, Math.abs(ddy));
     const rem = Math.abs(p.x * 16 - p.px) + Math.abs(p.y * 16 - p.py);
@@ -875,6 +881,11 @@ function drawWorld() {
   }
   for (const f of fx) { g.globalAlpha = Math.min(1, f.t / 15); g.fillStyle = f.c; g.fillRect(f.x - cx - 1, f.y - cy - 1, 2, 2); }
   g.globalAlpha = 1;
+  if (stamina < 100) { // stamina bar over the player's head; red while winded
+    const bx = p.px - cx + 2, by = p.py - cy - 6;
+    g.fillStyle = '#101010'; g.fillRect(bx - 1, by - 1, 14, 4);
+    g.fillStyle = tired ? '#e83a5a' : '#f8e050'; g.fillRect(bx, by, Math.ceil(12 * stamina / 100), 2);
+  }
   arrow(cx, cy);
 }
 
