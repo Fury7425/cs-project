@@ -270,7 +270,8 @@ function caught(kind) {
   p.x = p.cp[0]; p.y = p.cp[1]; p.px = p.x * 16; p.py = p.y * 16; p.inv = 90;
   shake = 12; sfx('bad'); stats.caught++;
   for (const m of mobs) if (m.kind === 'doubt') { m.chase = false; m.wait = 90; } // blobs back off so the respawn isn't a trap
-  if (kind === 'doubt') return say(act.doubtLines || ['편견과 오해에 가로막혔다…', '제자리로 돌아간다.']);
+  // no hearts in blob stages: a catch sends the player back to the very start of this stage
+  if (kind === 'doubt') return say(act.doubtLines || ['편견과 오해에 가로막혔다…', '이 장의 처음으로 돌아간다.'], () => { resumeSi = 0; loadAct(actId, true); save(); });
   hearts--; hud();
   if (hearts > 0) return say([{ id: 'sys_guard_1', who: 'guard', text: '"거기 누구냐!"' }, `감시에 걸렸다! 화충의 기운이 줄었다… (${'♥'.repeat(hearts)})\n임무를 받은 자리로 돌아간다.`]);
   say([{ id: 'sys_guard_2', who: 'guard', text: '"거기 누구냐!"' }, '화충의 기운이 모두 꺼졌다…\n지금 목표를 처음부터 다시 시작한다.'], () => { resumeSi = si; loadAct(actId, true); });
@@ -541,7 +542,8 @@ function doubtStep(m) {
   // no lunging during the first 4s of an act, right after a catch, or while the player stands near the
   // respawn point — otherwise a blob parked next to the checkpoint catches the player again and again
   const calm = p.inv || grace || actT > 0 || Math.abs(p.x - p.cp[0]) + Math.abs(p.y - p.cp[1]) <= 2;
-  if (d <= 4 && !calm) m.chase = true; else if (d > 6 || calm) m.chase = false;
+  if (d <= 3 && !calm) m.chase = true; else if (d > 5 || calm) m.chase = false;
+  if (m.chase && Math.random() < .25) { m.wait = 15; return; } // hesitates now and then so a sprint can shake it
   let [tx, ty] = m.chase ? [p.x, p.y] : m.route[m.ri];
   if (!m.chase && m.x === tx && m.y === ty) {
     if (!m.route[m.ri + m.rd]) m.rd = -m.rd;
