@@ -422,10 +422,11 @@
       line(bx + 30, 138, bx + 34 + sway, by, '#2a1810'); line(bx + 168, 138, bx + 164 + sway, by, '#2a1810');
       px('#2a1a10', bx + sway, by, 200, 52); px('#4a3018', bx + sway + 2, by + 2, 196, 48); px('#5a3c20', bx + sway + 2, by + 2, 196, 1);
       px('#241408', bx + sway + 6, by + 6, 188, 40);
-      const parts = [['연희', 22, 0], ['+', 62, 70], ['세브란스', 118, 130], ['=', 164, 220], ['연세', 188, 290]];
-      for (const [s, dx, at] of parts) { alpha(ease((t - at) / 40)); txt(s, bx + sway + dx + (s === '세브란스' ? 4 : 0), by + 26, s === '연세' ? 18 : 14, s === '연세' ? '#ffd870' : '#f4ecd0'); }
+      // centres keep every word inside the board's inner panel (x 6..194); '연세' used to spill past the right edge
+      const parts = [['연희', 28, 0], ['+', 54, 70], ['세브란스', 94, 130], ['=', 134, 220], ['연세', 164, 290]];
+      for (const [s, dx, at] of parts) { alpha(ease((t - at) / 40)); txt(s, bx + sway + dx, by + 26, s === '연세' ? 18 : 14, s === '연세' ? '#ffd870' : '#f4ecd0'); }
       alpha(1);
-      if (t > 290) light(bx + 190, by + 26, 60, '255,216,110', .18 * ease((t - 290) / 40));
+      if (t > 290) light(bx + 164, by + 26, 60, '255,216,110', .18 * ease((t - 290) / 40));
       // students in 1950s school uniforms walking through the gate
       for (const [x, ph, h] of [[200, 0, 40], [150, 2, 36], [250, 4, 38]]) man(wrap(x + t * .25 + ph * 30, W) + ox, 246, h, { body: '#16162a', hat: 'cap', skin: '#c89870', rim: '#f4e8c0' });
       alpha(.9); for (const p of petals) { px(p.y % 2 > 1 ? '#fce8ee' : '#f8c8d8', wrap(p.x + Math.sin(t * .03 + p.p) * 16 - t * .15, W) + ox, wrap(p.y + t * p.s, 256), 2, 1); } alpha(1);
