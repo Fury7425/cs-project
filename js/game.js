@@ -135,8 +135,8 @@ function loadAct(id, again) {
   exitPos = map.flatMap((r, y) => r.map((t, x) => t === 'E' ? [x, y] : null)).find(Boolean);
   ents = (a.ents || []).map(e => ({ ...e, dir: 'down', done: 0, k0: `${e.x},${e.y}` }));
   scatter();
-  mobs = (a.mobs || []).filter(([, r]) => r && r.length > 1).map(([kind, route]) =>
-    ({ kind, route, ri: 0, rd: 1, x: route[0][0], y: route[0][1], px: route[0][0] * 16, py: route[0][1] * 16, dir: 'down', wait: 0 }));
+  mobs = (a.mobs || []).filter(([, r]) => r && r.length > 1).map(([kind, route], i) =>
+    ({ kind, route, look: kind === 'doubt' && a.doubtLook ? a.doubtLook[i % a.doubtLook.length] : null, ri: 0, rd: 1, x: route[0][0], y: route[0][1], px: route[0][0] * 16, py: route[0][1] * 16, dir: 'down', wait: 0 }));
   lanes = new Set(); // every tile a mob walks or a guard can see from its lane: never a respawn point
   for (const { route } of mobs)
     for (let i = 1; i < route.length; i++) {
@@ -719,10 +719,18 @@ function item(sx, sy, look) {
   }
   if ((frame >> 3) % 6 === 0) { g.fillStyle = '#fff'; g.fillRect(sx + 12, sy + 2, 1, 3); g.fillRect(sx + 11, sy + 3, 3, 1); } // twinkle
 }
-function doubt(sx, sy) {
-  sprite(sx, sy + ((frame >> 3) % 2), [[2, 4, 12, 10, '#6a3a8a'], [4, 2, 8, 2, '#6a3a8a'], [3, 14, 3, 1, '#6a3a8a'], [10, 14, 3, 1, '#6a3a8a']]);
-  g.fillStyle = '#fff'; g.fillRect(sx + 5, sy + 6, 2, 2); g.fillRect(sx + 9, sy + 6, 2, 2);
-  g.fillStyle = '#f8e050'; g.fillRect(sx + 6, sy + 10, 4, 1);
+const RIFT = [[7, 0, 2, 2], [6, 2, 2, 3], [7, 5, 2, 2], [8, 7, 2, 3], [7, 10, 2, 2], [6, 12, 2, 2], [7, 14, 2, 2]];
+function rift(sx, sy) { // a tear in time: jagged black crack, flickering violet edge, spark running down it, shards orbiting
+  const k = (frame >> 3) % 2;
+  g.fillStyle = `rgba(190,90,255,${.18 + .08 * k})`; g.fillRect(sx + 2, sy + 1, 12, 14);
+  g.fillStyle = k ? '#e8a0ff' : '#b860f0'; for (const [a, b, w, h] of RIFT) g.fillRect(sx + a - 1, sy + b - 1, w + 2, h + 2);
+  g.fillStyle = '#12061e'; for (const [a, b, w, h] of RIFT) g.fillRect(sx + a, sy + b, w, h);
+  const [a, b] = RIFT[(frame >> 2) % RIFT.length]; g.fillStyle = '#fff'; g.fillRect(sx + a, sy + b, 1, 1);
+  for (let i = 0; i < 3; i++) {
+    const t = (frame + i * 21) % 64 / 64 * Math.PI * 2;
+    g.fillStyle = i % 2 ? '#f0d0ff' : '#a050e0';
+    g.fillRect(sx + 8 + Math.round(Math.cos(t) * 6), sy + 8 + Math.round(Math.sin(t) * 6), 1, 1);
+  }
 }
 function bubble(sx, sy) {
   const b = sy - 13 + ((frame >> 4) % 2);
@@ -865,7 +873,12 @@ function drawWorld() {
   ].sort((a, b) => a[0] - b[0]);
   for (const [, e] of list) {
     if (e === p) { if (!(p.inv && (frame >> 2) % 2)) person(p.px - cx, p.py - cy, 'me', p.dir, p.walk); continue; }
-    if (e.route) { e.kind === 'doubt' ? doubt(e.px - cx, e.py - cy) : person(e.px - cx, e.py - cy, 'guard', e.dir, e.wait ? 0 : ((e.px + e.py) >> 3) % 2 + 1); continue; }
+    if (e.route) { // doubt = rift, unless the act gives it a person look (act.doubtLook)
+      const wf = e.wait ? 0 : ((e.px + e.py) >> 3) % 2 + 1;
+      if (e.kind === 'doubt' && !e.look) rift(e.px - cx, e.py - cy);
+      else person(e.px - cx, e.py - cy, e.look || 'guard', e.dir, wf);
+      continue;
+    }
     const sx = e.x * 16 - cx, sy = e.y * 16 - cy;
     if (e.item) item(sx, sy, itemLook(e));
     else {

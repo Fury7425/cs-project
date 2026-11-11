@@ -213,7 +213,7 @@ window.STORY = {
         ] },
 
         // 4. persuade three hurt people
-        { goal: '부상자 3명 설득해 제중원에 데려가기 (편견·오해를 피하자!)', tag: 'hurt', need: 3, done: [
+        { goal: '부상자 3명 설득해 제중원에 데려가기 (시간의 균열을 피하자!)', tag: 'hurt', need: 3, done: [
           "세 사람이 모두 제중원 문턱을 넘었다.",
           { id: 'a1_me_19', who: 'me', mood: 'neutral', text: "…다들 한 고집 하는구나. 사람 마음 돌리는 게 이렇게 어려운 거였어." },
           { id: 'a1_allen_08', who: 'allen', mood: 'smile', text: "Good work. 오늘 환자가 모두 몇이오?\n…하나, 둘. 하하하, 이거 세다가 잠이 안 오겠소!" },
@@ -454,6 +454,8 @@ window.STORY = {
         ['doubt', [[19, 1], [19, 9]]],
         ['doubt', [[9, 15], [20, 15]]],
       ],
+      // the 'doubt' mobs here are drawn as rifts in time
+      doubtLines: ['시간의 균열에 휘말렸다… 눈앞의 기억이 일그러진다.', '제자리로 돌아간다.'],
     },
   },
 };
