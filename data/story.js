@@ -1,12 +1,13 @@
 /* data/story.js -> window.STORY : characters, flow, intro/epilogue VN scripts, act 1.
    Pure data. Line ids: intro_<who>_<nn>, a1_<who>_<nn>, ep_<who>_<nn> (stable, for Voice.play). */
 window.STORY = {
-  // words coloured in dialogue (game.js `mark`): place = gold, item = mint. Longest match wins.
+  // words coloured in dialogue (game.js `mark`): place = gold, item = mint, event = coral. Longest match wins.
   keywords: {
     place: ['제중원', '광혜원', '재동', '정동', '남대문', '세브란스병원', '카네기홀', '종로 YMCA', 'YMCA', '신촌', '연희궁', '창천리',
       '스팀슨관', '언더우드관', '아펜젤러관', '조선기독교대학', '연희전문', '핀슨관', '다락방', '포플러 길', '소사실', '간도', '고아학당', '경신학교', '남대문역'],
     item: ['게시문', '벽돌', '목재', '건축 자재', '머릿돌', '설계도', '졸업장', '의사 면허', '원고', '화충',
       '우리말본', '여유당전서', '조선사회경제사'],
+    event: ['갑신정변', '졸업식', '만세', '태극기', '해방', '서시'],
   },
   characters: {
     me:               { name: '연우',   title: '국문과 신입생',   portrait: 'me',               sprite: 'me',               color: '#4f8cff' },
@@ -70,15 +71,15 @@ window.STORY = {
   vn: {
     // `bg` on a line swaps the full-screen backdrop: archive / diary / keeper / black (see game.js BGS)
     intro: [
-      { id: 'intro_me_03', who: 'me', mood: 'surprised', text: "와, 한글이 완전 옛날 거다.\n국문과 1학년인데도 한 번에 안 읽히네." },
-      { id: 'intro_me_04', who: 'me', mood: 'neutral', sfx: 'page', text: "'을유년 사월, 재동. 양귀신 의원이…'\n양귀신? 이거 욕이야?" },
+      { id: 'intro_me_03', who: 'me', mood: 'surprised', text: "오, 옛말로 쓴 일기장인가?\n슬슬 졸음도 쏟아지고.. 잠도 깰 겸 이거나 읽어볼까?" },
+      { id: 'intro_me_04', who: 'me', mood: 'neutral', sfx: 'page', text: "'을유년 사월, 재동. 양귀신 의원이…'\n양귀신? 이건 무슨 귀신이야? 으스스하게 시리." },
       { bg: 'black', sfx: 'bump', text: "책장을 넘기는 순간, 스탠드 불빛이 툭 꺼진다." },
       { id: 'intro_me_05', who: 'me', mood: 'surprised', pause: 600, text: "…어? 불이 나갔나?" },
       { id: 'intro_keeper_01', who: 'keeper', mood: 'neutral', bg: 'keeper', text: "덮지 마시오." },
-      { id: 'intro_me_06', who: 'me', mood: 'surprised', text: "으악!! 누, 누구세요! 경비 아저씨 아니죠? 아니죠?!" },
-      { id: 'intro_keeper_03', who: 'keeper', mood: 'neutral', text: "그 책은 아직 끝나지 않았소.\n마지막 장이 비어 있소. 펼친 사람이 읽는 것이오." },
-      { id: 'intro_keeper_05', who: 'keeper', mood: 'neutral', sfx: 'bell', text: "눈을 감지 마시오.\n첫 장은 1885년 봄이오." },
-      { id: 'intro_me_10', who: 'me', mood: 'surprised', text: "1885? 잠깐만요, 아저씨. 잠깐—" },
+      { id: 'intro_me_06', who: 'me', mood: 'surprised', text: "으악!! 누, 누구세요! 설마 양귀신? 아니 양귀신님?!" },
+      { id: 'intro_keeper_03', who: 'keeper', mood: 'neutral', text: "그 책은 아직 끝나지 않았소.\n그대의 의지로 책을 폈다면, 이야기의 끝을 볼 책임 또한 있는 법." },
+      { id: 'intro_keeper_05', who: 'keeper', mood: 'neutral', sfx: 'bell', text: "눈을 피하지 마시오.\n첫 장은 1885년 봄이라네." },
+      { id: 'intro_me_10', who: 'me', mood: 'surprised', text: "1885? 잠깐만요, 아저씨?! 잠깐—" },
     ],
 
     epilogue: [
@@ -142,44 +143,44 @@ window.STORY = {
       ],
 
       intro: [
-        "1885년 4월, 서울 재동 뒷골목. 흙길, 초가지붕, 멀리서 닭 우는 소리.",
+        "1885년 4월, 서울 재동 뒷골목. 흙길 따라 보이는 초가지붕, 그리고 닭 우는 소리.",
         { id: 'a1_bokdong_kid_01', who: 'bokdong_kid', mood: 'smile', sfx: 'bump', text: "이게 뭔 요상한 거울이여?" },
-        { id: 'a1_me_03', who: 'me', mood: 'surprised', text: "어? 야, 내 폰!" },
+        { id: 'a1_me_03', who: 'me', mood: 'surprised', text: "어? 야, 그거 내 폰!" },
       ],
 
       steps: [
         // 1. the snatched phone + first choice
         { goal: '폰을 가져간 아이에게 말 걸기', who: 'bokdong', script: [
           { id: 'a1_me_04', who: 'me', mood: 'angry', text: "야! 그거 내 거야. 돌려줘." },
-          { id: 'a1_bokdong_kid_02', who: 'bokdong_kid', mood: 'smile', text: "폰? 이름이 폰이여?\n나리, 길바닥에 떨어진 건 먼저 줍는 놈이 임자여." },
+          { id: 'a1_bokdong_kid_02', who: 'bokdong_kid', mood: 'smile', text: "폰? 이름이 폰이여?\n나리, 이름이라도 써놨수? 길바닥에 떨어진 건 먼저 줍는 놈이 임자여." },
           { id: 'a1_me_05', who: 'me', mood: 'neutral', text: "내 손에 있었거든? 네가 낚아챘잖아." },
-          { id: 'a1_bokdong_kid_03', who: 'bokdong_kid', mood: 'neutral', text: "에이씨, 눈은 밝네." },
-          { id: 'a1_bokdong_kid_04', who: 'bokdong_kid', mood: 'neutral', text: "근데 나리 입은 건 대체 뭐여.\n양복도 아니고 한복도 아니고." },
-          { id: 'a1_me_06', who: 'me', mood: 'neutral', text: "…후드티인데." },
-          { id: 'a1_bokdong_kid_05', who: 'bokdong_kid', mood: 'neutral', text: "후드? 첨 듣네.\n설마 양귀신 패거리여?" },
+          { id: 'a1_bokdong_kid_03', who: 'bokdong_kid', mood: 'neutral', text: "에잇, 맹하게 생기서 눈은 밝네." },
+          { id: 'a1_bokdong_kid_04', who: 'bokdong_kid', mood: 'neutral', text: "근데 나리가 걸친 건 뭐시여?\n양복도 한복도 아닌 것이.." },
+          { id: 'a1_me_06', who: 'me', mood: 'neutral', text: "…후드티도 모르냐." },
+          { id: 'a1_bokdong_kid_05', who: 'bokdong_kid', mood: 'neutral', text: "호두티? 거 이름도 특이허네.\n설마 양귀신 패거리여?" },
           { id: 'a1_me_07', who: 'me', mood: 'surprised', text: "양귀신은 또 뭐야." },
           { id: 'a1_bokdong_kid_06', who: 'bokdong_kid', mood: 'angry', text: "제중원 양귀신들 말이여.\n애들 눈알 빼서 약 만든다더라." },
-          { id: 'a1_me_08', who: 'me', mood: 'surprised', text: "에이, 설마. 그걸 누가—" },
-          { id: 'a1_bokdong_kid_07', who: 'bokdong_kid', mood: 'angry', text: "들어가면 산 채로 못 나온대!\n다들 하는 소리여. 에이씨, 나는 안 가." },
+          { id: 'a1_me_08', who: 'me', mood: 'surprised', text: "에이, 설마.. 잠시만 혹시 그 아저씨가?—" },
+          { id: 'a1_bokdong_kid_07', who: 'bokdong_kid', mood: 'angry', text: "들어가면 말짱히는 못 나온대!\n고 제중원서 만날 곡소리가 들린다니까는?\n어휴, 나리도 앵간 하면 얼씬도 마슈." },
           { id: 'a1_bokdong_kid_08', who: 'bokdong_kid', mood: 'smile', text: "그나저나 나리는 이 거울이 아쉬운 모양이네?",
             choice: [
               { text: '뛰어가서 폰을 낚아챈다', next: [
                 "연우가 땅을 박찬다. 아이는 담을 넘으려다 발이 미끄러진다.",
-                { id: 'a1_bokdong_kid_09', who: 'bokdong_kid', mood: 'angry', sfx: 'bump', text: "아야! 에이씨, 놔! 놓으란 말이여!" },
-                { id: 'a1_me_09', who: 'me', mood: 'angry', text: "내놔. 그러면 놔줄게." },
-                { id: 'a1_bokdong_kid_10', who: 'bokdong_kid', mood: 'sad', pause: 700, text: "…가져가. 대신 때리진 마.\n맞는 건 하루 열 번이면 질렸어." },
-                { id: 'a1_me_10', who: 'me', mood: 'sad', text: "…안 때려. 돌려받으면 됐어." },
+                { id: 'a1_bokdong_kid_09', who: 'bokdong_kid', mood: 'angry', sfx: 'bump', text: "아야! 에잇, 놔! 놓으란 말이여!" },
+                { id: 'a1_me_09', who: 'me', mood: 'angry', text: "내 폰 돌려줘. 그러면 놔줄게." },
+                { id: 'a1_bokdong_kid_10', who: 'bokdong_kid', mood: 'sad', pause: 700, text: "…가져가. 대신 때리진 마.\n맞는 건 하루 열 번이면 충분혀." },
+                { id: 'a1_me_10', who: 'me', mood: 'sad', text: "…안 때려! 돌려받으면 됐어." },
                 { id: 'a1_bokdong_kid_11', who: 'bokdong_kid', mood: 'neutral', text: "제중원은… 가든 말든 나리 마음이고.\n나는 갈 일 없어. 막동이만…" },
-                { id: 'a1_bokdong_kid_12', who: 'bokdong_kid', mood: 'angry', text: "…아니다, 꺼져. 신경 끄쇼." },
+                { id: 'a1_bokdong_kid_12', who: 'bokdong_kid', mood: 'angry', text: "…아니다, 됐수. 신경 끄쇼." },
               ] },
               { text: '웃음이 터진다. "그거 불도 켜지는데, 보여 줄까?"', set: 'trust_bokdong', next: [
                 { id: 'a1_me_11', who: 'me', mood: 'smile', text: "이거 봐. 여기 누르면—" },
                 { id: 'a1_bokdong_kid_13', who: 'bokdong_kid', mood: 'surprised', sfx: 'select', text: "불이…! 거울 안에서 불이 나오네!" },
                 { id: 'a1_me_12', who: 'me', mood: 'smile', text: "손전등이야. 빌려줄 테니까 길 좀 알려 줘." },
-                { id: 'a1_bokdong_kid_14', who: 'bokdong_kid', mood: 'smile', text: "…나리 이상한 사람이네.\n도둑한테 보여 주는 놈이 어딨어." },
-                { id: 'a1_me_13', who: 'me', mood: 'neutral', text: "도둑인 줄은 알았구나." },
-                { id: 'a1_bokdong_kid_15', who: 'bokdong_kid', mood: 'smile', text: "에이씨, 눈치는!\n…가져가. 거울 값은 한 번 웃은 걸로 치지." },
-                { id: 'a1_bokdong_kid_16', who: 'bokdong_kid', mood: 'neutral', text: "제중원 가 보쇼. 알렌인가 앨런인가가 일손 모자란대.\n나는 못 가. 막동이가 아파서… 아니다. 신경 끄쇼." },
+                { id: 'a1_bokdong_kid_14', who: 'bokdong_kid', mood: 'smile', text: "…나리도 머리를 심히 다쳤나 보네.\n도둑한테 물건 자랑하는 놈이 어딨어." },
+                { id: 'a1_me_13', who: 'me', mood: 'neutral', text: "도둑질인 줄은 알았구나." },
+                { id: 'a1_bokdong_kid_15', who: 'bokdong_kid', mood: 'smile', text: "에잇, 입은 살았수!\n…가져가. 거울 값은 한 번 웃은 걸로 치지." },
+                { id: 'a1_bokdong_kid_16', who: 'bokdong_kid', mood: 'neutral', text: "제중원 가 보쇼. 알렌인가 알랑인가가 일손 모자란다대.\n나는 못 가. 막동이가 아파서… 아니다. 신경 끄쇼." },
               ] },
             ] },
         ] },
@@ -188,25 +189,25 @@ window.STORY = {
         { goal: '제중원 앞의 알렌 만나기', who: 'allen', script: [
           "제중원 문간. 낡은 한옥 대문 앞에서 앳된 서양인 하나가 서성인다. 간판 먹이 덜 마른 것 같다.",
           { id: 'a1_allen_01', who: 'allen', mood: 'neutral', text: "…누구시오. 환자요?" },
-          { id: 'a1_me_14', who: 'me', mood: 'neutral', text: "아뇨, 길 잃은 학생이에요. 저기, 여기가 제중원?" },
-          { id: 'a1_allen_02', who: 'allen', mood: 'neutral', text: "학생이라기엔 옷이 괴상하오.\nAll right, 상관없소." },
-          { id: 'a1_allen_03', who: 'allen', mood: 'sad', text: "일손이 모자라오. 아니, 환자가 없소.\n양의를 믿는 사람이 없고, 묄렌도르프 대감 눈치도 봐야 하오." },
+          { id: 'a1_me_14', who: 'me', mood: 'neutral', text: "아뇨, 길 잃은 학생이에요. 저기, 여기가 제중원 맞나요?" },
+          { id: 'a1_allen_02', who: 'allen', mood: 'neutral', text: "요즘 학생은 괴상한 옷을 입는군.\nAll right, 상관없소." },
+          { id: 'a1_allen_03', who: 'allen', mood: 'sad', text: "일손이 모자라오. 아니, 환자가 없소.\n묄렌도르프 대감 눈치도 봐야 하고, 양의를 믿는 사람이 없소." },
           { id: 'a1_me_15', who: 'me', mood: 'surprised', text: "환자가 없는데 일손이 모자라요?" },
           { id: 'a1_allen_04', who: 'allen', mood: 'sad', text: "…말하고 보니 우습구려.\n사람이 안 오면 이 병원은 오래 못 가오." },
           { id: 'a1_me_46', who: 'me', mood: 'neutral', text: "근데 아무도 안 믿는데 병원은 어떻게 여셨어요?" },
-          { id: 'a1_allen_22', who: 'allen', mood: 'neutral', text: "작년 겨울 갑신정변 때, 칼에 크게 베인 민영익 대감을 살렸소.\n석 달을 매달렸지." },
-          { id: 'a1_allen_23', who: 'allen', mood: 'smile', text: "그 덕에 임금께서 이 집을 내주셨소.\n대감 한 사람은 믿게 됐는데, 백성은 아직이오." },
-          { id: 'a1_allen_05', who: 'allen', mood: 'neutral', text: "게시문이 석 장 있소. 치료비는 안 받는다고 썼소.\n눈에 띄는 데 붙여 주시오." },
+          { id: 'a1_allen_22', who: 'allen', mood: 'neutral', text: "작년 겨울 갑신정변 때, 민영익 대감이 칼에 깊게 베인 채 찾아왔더군.\n가벼운 상처가 아닌지라 석 달을 매달려 살려냈지." },
+          { id: 'a1_allen_23', who: 'allen', mood: 'smile', text: "그 덕에 임금께서 이 집을 내주셨소.\n대감 한 사람은 믿게 됐는데, 백성들은 아직이오." },
+          { id: 'a1_allen_05', who: 'allen', mood: 'neutral', text: "게시문이 석 장 있소만, 치료비는 안 받는다고 썼소.\n눈에 띄는 데 붙여 주면 고맙겠소." },
           { id: 'a1_me_16', who: 'me', mood: 'neutral', text: "한문이에요? 저 한자는 잘…" },
-          { id: 'a1_allen_06', who: 'allen', mood: 'smile', text: "한글로 풀어 썼소. 조선어 선생이 고쳐 줬는데,\n틀린 곳은 눈감아 주오." },
-          { id: 'a1_me_17', who: 'me', mood: 'neutral', text: "이거 붙여도 되는 거예요?" },
+          { id: 'a1_allen_06', who: 'allen', mood: 'smile', text: "한글로 풀어 썼소. 조선어 선생이 고쳐 줬는데,\n어색한 곳은 눈감아 주오." },
+          { id: 'a1_me_17', who: 'me', mood: 'neutral', text: "이거 붙이다 잡혀가는 건 아니죠?" },
           { id: 'a1_allen_07', who: 'allen', mood: 'neutral', text: "대감들 허락은 받았소. 큰 소리만 내지 마시오.\n소문이 먼저 사람을 쫓아내니까." },
         ] },
 
         // 3. three notice boards
         { goal: '게시문을 3곳의 게시판에 붙이기', tag: 'notice', need: 3, done: [
           "게시문 석 장이 붙었다. 바람에 종이 끝이 팔랑거린다.",
-          { id: 'a1_me_18', who: 'me', mood: 'neutral', text: "…안 떨어지겠죠? 제발." },
+          { id: 'a1_me_18', who: 'me', mood: 'neutral', text: "…안 떨어지겠지? 제발." },
           "멀리서 누군가 종이를 읽고 있다. 읽는 척이 아니라, 정말로.",
           "이제 거리에 쓰러진 사람들을 찾아가 보자.",
         ] },
@@ -214,33 +215,33 @@ window.STORY = {
         // 4. persuade three hurt people
         { goal: '부상자 3명 설득해 제중원에 데려가기 (편견·오해를 피하자!)', tag: 'hurt', need: 3, done: [
           "세 사람이 모두 제중원 문턱을 넘었다.",
-          { id: 'a1_me_19', who: 'me', mood: 'neutral', text: "…이게 되네. 사람 설득이 이렇게 어려운 거였구나." },
-          { id: 'a1_allen_08', who: 'allen', mood: 'smile', text: "Good work. 오늘 환자는 모두 몇이오?\n…아니, 세지 않겠소. 세다가 잠이 안 오겠소." },
+          { id: 'a1_me_19', who: 'me', mood: 'neutral', text: "…다들 한 고집 하는구나. 사람 마음 돌리는 게 이렇게 어려운 거였어." },
+          { id: 'a1_allen_08', who: 'allen', mood: 'smile', text: "Good work. 오늘 환자가 모두 몇이오?\n…하나, 둘. 하하하, 이거 세다가 잠이 안 오겠소!" },
         ] },
 
         // 5. the hard moment: 막동's leg
         { goal: '막동을 도와 제중원으로 데려가기', who: 'makdong', set: 'healed', script: [
           { bg: 'dusk', text: "해 질 무렵. 골목 구석에서 낯익은 아이가 작은 몸을 업고 서 있다. 숨이 거칠다." },
-          { id: 'a1_bokdong_kid_17', who: 'bokdong_kid', mood: 'sad', text: "나리…! 막동이가, 어제부터 다리가 말을 안 들어." },
-          { id: 'a1_makdong_01', who: 'makdong', mood: 'sad', text: "형… 나 안 아파. 안 아파니까…" },
+          { id: 'a1_bokdong_kid_17', who: 'bokdong_kid', mood: 'sad', text: "나리…! 막동이가, 어제부터 다리가, 다리가 새까맣고 막...!" },
+          { id: 'a1_makdong_01', who: 'makdong', mood: 'sad', text: "형… 나 안 아파. 나 괜찮으니까…" },
           { id: 'a1_me_20', who: 'me', mood: 'neutral', text: "다리 좀 보여 줘." },
           "무릎 아래 헝겊이 누렇게 젖어 있다. 냄새가 코를 찌른다.",
-          { id: 'a1_me_21', who: 'me', mood: 'surprised', text: "야, 이거 곪았어. 병원 가야 돼. 지금 당장." },
+          { id: 'a1_me_21', who: 'me', mood: 'surprised', text: "윽, 이거 곪았어. 당장 병원에 가야 해." },
           { id: 'a1_bokdong_kid_18', who: 'bokdong_kid', mood: 'angry', text: "양귀신한테? 다리부터 잘라 버린다며!" },
-          { id: 'a1_me_22', who: 'me', mood: 'angry', text: "그럼 이대로 두면? 다리로 끝나지 않아." },
-          { id: 'a1_bokdong_kid_19', who: 'bokdong_kid', mood: 'sad', pause: 800, text: "…나는 문지기한테 쫓겨나. 거지는 못 들어가.\n나리가 같이 가 줘. 부탁이여." },
+          { id: 'a1_me_22', who: 'me', mood: 'angry', text: "그럼 이대로 두면? 다리로 끝나면 다행일걸." },
+          { id: 'a1_bokdong_kid_19', who: 'bokdong_kid', mood: 'sad', pause: 800, text: "…나는 문지기한테 쫓겨나서. 거지 말은 안 들어줄 거여.\n그러니, 나리가 같이 가 줘. 내 꼭 부탁이여." },
           { id: 'a1_me_23', who: 'me', mood: 'smile', if: 'trust_bokdong', text: "폰 빌려준 사이잖아. 가자." },
-          { id: 'a1_bokdong_kid_20', who: 'bokdong_kid', mood: 'neutral', if: 'trust_bokdong', text: "…고맙다는 말은 안 해. 안 한다니까." },
+          { id: 'a1_bokdong_kid_20', who: 'bokdong_kid', mood: 'neutral', if: 'trust_bokdong', text: "…그럼 고맙다는 말은 안 할겨." },
           { id: 'a1_me_24', who: 'me', mood: 'neutral', text: "가자. 내가 업을게. 길만 알려 줘." },
           { id: 'a1_narrator_01', who: 'narrator', sfx: 'door', bg: 'lamp', text: "제중원, 등잔불이 켜진 진료실.\n창호지에 어둠이 달라붙어 있다." },
-          { id: 'a1_allen_09', who: 'allen', mood: 'sad', text: "…오래 방치했소. 뼈까지 번졌을 수도 있소." },
+          { id: 'a1_allen_09', who: 'allen', mood: 'sad', text: "…너무 오래 방치했소. 뼈까지 번졌을 수도 있소." },
           { id: 'a1_allen_10', who: 'allen', mood: 'sad', text: "Damn. 이런 날은 의사가 된 걸 후회하오." },
           { id: 'a1_me_25', who: 'me', mood: 'sad', text: "고칠 수 있어요?" },
           { id: 'a1_allen_11', who: 'allen', mood: 'neutral', text: "썩은 데를 긁어내야 하오.\n못 하면 다리를 잘라야 하고, 그러면 이 아이는…" },
-          { id: 'a1_allen_12', who: 'allen', mood: 'neutral', pause: 600, text: "등잔을 들어 주겠소? 손이 떨리면 그림자가 떨리오.\n가만히." },
-          { id: 'a1_bokdong_kid_21', who: 'bokdong_kid', mood: 'sad', text: "나리, 떨지 마. 막동이 죽으면 나는…" },
+          { id: 'a1_allen_12', who: 'allen', mood: 'neutral', pause: 600, text: "등잔을 들어 주겠소? 손이 떨리면 그림자가 떨려서 말이지.\n그렇지, 그렇게 가만히…" },
+          { id: 'a1_bokdong_kid_21', who: 'bokdong_kid', mood: 'sad', text: "나리, 떨지 마. 막동이 잘못되면 나는…" },
           "연우의 손에 등잔이 건네진다. 기름 냄새, 따뜻하고 무겁다.",
-          { id: 'a1_allen_13', who: 'allen', mood: 'neutral', sfx: 'heart', text: "잠드는 약을 먹였소. 칼을 들겠소." },
+          { id: 'a1_allen_13', who: 'allen', mood: 'neutral', sfx: 'heart', text: "잠드는 약을 먹였소. 이제 칼을 들겠네." },
           { id: 'a1_narrator_02', who: 'narrator', pause: 700, text: "칼날이 불빛을 받는다. 어디를 볼 것인가.",
             choice: [
               { text: '눈을 똑바로 뜨고 등불을 든다', set: 'watched_surgery', next: [
@@ -254,9 +255,9 @@ window.STORY = {
               ] },
               { text: '고개를 돌린다', next: [
                 { id: 'a1_narrator_04', who: 'narrator', sfx: 'heart', text: "칼 소리가 들린다. 연우는 벽의 갈라진 틈만 보고 있다.\n등잔이 떨린다." },
-                { id: 'a1_allen_16', who: 'allen', mood: 'angry', text: "불이 흔들리오! 보지 않아도 되니 들고만 있으시오!" },
+                { id: 'a1_allen_16', who: 'allen', mood: 'angry', text: "불이 흔들리오! 보지 않아도 되니 붙들고만 있으시오!" },
                 { id: 'a1_me_28', who: 'me', mood: 'sad', text: "죄송해요… 죄송해요…" },
-                { id: 'a1_allen_17', who: 'allen', mood: 'neutral', text: "…괜찮소. 처음엔 다 그렇소.\n나도 처음엔 토했소." },
+                { id: 'a1_allen_17', who: 'allen', mood: 'neutral', text: "…괜찮소. 처음엔 다 그렇소.\n나도 토했던 적이 있지." },
                 { id: 'a1_allen_18', who: 'allen', mood: 'smile', pause: 900, sfx: 'ok', text: "끝났소. 뼈는 살아 있소. Thank God." },
                 "문틈에서 숨죽이던 복동이 그대로 주저앉는다.",
                 { id: 'a1_bokdong_kid_23', who: 'bokdong_kid', mood: 'surprised', text: "살았어? 막동이… 진짜로?" },
@@ -275,15 +276,15 @@ window.STORY = {
           { id: 'a1_allen_20', who: 'allen', mood: 'sad', text: "…그게 문제요. 새벽에 두 번 울었소." },
           { id: 'a1_me_30', who: 'me', mood: 'smile', text: "새벽 당직 돼지네요." },
           { id: 'a1_underwood_03', who: 'underwood', mood: 'smile', text: "하하! 알렌 선생, 이 학생 마음에 드는군요." },
-          { id: 'a1_underwood_04', who: 'underwood', mood: 'neutral', if: 'watched_surgery', text: "막동이 일은 들었어요. 등잔 든 손이 끝까지 안 흔들렸다고." },
+          { id: 'a1_underwood_04', who: 'underwood', mood: 'neutral', if: 'watched_surgery', text: "막동이 일은 들었어요. 등잔이 들린 손을 끝까지 붙들었다고." },
           { id: 'a1_me_31', who: 'me', mood: 'sad', if: 'watched_surgery', text: "…흔들렸어요. 그림자만 안 흔들리려고 애썼어요." },
           { id: 'a1_underwood_05', who: 'underwood', mood: 'neutral', text: "복동아, 이리 오너라." },
           { id: 'a1_bokdong_kid_24', who: 'bokdong_kid', mood: 'angry', text: "나요? 나 잘못한 거 없는데! 달걀은 안 훔쳤어." },
           { id: 'a1_underwood_06', who: 'underwood', mood: 'smile', text: "…소쿠리에서 하나 줄어든 이유가 그거였군요." },
           { id: 'a1_bokdong_kid_25', who: 'bokdong_kid', mood: 'surprised', text: "아, 아니, 그건 막동이 먹으라고…" },
           { id: 'a1_underwood_07', who: 'underwood', mood: 'neutral', text: "내년 오월에 정동에서 학교를 열 겁니다.\n아직 학생이 한 명도 없어요." },
-          { id: 'a1_bokdong_kid_26', who: 'bokdong_kid', mood: 'sad', text: "글공부요? 나 거지인데." },
-          { id: 'a1_underwood_08', who: 'underwood', mood: 'smile', text: "신분은 안 따집니다.\n먹여 주고 재워 줘요." },
+          { id: 'a1_bokdong_kid_26', who: 'bokdong_kid', mood: 'sad', text: "글공부요? 나 돈은 못 내는데." },
+          { id: 'a1_underwood_08', who: 'underwood', mood: 'smile', text: "신분은 안 따집니다.\n먹여 주고 재워 주기도 합니다." },
           { id: 'a1_bokdong_kid_27', who: 'bokdong_kid', mood: 'surprised', text: "하루 세 끼?!" },
           { id: 'a1_bokdong_kid_28', who: 'bokdong_kid', mood: 'neutral', text: "…막동이도 돼요?" },
           { id: 'a1_underwood_09', who: 'underwood', mood: 'smile', text: "다리가 나으면 둘이 같이 오세요.\n대신 오늘 본 걸 누구에게든 말해 줘요." },
@@ -298,6 +299,9 @@ window.STORY = {
           { q: "연세의 뿌리인 광혜원이 문을 연 날은?", a: ["1885년 4월 10일", "1884년 12월 4일", "1886년 5월 11일"], c: 0, why: "광혜원은 문을 연 지 2주쯤 뒤 제중원이 되었소." },
           { q: "알렌이 서양 외과술로 치료해 이름을 알린 사람은?", a: ["김옥균", "홍영식", "민영익"], c: 2, why: "갑신정변 때 크게 다친 민영익을 살렸소." },
           { q: "1886년 5월 11일 언더우드의 고아학당이 처음 받은 학생은 몇 명이었소?", a: ["한 명", "세 명", "열두 명"], c: 0, why: "단 한 명으로 시작한 학당이 경신학교를 거쳐 연희전문으로 이어졌소." },
+          { q: "광혜원이 2주쯤 뒤 새로 얻은 이름은?", a: ["제중원", "세브란스병원", "경신학교"], c: 0, why: "이름은 바뀌었어도 문은 모두에게 열려 있었소." },
+          { q: "1885년 4월, 광혜원이 문을 연 동네는?", a: ["종로", "재동", "신촌"], c: 1, why: "서울 재동의 뒷골목에서 시작되었소." },
+          { q: "1887년 9월 새문안교회는 몇 명으로 시작했소?", a: ["3명", "14명", "100명"], c: 1, why: "정동의 한 집에 모인 14명이 한국 최초의 조직 장로교회를 이루었소." },
         ] },
       ],
 
@@ -307,10 +311,10 @@ window.STORY = {
         { x: 6, y: 9, id: 'under', name: '언더우드 (원두우)', sprite: 'underwood',
           script: [{ id: 'a1_underwood_10', who: 'underwood', mood: 'smile', text: "병원 다음은 학교예요. 순서가 있답니다." }] },
         { x: 10, y: 12, id: 'bokdong', name: '복동', sprite: 'bokdong_kid',
-          script: [{ id: 'a1_bokdong_kid_30', who: 'bokdong_kid', mood: 'neutral', text: "에이씨, 왜 자꾸 말을 걸어. 막동이 걱정이나 시키지 말고." }],
+          script: [{ id: 'a1_bokdong_kid_30', who: 'bokdong_kid', mood: 'neutral', text: "에잇, 왜 자꾸 말을 걸어. 막동이 걱정이나 시키지 말고." }],
           after: [
             { id: 'a1_bokdong_kid_31', who: 'bokdong_kid', mood: 'neutral', if: '!healed', text: "제중원 갈 거면 혼자 가. 나는 여기 있을 거여.\n…막동이가 열이 좀 있어서." },
-            { id: 'a1_bokdong_kid_32', who: 'bokdong_kid', mood: 'smile', if: 'healed', text: "막동이 자. 코까지 골아.\n…나리, 고마워. 딱 한 번만 말한다." },
+            { id: 'a1_bokdong_kid_32', who: 'bokdong_kid', mood: 'smile', if: 'healed', text: "막동이 자. 코도 골면서.\n…나리, 고마워. 딱 한 번만 말하는 거야." },
           ] },
         { x: 11, y: 12, id: 'makdong', name: '막동', sprite: 'makdong',
           script: [{ id: 'a1_makdong_02', who: 'makdong', mood: 'sad', text: "형… 다리가 뜨거워…" }],
@@ -322,7 +326,7 @@ window.STORY = {
           q: [
             "게시판 앞에 사람들이 모여 있다.",
             { id: 'a1_me_32', who: 'me', mood: 'neutral', text: "'병든 자는 누구든 와서 치료받으라. 돈은 받지 않는다'…\n이 정도면 읽히겠지." },
-            { id: 'a1_commoner_m_01', who: 'commoner_m', mood: 'neutral', text: "서양 의원이 공짜로 봐준다? 공짜가 제일 비싼 법이오." },
+            { id: 'a1_commoner_m_01', who: 'commoner_m', mood: 'neutral', text: "서양 의원이 공짜로 진료를 봐준다고? 허, 무슨 해괴한 짓을 할 줄 알고." },
             { id: 'a1_me_33', who: 'me', mood: 'neutral', text: "그냥 와서 보세요. 보는 데는 돈 안 받아요." },
           ],
           after: ["'제중원 시료'. 종이 끝이 바람에 흔들린다."] },
@@ -332,7 +336,7 @@ window.STORY = {
             "풀이 마르기도 전에 아낙 하나가 종이를 쳐다본다.",
             { id: 'a1_commoner_f_01', who: 'commoner_f', mood: 'neutral', text: "나는 글을 모르오. 사내들이 읽어 줘야 아는 걸." },
             { id: 'a1_me_34', who: 'me', mood: 'sad', text: "…그림으로라도 그릴 걸 그랬나." },
-            { id: 'a1_commoner_f_02', who: 'commoner_f', mood: 'smile', text: "나한테만 읽어 주지 말고 장터에 가서 떠드시오.\n이 동네는 소문이 글보다 빠르니." },
+            { id: 'a1_commoner_f_02', who: 'commoner_f', mood: 'smile', text: "나한테 읽어 주지 말고 장터에 가서 떠드시오.\n이 동네는 소문이 글보다 빠르니." },
           ],
           after: ["'제중원 시료'. 아낙이 아는 사람에게 소리 내어 읽어 주고 있다."] },
         { x: 10, y: 14, name: '게시판', sprite: 'notice_board', tag: 'notice',
@@ -351,14 +355,14 @@ window.STORY = {
           script: [{ id: 'a1_hurt_01', who: 'hurt', mood: 'sad', text: "으윽… 말 걸지 마시오. 지금은…" }],
           q: [
             "길가에 쓰러진 사내가 이마를 짚고 있다. 옆에 붉은 천 매단 막대가 꽂혀 있다.",
-            { id: 'a1_hurt_02', who: 'hurt', mood: 'sad', text: "서양 의원? 안 가오.\n귀신 든 병엔 무당을 불러야지." },
+            { id: 'a1_hurt_02', who: 'hurt', mood: 'sad', text: "서양 의원? 그게 무슨 소용이오.\n귀신 든 병엔 무당을 불러야지." },
             { id: 'a1_me_37', who: 'me', mood: 'neutral', text: "무당은 불렀어요?" },
-            { id: 'a1_hurt_03', who: 'hurt', mood: 'neutral', text: "…쌀 두 말 값을 줬소. 사흘째 열이 안 내리오." },
+            { id: 'a1_hurt_03', who: 'hurt', mood: 'neutral', text: "…쌀 두 말 값을 줬소만, 사흘째 열이 안 내리오." },
             { id: 'a1_me_38', who: 'me', mood: 'neutral', text: "이번엔 돈도 안 받아요. 한 번만 보여 주면 어때요?" },
             { id: 'a1_hurt_04', who: 'hurt', mood: 'angry', text: "눈에 안 보이는 걸 믿으라니, 그게 귀신 얘기랑 뭐가 다르오!",
               choice: [
                 { text: '"서양 의학은 과학이에요. 미신이랑 달라요."', fail: 1, next: [
-                  { id: 'a1_hurt_19', who: 'hurt', mood: 'angry', text: "과학? 그건 또 무슨 귀신이오.\n어려운 말로 사람 홀리는 건 무당도 하오. 가시오." },
+                  { id: 'a1_hurt_19', who: 'hurt', mood: 'angry', text: "과학? 그건 또 무슨 귀신이오.\n말로 사람 홀리는 족속이면 무당으로 됐소. 가시오." },
                 ] },
                 { text: '"솔직히 저도 반은 몰라요. 순서만 바꿔 봐요."', next: [
                   { id: 'a1_me_39', who: 'me', mood: 'sad', text: "…그러게요. 솔직히 저도 반은 몰라요.\n안 나으면 무당 다시 부르면 되잖아요. 순서만 바꿔 봐요." },
@@ -366,23 +370,23 @@ window.STORY = {
                   { id: 'a1_narrator_05', who: 'narrator', sfx: 'ok', text: "사내가 천천히 팔을 내민다. 막대의 붉은 천이 흔들린다." },
                 ] },
                 { text: '"무당한테 쌀 두 말 버린 거잖아요."', fail: 1, next: [
-                  { id: 'a1_hurt_20', who: 'hurt', mood: 'angry', text: "버려? 내 쌀로 내가 빈 정성을 버렸다고?\n…썩 꺼지시오." },
+                  { id: 'a1_hurt_20', who: 'hurt', mood: 'angry', text: "버려? 내가 쌀 귀한 줄 몰라서 그랬겠나?\n…썩 꺼지시오." },
                 ] },
               ] },
           ],
-          after: [{ id: 'a1_hurt_06', who: 'hurt', mood: 'smile', text: "열이 내렸소. 귀신이 놀라 도망갔나 보오." }] },
+          after: [{ id: 'a1_hurt_06', who: 'hurt', mood: 'smile', text: "열이 내렸소. 양인이 귀신 쫓는 데는 무당보다 신통한가 보오." }] },
         { x: 21, y: 12, name: '부상자', sprite: 'hurt', tag: 'hurt', away: 1,
           script: [{ id: 'a1_hurt_07', who: 'hurt', mood: 'sad', text: "아이고… 건드리지 마오." }],
           q: [
             "담벼락에 기대 앉은 사내. 팔에 피 묻은 천을 감았다.",
-            { id: 'a1_hurt_08', who: 'hurt', mood: 'neutral', text: "재동이라고 했소? 거긴 안 가오. 홍 대감 댁이 아니오." },
+            { id: 'a1_hurt_08', who: 'hurt', mood: 'neutral', text: "재동이라고 했소? 거긴 안 가지. 홍 대감 댁이 아니오." },
             { id: 'a1_me_40', who: 'me', mood: 'neutral', text: "홍영식 대감 집이요?" },
-            { id: 'a1_hurt_09', who: 'hurt', mood: 'sad', text: "역적으로 몰려 가신 집이오.\n피 흘린 터에 들면 같이 부정 탄다 하오." },
+            { id: 'a1_hurt_09', who: 'hurt', mood: 'sad', text: "역적으로 몰린 양반일세.\n피 흘린 터에 들면 같이 부정 탄다지." },
             { id: 'a1_me_41', who: 'me', mood: 'neutral', text: "지금은 병원이에요. 사람 살리는 곳이요." },
-            { id: 'a1_hurt_10', who: 'hurt', mood: 'angry', text: "피 흘린 집에서 사람을 살린다니, 말이 되오?",
+            { id: 'a1_hurt_10', who: 'hurt', mood: 'angry', text: "피 흘린 집에서 사람을 살린다니, 말이나 되나?",
               choice: [
                 { text: '"부정 같은 건 없어요. 다 미신이에요."', fail: 1, next: [
-                  { id: 'a1_hurt_21', who: 'hurt', mood: 'angry', text: "젊은 것이 어른 말을 미신이라 하오?\n조상 대대로 지켜 온 걸. 가던 길이나 가시오." },
+                  { id: 'a1_hurt_21', who: 'hurt', mood: 'angry', text: "젊은 것이 무얼 안다고 미신이라 하나?\n조상 대대로 지켜 온 걸. 가던 길이나 가시오." },
                 ] },
                 { text: '"그럼 다른 의원한테 가세요."', fail: 1, next: [
                   { id: 'a1_hurt_22', who: 'hurt', mood: 'sad', text: "…갈 데가 있으면 내가 여기 주저앉아 있겠소?\n약값 낼 돈도 없소. 그만 가 보시오." },
@@ -399,13 +403,13 @@ window.STORY = {
           script: [{ id: 'a1_hurt_13', who: 'hurt_f', mood: 'sad', text: "끙… 아니오. 아무것도 아니오." }],
           q: [
             "바구니를 안은 아낙이 허리를 숙인 채 배를 쥐고 있다.",
-            { id: 'a1_hurt_14', who: 'hurt_f', mood: 'sad', text: "남자 의원이 몸을 본다는데 내가 어찌 가오.\n소문나면 시집에서 쫓겨나오.",
+            { id: 'a1_hurt_14', who: 'hurt_f', mood: 'sad', text: "남자 의원이 몸을 보는데 내가 어찌 가오.\n소문나면 시집에서 쫓겨나오.",
               choice: [
                 { text: '"의사는 괜찮아요. 아무도 신경 안 써요."', fail: 1, next: [
-                  { id: 'a1_hurt_23', who: 'hurt_f', mood: 'angry', text: "남 일이라고 쉽게도 말하오.\n시집살이 한 번 해 보시오. 저리 가오." },
+                  { id: 'a1_hurt_23', who: 'hurt_f', mood: 'angry', text: "남 일이라고 쉽게도 말하는군.\n시집살이 한 번이라도 하고 오시게나. 이만 가시오." },
                 ] },
                 { text: '"아픈데 체면이 대수예요?"', fail: 1, next: [
-                  { id: 'a1_hurt_24', who: 'hurt_f', mood: 'sad', text: "체면이 아니라 밥줄이오.\n쫓겨나면 아이들은 누가 먹이오…" },
+                  { id: 'a1_hurt_24', who: 'hurt_f', mood: 'sad', text: "체면이 아니라 밥줄이오.\n내가 쫓겨나면 아이들은 누가 먹이겠나…" },
                 ] },
                 { text: '"휘장을 쳐 달라고 부탁할게요."', next: [
                   { id: 'a1_me_43', who: 'me', mood: 'neutral', text: "휘장을 쳐 달라고 부탁할게요. 알렌 선생님은 얘기하면 들어주실 거예요." },
@@ -417,7 +421,7 @@ window.STORY = {
                 ] },
               ] },
           ],
-          after: [{ id: 'a1_hurt_18', who: 'hurt_f', mood: 'smile', text: "휘장 뒤라 부끄럽지 않았소. 고맙소." }] },
+          after: [{ id: 'a1_hurt_18', who: 'hurt_f', mood: 'smile', text: "고맙소, 휘장이 쳐지니 그리 부끄럽지 않더군." }] },
 
         { x: 7, y: 15, name: '조선 관리', sprite: 'official',
           script: [
@@ -426,13 +430,13 @@ window.STORY = {
           ] },
         { x: 9, y: 7, name: '달걀 장수', sprite: 'commoner_f',
           script: [
-            { id: 'a1_commoner_f_03', who: 'commoner_f', mood: 'smile', text: "달걀을 받는다기에 닭 한 마리 안고 왔는데\n아직 다친 데가 없구려." },
+            { id: 'a1_commoner_f_03', who: 'commoner_f', mood: 'smile', text: "달걀을 받는다기에 닭 한 마리 안고 왔는데\n아직 몸이 성하구려." },
             { id: 'a1_commoner_f_04', who: 'commoner_f', mood: 'neutral', text: "…다치면 그때 오리다. 그때까진 이 닭이 대신 기다려 주겠지." },
           ] },
         { x: 17, y: 9, name: '아펜젤러', sprite: 'appenzeller',
           script: [
             { id: 'a1_appenzeller_01', who: 'appenzeller', mood: 'smile', text: "언더우드와 나는 부활절 아침에 같은 배로 제물포에 내렸소." },
-            { id: 'a1_appenzeller_02', who: 'appenzeller', mood: 'neutral', text: "그가 기도를 어찌나 길게 하는지, 나는 발이 시렸지 뭐요." },
+            { id: 'a1_appenzeller_02', who: 'appenzeller', mood: 'neutral', text: "그가 기도를 어찌나 오래 하는지, 발이 다 시렸지 뭐요." },
           ] },
         { x: 6, y: 4, name: '표지판', sprite: 'sign',
           script: ["제중원(광혜원) — 한국 최초의 서양식 병원 (1885)", "재동의 홍영식 집터에서 문을 열었다. 조선 정부와 선교사가 힘을 합친 병원이다."] },

@@ -131,7 +131,6 @@ function loadAct(id, again) {
   const a = (ST.acts || {})[id];
   if (!a) return nextFlow();
   act = a; actId = id; scene = null; si = 0; prog = 0; hearts = 3; fx = [];
-  aiQuiz(); // start early: the questions are usually ready by the time the player reaches the keeper
   map = a.map.map(r => [...r]);
   exitPos = map.flatMap((r, y) => r.map((t, x) => t === 'E' ? [x, y] : null)).find(Boolean);
   ents = (a.ents || []).map(e => ({ ...e, dir: 'down', done: 0, k0: `${e.x},${e.y}` }));
@@ -234,80 +233,26 @@ function talk(e) {
   }
   say(e.script, isNew ? () => { sfx('confirm'); toast(`역사 기록 수집! (${stats.rec.size}/${totalRec()})`); } : null);
 }
+const QUIZ_SIZE = 3;
 // quiz runs inside an already-open VN session; every question is a choice line from the keeper.
 // A wrong answer repeats the question with the answers reshuffled, so guessing by position doesn't work.
-function quiz(qs, done) {
-  qs = [...qs];
-  let i = 0, aiAsked = false;
-  const who = 'keeper', quest = step();
+function quiz(pool, done) {
+  const qs = pool.map(q => [Math.random(), q]).sort((a, b) => a[0] - b[0]).map(x => x[1]).slice(0, QUIZ_SIZE); // each attempt draws a random few from the act's pool
+  let i = 0;
+  const who = 'keeper';
   vn.trail = null; // no rewinding into a quiz: wrong answers are scored as they happen
   const ask = () => {
-    if (i >= qs.length && !aiAsked) { // admin only: fixed questions first, then whatever the local model produced
-      aiAsked = true;
-      if (llm && !llmReady) toast('AI 모델 준비 중 · 이번엔 기본 문제만');
-      const extra = llmReady && aiQuiz();
-      if (extra) {
-        showLine({ who, text: '잠깐, 이 시대의 기록을 더 뒤져 보겠소…', pause: 9e5 }, null); // pause: no ▼ while waiting
-        return Promise.race([extra, new Promise(r => setTimeout(r, AI_WAIT_MS, []))]).then(more => {
-          if (!vn.open || step() !== quest) return; // admin skipped the step during the wait
-          qs.push(...more); ask();
-        });
-      }
-    }
     if (i >= qs.length) return showLine({ who, mood: 'smile', text: '훌륭하오! 이 시대의 기록은 그대가 지켰소.' }, () => { closeVN(); done(); });
     const Q = qs[i], order = Q.a.map((_, k) => k).sort(() => Math.random() - .5);
-    showLine({ who, text: `Q${i + 1}/${qs.length}${Q.ai ? ' (AI 출제)' : ''}. ${Q.q}`, choice: order.map(k => ({ text: Q.a[k], fn: () => {
+    showLine({ who, text: `Q${i + 1}/${qs.length}. ${Q.q}`, choice: order.map(k => ({ text: Q.a[k], fn: () => {
       if (k === Q.c) { sfx('ok'); i++; showLine({ who, mood: 'smile', text: `정답! ${Q.why}` }, ask); }
-      else { // same question again, answers reshuffled; a miss counts against the final title, except on AI questions
-        sfx('bad'); if (!Q.ai) stats.wrong++; shake = 6;
+      else { // same question again, answers reshuffled; a miss counts against the final title
+        sfx('bad'); stats.wrong++; shake = 6;
         showLine({ who, text: '땡! 기록이 흐트러졌소.\n다시 생각해 보시오.' }, ask);
       }
     } })) }, null);
   };
   ask();
-}
-// ---------- admin-only AI extra questions (js/llm-worker.js) ----------
-const AI_WAIT_MS = 60000, AI_TEXT_CHARS = 6000;
-let llm = null, llmReady = false, aiQs = {}, aiDone = {}; // aiQs: act id -> Promise of questions
-function llmStart() {
-  llm = new Worker('js/llm-worker.js?v=1', { type: 'module' });
-  llm.onerror = () => { toast('AI 추가 문제 사용 불가'); llmStop(); };
-  llm.onmessage = ({ data: d }) => {
-    if (d.status) toast(d.status);
-    if (d.ready) llmReady = true;
-    if (d.id) { aiDone[d.id]?.(d.qs); delete aiDone[d.id]; }
-  };
-  aiQuiz();
-}
-function llmStop() {
-  llm?.terminate(); llm = null; llmReady = false;
-  Object.values(aiDone).forEach(res => res([])); // a quiz may be waiting on these
-  aiQs = {}; aiDone = {};
-}
-// everything said in the act, dated and keyworded lines first so the cap keeps the history over the small talk
-function actText(a) {
-  const seen = new Set();
-  const walk = v => {
-    if (!v) return;
-    if (typeof v === 'string') seen.add(v);
-    else if (Array.isArray(v)) v.forEach(walk);
-    else { if (v.text) seen.add(v.text); (v.choice || []).forEach(c => walk(c.next)); } // option labels skipped: wrong arguments are false on purpose
-  };
-  walk(a.intro);
-  for (const s of a.steps) { walk(s.script); walk(s.done); }
-  for (const e of a.ents || []) { walk(e.script); walk(e.q); walk(e.after); }
-  const lines = [...seen].filter(l => l.length >= 12);
-  const isFact = l => /\d/.test(l) || (KW.re && l.search(KW.re) >= 0);
-  return [...lines.filter(isFact), ...lines.filter(l => !isFact(l))].join('\n').slice(0, AI_TEXT_CHARS);
-}
-function aiQuiz() {
-  const quizStep = act?.steps.find(s => s.quiz);
-  if (!llm || !quizStep) return null;
-  const id = actId, a = act;
-  return aiQs[id] ||= new Promise(res => {
-    aiDone[id] = res;
-    llm.postMessage({ id, text: actText(a), avoid: quizStep.quiz.map(q => q.q) });
-  });
 }
 
 function pickup() {
@@ -520,7 +465,7 @@ const ADMIN_CODE = 'KeyY,KeyO,KeyN,KeyS,KeyE,KeyI';
 let admin = false, typed = [];
 function adminKey(code) {
   typed = [...typed, code].slice(-6);
-  if (typed.join() === ADMIN_CODE) { admin = !admin; typed = []; toast(admin ? '관리자 모드 ON · ] 건너뛰기 · [ 이동' : '관리자 모드 OFF'); admin ? llmStart() : llmStop(); return true; }
+  if (typed.join() === ADMIN_CODE) { admin = !admin; typed = []; toast(admin ? '관리자 모드 ON · ] 건너뛰기 · [ 이동' : '관리자 모드 OFF'); return true; }
   if (!admin) return false;
   const C = cuts();
   if (code === 'BracketRight') { // skip: whole cutscene / whole vn scene / one quest step (or leave once unlocked)

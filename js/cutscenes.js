@@ -635,8 +635,8 @@
   C.register('intro', {
     tag: 'PROLOGUE · 2026', music: 'intro',
     shots: [
-      { caption: '2026년 11월, 연세대학교 박물관 수장고.\n늦은 밤, 자원봉사를 하던 연우는 이름표 없는 꾸러미를 발견한다.', make: I1 },
-      { caption: '낡은 한글로 적힌 일기장.\n표지에는 이름이 하나 있었다. 김복동.', make: I2 },
+      { caption: '2026년 11월, 연세대학교 박물관 수장고.\n밤늦게까지 박물관 자원봉사를 하던 연우는 이름 없는 서적을 발견한다.', make: I1 },
+      { caption: '옛 한글로 적힌 일기장.\n표지에는 주인으로 보이는 이름이 적혀 있었다. 김복동.', make: I2 },
     ],
   });
   // not played as a page any more: the intro VN shows the keeper over this art (Cutscenes.backdrop('keeper', 0))
